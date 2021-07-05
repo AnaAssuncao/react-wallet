@@ -1,0 +1,13 @@
+.asideWallet{
+    width: 222px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.asideWallet__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

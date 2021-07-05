@@ -1,0 +1,22 @@
+.patrimony{
+    width: 65.625rem;
+    background: #fff;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.patrimony__banner{
+    display: flex;
+    justify-content: space-between;
+    width:65.625rem;
+    margin: 1.5rem 0 1.5rem 0;
+}
+
+.patrimony__banner__graphic{
+    width: 40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

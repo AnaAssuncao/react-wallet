@@ -14,6 +14,6 @@ const Template = (args) => <ItemNavigation {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   classSelect:"itemNavigation__item__select", 
-  name:"CEI",
+  name:"Patrimônio",
   handleSelectNavigations:()=>{}
 };

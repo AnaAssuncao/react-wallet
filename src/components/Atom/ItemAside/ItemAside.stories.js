@@ -13,7 +13,7 @@ const Template = (args) => <ItemAside {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children:"CEI",
+  children:<p className="itemAside__name">CEI</p>,
   classSelect:"itemAside__select",
   handleItemAside:()=>{}
 }

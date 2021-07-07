@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 
 import './itemAside.scss'
 
-const ItemAside = ({classSelect,infWallet,handleSelectWallet,...props}) =>{
+const ItemAside = ({classSelect,infWallet,handleSelectWallet,children}) =>{
     return (   
         <li className={"itemAside " + classSelect} 
             onClick={()=>handleSelectWallet(infWallet.name)}> 
-            {props.children}
+            {children}
         </li>)
 }
 

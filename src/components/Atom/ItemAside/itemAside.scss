@@ -8,10 +8,22 @@
     box-shadow: 0px 0px 1px #328BC3;
     color: #353544;
     list-style-type: none;
+    padding:0px 0.75rem 0px 0.75rem;
  }
 
 .itemAside__select{
     background: #FFFFFF;
     border: 1px solid #328BC3;
     box-shadow: 0px 0px 4px #328BC3;
+}
+
+.itemAside__percentage{
+    font-size: 1rem;
+    color:#353544;
+    margin-right: 0.75rem;
+}
+
+.itemAside__name{
+    font-size: 1rem;
+    color:#353544;
 }

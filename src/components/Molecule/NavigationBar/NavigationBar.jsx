@@ -4,15 +4,16 @@ import PropTypes from 'prop-types'
 import {ItemNavigation} from "../../Atom/ItemNavigation"
 import './navigationBar.scss'
 
-const NavigationBar = ({arrayNamesNavigations,selectNavigation,handleSelectNavigations}) =>{
-    const listNavigations = arrayNamesNavigations.map(
-        (name) =>{
-            const classSelect = selectNavigation===name?"itemNavigation__select":""
+const NavigationBar = ({arrayNavigations,selectNavigation,handleSelectNavigations}) =>{
+    const listNavigations = arrayNavigations.map(
+        ({description,value}) =>{
+            const classSelect = selectNavigation===value?"itemNavigation__select":""
             return (   
-            <ItemNavigation  key={name}            
+            <ItemNavigation  key={value}            
                 classSelect= {classSelect} 
                 handleSelectNavigations={handleSelectNavigations}
-                name={name}>
+                name={description}
+                value={value}>
             </ItemNavigation>)
     })
 

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import './itemNavigation.scss'
 
-const ItemNavigation =({classSelect,name,handleSelectNavigations}) =>{
+const ItemNavigation =({classSelect,name,value,handleSelectNavigations}) =>{
     return (   
-        <li className={"itemNavigation " + classSelect} onClick={()=>handleSelectNavigations(name)}> 
+        <li className={"itemNavigation " + classSelect} onClick={()=>handleSelectNavigations(value)}> 
             <p className="itemNavigation__name">{name}</p>
         </li>)
 }

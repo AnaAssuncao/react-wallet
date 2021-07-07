@@ -15,7 +15,7 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
                 key={keyList}
                 classSelect={classSelect} 
                 handleSelectWallet={handleSelectWallet}
-                infWallet={wallet}>
+                value={wallet.value}>
                 <strong className="itemAside__percentage">{wallet.percentage}%</strong>
                 <p className="itemAside__name">{wallet.name}</p>
             </ItemAside>)

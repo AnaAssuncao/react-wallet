@@ -22,8 +22,6 @@ function Wallet(){
 
     wallet.data=getAllWallets()
 
-    const arrayNavigations =[ "Patrimônio","Rentabilidade","Proventos"]
-
     return (
         <div className="pageWallet">
             <ContainerAsidePanel>
@@ -38,7 +36,7 @@ function Wallet(){
             </ContainerAsidePanel>
 
             <ContainerMainPage>
-                <MainWallet nameWallet={selectWallet} arrayNavigations={arrayNavigations}>
+                <MainWallet nameWallet={selectWallet}>
 
                 </MainWallet>
             </ContainerMainPage>

@@ -8,13 +8,23 @@ import {NavigationBar} from "../../Molecule/NavigationBar"
 import './mainWallet.scss'
 
 const MainWallet = ({nameWallet})=>{
-    const arrayNamesNavigations =[ "Patrimônio","Rentabilidade","Proventos"]
-    const fistSelectWallet = arrayNamesNavigations[0]
-    const [selectNavigation, setSelectNavigation ]= useState(fistSelectWallet)
+    const arrayNavigations =[
+        {
+            description:"Patrimônio",
+            value:"patrimony"
+        },{
+            description:"Rentabilidade",
+            value:"profitability"
+        },{
+            description:"Proventos",
+            value:"earnings"
+        }
+    ]
+
+    const [selectNavigation, setSelectNavigation ]= useState(arrayNavigations[0].value)
 
     const handleSelectNavigations = (selectedNavigations) =>{
         setSelectNavigation(selectedNavigations)
-        console.log(selectedNavigations)
     }
 
     return (
@@ -22,7 +32,7 @@ const MainWallet = ({nameWallet})=>{
             <div className="mainWallet__name">
                     {nameWallet}
             </div>
-            <NavigationBar arrayNamesNavigations={arrayNamesNavigations}
+            <NavigationBar arrayNavigations={arrayNavigations}
                 selectNavigation={selectNavigation}
                 handleSelectNavigations={handleSelectNavigations}></NavigationBar>  
             <div className="mainWallet__content">

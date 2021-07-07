@@ -6,7 +6,7 @@ import {AsideWallet} from "../../components/Organism/AsideWallet"
 import { MainWallet } from "../../components/Organism/MainWallet"
 
 import "./wallet.scss"
-import{getAllWallet} from "./getData"
+import{getAllWallets} from "./getDataWallets"
 
 function Wallet(){
     const wallet={
@@ -19,7 +19,7 @@ function Wallet(){
         setSelectWallet(selectedWallet)
     }
 
-    wallet.data=getAllWallet()
+    wallet.data=getAllWallets()
 
     const arrayNavigations =[ "Patrimônio","Rentabilidade","Proventos"]
 

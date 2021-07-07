@@ -8,7 +8,6 @@ import "./patrimonyWallet.scss"
 
 const PatrimonyWallet = () =>{
     const {totalEquity,directTreasure,stocks,realEstateFund} = getAllCards()
-    console.log(totalEquity,directTreasure,stocks,realEstateFund)
     return(
         <div className="patrimony">
             <div className="patrimony__banner">

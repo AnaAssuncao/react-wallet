@@ -7,17 +7,17 @@ import './selectWallet.scss'
 
 const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
     const listWallet = infWallets.wallets.map(
-        (inf) =>{
-            const classSelect = select===inf.name?"itemAside__select":""
-            const keyList = inf.percentage + inf.name
+        (wallet) =>{
+            const classSelect = select===wallet.value?"itemAside__select":""
+            const keyList = wallet.percentage + wallet.value
             return (   
             <ItemAside 
                 key={keyList}
                 classSelect={classSelect} 
                 handleSelectWallet={handleSelectWallet}
-                infWallet={inf}>
-                <strong className="itemAside__percentage">{inf.percentage}%</strong>
-                <p className="itemAside__name">{inf.name}</p>
+                infWallet={wallet}>
+                <strong className="itemAside__percentage">{wallet.percentage}%</strong>
+                <p className="itemAside__name">{wallet.name}</p>
             </ItemAside>)
     })
 

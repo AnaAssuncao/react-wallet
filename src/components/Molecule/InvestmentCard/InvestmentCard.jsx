@@ -5,7 +5,6 @@ import './investmentCard.scss'
 import vector from "../../../img/Vector.svg"
 
 const InvestmentCard = ({investment}) => {
-  console.log(investment.name)
   const {percentage, name,cost,result,amount} =investment
   return (
     <div className="investmentCard">

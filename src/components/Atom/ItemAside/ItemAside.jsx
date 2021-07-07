@@ -6,7 +6,7 @@ import './itemAside.scss'
 const ItemAside = ({classSelect,infWallet,handleSelectWallet,children}) =>{
     return (   
         <li className={"itemAside " + classSelect} 
-            onClick={()=>handleSelectWallet(infWallet.name)}> 
+            onClick={()=>handleSelectWallet(infWallet.value)}> 
             {children}
         </li>)
 }
@@ -14,7 +14,7 @@ const ItemAside = ({classSelect,infWallet,handleSelectWallet,children}) =>{
 ItemAside.propTypes={
     classSelect:PropTypes.string, 
     handleSelectWallet:PropTypes.func,
-    children:PropTypes.element
+    children:PropTypes.array
 }
 
 export default ItemAside

@@ -3,17 +3,20 @@
 		"name": "CARTEIRAS SISTEMAS",
         "wallets":[{
             "percentage":100, 
-            "name":"CEI"}]
+            "name":"CEI",
+            "value":"CEI"}]
 	},
     "walletByBrokers": {
 		"name": "CARTEIRAS POR CORRETORA",
         "wallets":[{
             "percentage":80, 
-            "name":"Inter"
+            "name":"Inter",
+            "value":"Inter"
         },
         {
             "percentage":20, 
-            "name":"Órama"
+            "name":"Órama",
+            "value":"Órama"
         }
         ]
 	},
@@ -21,7 +24,8 @@
         "name": "CARTEIRAS PERSONALIZADAS",
         "wallets":[{
             "percentage":100, 
-            "name":"IDEAL"
+            "name":"IDEAL",
+            "value":"IDEAL"
         }]
     }
 }

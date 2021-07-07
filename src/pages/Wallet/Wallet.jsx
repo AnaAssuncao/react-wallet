@@ -16,6 +16,7 @@ function Wallet(){
     const [selectWallet, setSelectWallet ]= useState(wallet.fistSelectWallet)
 
     const handleSelectWallet = (selectedWallet) =>{
+
         setSelectWallet(selectedWallet)
     }
 

@@ -1,0 +1,47 @@
+.cardInvestment{
+    width: 62rem;
+    height: 6.875rem;
+    background-color: #F4FBFF;
+    box-shadow: 0px 0px 5px #328bc360;
+    border-radius: 10px 10px 0px 0px;
+    margin: 0.75rem 0px 0.75rem  0px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.cardInvestment__name{
+    width:15%;
+    font-size: 1.2rem;
+    color: #353544;
+}
+
+.cardInvestment__container{
+    width:30%;
+}
+
+.cardInvestment__card{
+    border-bottom: 1px solid #3C4C39;
+    width:100%;
+    margin:0.5rem 0;
+    color: #353544;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.cardInvestment__results{
+    display: flex;
+    justify-content: space-between;
+    width:40%;
+}
+
+.cardInvestment__total{
+    width:20%;
+    color: #353544;
+    text-align: center;
+}
+
+.cardInvestment__total__value{
+    margin-top: 1rem;
+}

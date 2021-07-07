@@ -1,23 +1,25 @@
-import React from 'react'
-import { useState } from 'react'
+import React, {  useState } from 'react'
 
-import { ContainerMainPage } from "../../components/Organism/ContainerMainPage"
-import { ContainerAsidePanel } from "../../components/Organism/ContainerAsidePanel"
-import {AsideWallet} from "../../components/Molecule/AsideWallet"
-import { MainWallet } from "../../components/Molecule/MainWallet"
+import { ContainerMainPage } from "../../components/Atom/ContainerMainPage"
+import { ContainerAsidePanel } from "../../components/Atom/ContainerAsidePanel"
+import {AsideWallet} from "../../components/Organism/AsideWallet"
+import { MainWallet } from "../../components/Organism/MainWallet"
 
 import "./wallet.scss"
 import{getAllWallet} from "./getData"
 
 function Wallet(){
-    const data = getAllWallet()
-
-    const fistSelectWallet = "CEI"
-    const [selectWallet, setSelectWallet ]= useState(fistSelectWallet)
+    const wallet={
+        data:null, 
+        fistSelectWallet:"CEI"
+    }
+    const [selectWallet, setSelectWallet ]= useState(wallet.fistSelectWallet)
 
     const handleSelectWallet = (selectedWallet) =>{
         setSelectWallet(selectedWallet)
     }
+
+    wallet.data=getAllWallet()
 
     const arrayNavigations =[ "Patrimônio","Rentabilidade","Proventos"]
 
@@ -25,9 +27,9 @@ function Wallet(){
         <div className="pageWallet">
             <ContainerAsidePanel>
                 <AsideWallet 
-                    dataSistemWallet={data.sistemWallet} 
-                    dataWalletByBrokers={data.walletByBrokers}
-                    dataPersonalizedWallet={data.personalizedWallet}
+                    dataSistemWallet={wallet.data.sistemWallet} 
+                    dataWalletByBrokers={wallet.data.walletByBrokers}
+                    dataPersonalizedWallet={wallet.data.personalizedWallet}
                     selectWallet={selectWallet}
                     handleSelectWallet={handleSelectWallet}
                     >

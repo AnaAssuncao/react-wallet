@@ -4827,6 +4827,11 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
+clsx@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -11775,6 +11780,13 @@ react-colorful@^5.1.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.2.2.tgz#0a69d0648db47e51359d343854d83d250a742243"
   integrity sha512-Xdb1Rl6lZ5SMdNBH59eE0lGqR1g2LVD8IgPlw0WeMDrOC65lYI8fgMEwj/0dDpVRVMh5qp73ciISDst/t2O2iQ==
+
+react-data-grid@^7.0.0-canary.49:
+  version "7.0.0-canary.49"
+  resolved "https://registry.yarnpkg.com/react-data-grid/-/react-data-grid-7.0.0-canary.49.tgz#31625d271b6c7e48b2f3d12fb2cae378f619744d"
+  integrity sha512-Jg83CRnJtnv8FF7XeByke0KiJBdfXbnrsS08yxHcqyfTEICFmMdtQXFK8SCH7prYR3HiGtI6NqYcju/Te2Kl6w==
+  dependencies:
+    clsx "^1.1.1"
 
 react-dev-utils@^11.0.3:
   version "11.0.4"

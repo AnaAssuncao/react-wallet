@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AsideWallet from './AsideWallet';
-import data from "../../../pages/Wallet/data.json"
+import data from "../../../TestData/wallets.json"
 
 //👇 This default export determines where your story goes in the story list
 export default {

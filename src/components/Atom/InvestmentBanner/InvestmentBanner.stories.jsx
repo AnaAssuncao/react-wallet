@@ -1,6 +1,7 @@
 import React from 'react';
 
 import InvestmentBanner from './InvestmentBanner';
+import data from "../../../TestData/investmentCards.json"
 
 export default {
   title: 'ATOM/InvestmentBanner',
@@ -11,7 +12,5 @@ const Template = (args) => <InvestmentBanner {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  amountTotal:100.000,
-  costTotalInvestment:90.000,
-  resultTotalInvestment:10.000
-};
+  investment:data.totalEquity
+}

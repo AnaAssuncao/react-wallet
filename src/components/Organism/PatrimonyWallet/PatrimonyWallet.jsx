@@ -1,13 +1,14 @@
 import React from "react"
 
 import {InvestmentBanner} from "../../Atom/InvestmentBanner"
-import {CardInvestment} from "../../Molecule/CardInvestment"
+import {InvestmentCard} from "../../Molecule/InvestmentCard"
 import {getAllCards } from "./getDataCards"
 import graphic from "../../../img/graphic.png"
 import "./patrimonyWallet.scss"
 
 const PatrimonyWallet = () =>{
     const {totalEquity,directTreasure,stocks,realEstateFund} = getAllCards()
+    console.log(totalEquity,directTreasure,stocks,realEstateFund)
     return(
         <div className="patrimony">
             <div className="patrimony__banner">
@@ -16,11 +17,11 @@ const PatrimonyWallet = () =>{
                     <img src={graphic} alt="Grafico" className="patrimony__banner__graphic__img"></img>
                 </div>
             </div>
-        <CardInvestment investment={directTreasure}></CardInvestment>
+        <InvestmentCard investment={directTreasure}></InvestmentCard>
 
-        <CardInvestment investment={stocks}></CardInvestment>
+        <InvestmentCard investment={stocks}></InvestmentCard>
 
-        <CardInvestment investment={realEstateFund}></CardInvestment>
+        <InvestmentCard investment={realEstateFund}></InvestmentCard>
 
         <img src={graphic} alt="Grafico" className="patrimony__graphic__img"></img>   
         </div>

@@ -6,9 +6,7 @@ import {MainButton} from "../../Atom/MainButton"
 
 import './asideWallet.scss'
 
-
 const AsideWallet = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedWallet,selectWallet,handleSelectWallet})=>{
-    console.log(selectWallet)
     return (
         <div className="asideWallet">
             <div className="asideWallet__items">

@@ -8,24 +8,24 @@
           "amount":100000
      },
    "directTreasure":{
-        "percentage":12,
+        "percentage":10,
         "name":"Tesouro Direto",
-        "cost":100000,
-        "result":100000,
-        "amount":100000
+        "cost":10000,
+        "result":10000,
+        "amount":10000
    },
    "stocks":{
-        "percentage":12,
-        "name":"Tesouro Direto",
-        "cost":100000,
-        "result":100000,
-        "amount":100000
+        "percentage":50,
+        "name":"Ações",
+        "cost":50000,
+        "result":50000,
+        "amount":50000
    },
    "realEstateFund":{
-        "percentage":12,
-        "name":"Tesouro Direto",
-        "cost":100000,
-        "result":100000,
-        "amount":100000
+        "percentage":40,
+        "name":"Fundos Imobiliários",
+        "cost":40000,
+        "result":40000,
+        "amount":40000
    }
 }

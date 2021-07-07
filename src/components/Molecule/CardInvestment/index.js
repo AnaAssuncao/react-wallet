@@ -1,1 +1,0 @@
-export { default as CardInvestment } from "./CardInvestment"

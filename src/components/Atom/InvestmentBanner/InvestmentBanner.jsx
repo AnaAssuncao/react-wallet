@@ -14,14 +14,14 @@ const InvestmentBanner = ({investment}) =>
         </div>
         <div className={"investmentBanner__container"}>
           <div className={"investmentBanner__card"}>
-            <p>Custo</p>
+            <p>Custo da carteira</p>
             <div className={"investmentBanner__results"}>
               <p>R$</p>
               <p className={"investmentBanner__currentValue"}>{cost.toFixed(2)}</p>
             </div>
           </div>
           <div className={"investmentBanner__card"}>
-            <p>Rentabilidade</p>
+            <p>Lucro/Prejuízo da carteira</p>
             <div className={"investmentBanner__results"}>
               <p>R$</p>
               <p className={"investmentBanner__currentValue"}>{result.toFixed(2)}</p>

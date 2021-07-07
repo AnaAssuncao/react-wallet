@@ -11,18 +11,19 @@
     align-items: center;
 }
 .investmentCard__name{
-    width:20%;
+    width:12rem;
     font-size: 1.2rem;
     color: #353544;
 }
 
 .investmentCard__container{
-    width:30%;
+    width:15rem;
 }
 
 .investmentCard__card{
     border-bottom: 1px solid #3C4C39;
-    width:100%;
+    width: 15rem;
+    font-size: 0.8rem;
     margin:0.5rem 0;
     color: #353544;
     display: flex;
@@ -33,11 +34,11 @@
 .investmentCard__results{
     display: flex;
     justify-content: space-between;
-    width:40%;
+    width:7rem;
 }
 
 .investmentCard__total{
-    width:20%;
+    width:12rem;
     color: #353544;
     text-align: center;
 }

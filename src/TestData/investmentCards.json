@@ -1,0 +1,31 @@
+{
+     "totalEquity":
+     {
+          "percentage":100,
+          "name":"Patrimônio Total",
+          "cost":100000,
+          "result":100000,
+          "amount":100000
+     },
+   "directTreasure":{
+        "percentage":12,
+        "name":"Tesouro Direto",
+        "cost":100000,
+        "result":100000,
+        "amount":100000
+   },
+   "stocks":{
+        "percentage":12,
+        "name":"Tesouro Direto",
+        "cost":100000,
+        "result":100000,
+        "amount":100000
+   },
+   "realEstateFund":{
+        "percentage":12,
+        "name":"Tesouro Direto",
+        "cost":100000,
+        "result":100000,
+        "amount":100000
+   }
+}

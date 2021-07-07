@@ -2,41 +2,25 @@ import React from "react"
 
 import {InvestmentBanner} from "../../Atom/InvestmentBanner"
 import {CardInvestment} from "../../Molecule/CardInvestment"
+import {getAllCards } from "./getDataCards"
 import graphic from "../../../img/graphic.png"
 import "./patrimonyWallet.scss"
 
 const PatrimonyWallet = () =>{
+    const {totalEquity,directTreasure,stocks,realEstateFund} = getAllCards()
     return(
         <div className="patrimony">
             <div className="patrimony__banner">
-                <InvestmentBanner 
-                    amountTotal={100000}
-                    costTotalInvestment={90000}
-                    resultTotalInvestment={10000}></InvestmentBanner>
+                <InvestmentBanner investment={totalEquity}></InvestmentBanner>
                 <div className="patrimony__banner__graphic">
                     <img src={graphic} alt="Grafico" className="patrimony__banner__graphic__img"></img>
                 </div>
             </div>
-        <CardInvestment
-            percenyageInvestment={12}
-            nameInvestment={"Tesouro Direto"}
-            costInvestment={100000}
-            resultInvestment={100000}
-            valueInvestment={100000}></CardInvestment>
+        <CardInvestment investment={directTreasure}></CardInvestment>
 
-        <CardInvestment
-            percenyageInvestment={12}
-            nameInvestment={"Açoes"}
-            costInvestment={100000}
-            resultInvestment={100000}
-            valueInvestment={100000}></CardInvestment>
+        <CardInvestment investment={stocks}></CardInvestment>
 
-        <CardInvestment
-            percenyageInvestment={12}
-            nameInvestment={"FII"}
-            costInvestment={100000}
-            resultInvestment={100000}
-            valueInvestment={100000}></CardInvestment>
+        <CardInvestment investment={realEstateFund}></CardInvestment>
 
         <img src={graphic} alt="Grafico" className="patrimony__graphic__img"></img>   
         </div>

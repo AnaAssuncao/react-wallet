@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {ItemNavigation} from "../../Atom/ItemNavigation"
+import {ContainerNavBarItem} from "../../Atom/ContainerNavBarItem"
 import './navigationBar.scss'
 
 const NavigationBar = ({arrayNavigations,selectNavigation,handleSelectNavigations}) =>{
     const listNavigations = arrayNavigations.map(
         ({description,value}) =>{
-            const classSelect = selectNavigation===value?"itemNavigation__select":""
+            const classSelect = selectNavigation===value?"containerNavBarItem__select":""
             return (   
-            <ItemNavigation  key={value}            
+            <ContainerNavBarItem  key={value}            
                 classSelect= {classSelect} 
                 handleSelectNavigations={handleSelectNavigations}
                 name={description}
                 value={value}>
-            </ItemNavigation>)
+            </ContainerNavBarItem>)
     })
 
     return (

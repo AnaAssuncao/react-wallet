@@ -1,0 +1,53 @@
+.headerInvestmentCard{
+    width: 62rem;
+    height: 6.875rem;
+    background-color: #F4FBFF;
+    box-shadow: 0px 0px 5px #328bc360;
+    border-radius: 10px 10px 0px 0px;
+    margin: 0.75rem 0px 0.75rem  0px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.headerInvestmentCard__name{
+    width:12rem;
+    font-size: 1.2rem;
+    color: #353544;
+}
+
+.headerInvestmentCard__container{
+    width:15rem;
+}
+
+.headerInvestmentCard__card{
+    border-bottom: 1px solid #3C4C39;
+    width: 15rem;
+    font-size: 0.8rem;
+    margin:0.5rem 0;
+    color: #353544;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.headerInvestmentCard__results{
+    display: flex;
+    justify-content: space-between;
+    width:7rem;
+}
+
+.headerInvestmentCard__total{
+    width:12rem;
+    color: #353544;
+    text-align: center;
+}
+
+.headerInvestmentCard__total__value{
+    margin-top: 1rem;
+}
+
+.headerInvestmentCard__button{
+    background-color: #F4FBFF;
+    border:none;
+}

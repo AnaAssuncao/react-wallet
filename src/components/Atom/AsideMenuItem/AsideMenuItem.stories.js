@@ -1,19 +1,19 @@
 import React from 'react';
-import ItemAside from './ItemAside';
+import AsideMenuItem from './AsideMenuItem';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  title: 'ATOM/ItemAside',
-  component: ItemAside,
+  title: 'ATOM/AsideMenuItem',
+  component: AsideMenuItem,
   argTypes: { onClick: { action: 'clicked' } }
 };
 
 //👇 We create a “template” of how args map to rendering
-const Template = (args) => <ItemAside {...args} />;
+const Template = (args) => <AsideMenuItem {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children:<p className="itemAside__name">CEI</p>,
-  classSelect:"itemAside__select",
+  children:<p className="asideMenuItem__name">CEI</p>,
+  classSelect:"asideMenuItem__select",
   handleItemAside:()=>{}
 }

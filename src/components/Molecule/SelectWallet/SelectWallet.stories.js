@@ -1,5 +1,7 @@
-import React from 'react';
-import SelectWallet from './SelectWallet';
+import React from 'react'
+
+import SelectWallet from './SelectWallet'
+import data from "../../../TestData/wallets.json"
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -13,12 +15,7 @@ const Template = (args) => <SelectWallet {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  infWallets: {
-		  name: "CARTEIRAS SISTEMAS",
-      wallets:[{
-          percentage:100, 
-          name:"CEI"}]
-  },
-  isSelect:"CEI",
+  infWallets:data.walletByBrokers,
+  select:data.walletByBrokers.wallets[0].value,
   handleSelectWallet:()=>{}
 };

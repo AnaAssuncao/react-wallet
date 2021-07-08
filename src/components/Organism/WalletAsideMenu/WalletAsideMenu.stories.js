@@ -1,7 +1,7 @@
 import React from 'react';
 
 import WalletAsideMenu from './WalletAsideMenu';
-import data from "../../../TestData/wallets.json"
+import data from "../../../TestData/wallets-DataTest.json"
 
 //👇 This default export determines where your story goes in the story list
 export default {

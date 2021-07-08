@@ -1,7 +1,7 @@
 import React from 'react';
 
 import InvestmentCard from './InvestmentCard';
-import data from "../../../TestData/investmentCards.json"
+import data from "../../../TestData/assets-DataTest.json"
 
 export default {
   title: 'MOLECULE/InvestmentCard',

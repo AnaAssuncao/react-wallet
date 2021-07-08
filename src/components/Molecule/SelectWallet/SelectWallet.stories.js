@@ -1,7 +1,7 @@
 import React from 'react'
 
 import SelectWallet from './SelectWallet'
-import data from "../../../TestData/wallets.json"
+import data from "../../../TestData/wallets-DataTest.json"
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -18,4 +18,4 @@ Primary.args = {
   infWallets:data.walletByBrokers,
   select:data.walletByBrokers.wallets[0].value,
   handleSelectWallet:()=>{}
-};
+}

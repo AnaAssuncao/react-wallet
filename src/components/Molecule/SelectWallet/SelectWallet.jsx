@@ -32,7 +32,7 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
 }
 
 SelectWallet.propTypes={
-    infWallet: PropTypes.object,
+    infWallets: PropTypes.object,
     select:PropTypes.string,
     handleSelectWallet:PropTypes.func
 }

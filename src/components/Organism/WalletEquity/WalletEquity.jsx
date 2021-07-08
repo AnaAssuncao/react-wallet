@@ -2,12 +2,12 @@ import React from "react"
 
 import {InvestmentBanner} from "../../Atom/InvestmentBanner"
 import {InvestmentCard} from "../../Molecule/InvestmentCard"
-import {getAllCards } from "./getDataCards"
+import {getAllAssets } from "./getDataAssets"
 import graphic from "../../../img/graphic.png"
 import "./walletEquity.scss"
 
 const WalletEquity = () =>{
-    const {totalEquity,directTreasure,stocks,realEstateFund} = getAllCards()
+    const {totalEquity,directTreasure,stocks,realEstateFund} = getAllAssets()
     return(
         <div className="equity">
             <div className="equity__banner">

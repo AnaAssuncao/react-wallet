@@ -4,16 +4,16 @@ import {InvestmentBanner} from "../../Atom/InvestmentBanner"
 import {InvestmentCard} from "../../Molecule/InvestmentCard"
 import {getAllCards } from "./getDataCards"
 import graphic from "../../../img/graphic.png"
-import "./patrimonyWallet.scss"
+import "./walletEquity.scss"
 
-const PatrimonyWallet = () =>{
+const WalletEquity = () =>{
     const {totalEquity,directTreasure,stocks,realEstateFund} = getAllCards()
     return(
-        <div className="patrimony">
-            <div className="patrimony__banner">
+        <div className="equity">
+            <div className="equity__banner">
                 <InvestmentBanner investment={totalEquity}></InvestmentBanner>
-                <div className="patrimony__banner__graphic">
-                    <img src={graphic} alt="Grafico" className="patrimony__banner__graphic__img"></img>
+                <div className="equity__banner__graphic">
+                    <img src={graphic} alt="Grafico" className="equity__banner__graphic__img"></img>
                 </div>
             </div>
         <InvestmentCard investment={directTreasure}></InvestmentCard>
@@ -22,9 +22,9 @@ const PatrimonyWallet = () =>{
 
         <InvestmentCard investment={realEstateFund}></InvestmentCard>
 
-        <img src={graphic} alt="Grafico" className="patrimony__graphic__img"></img>   
+        <img src={graphic} alt="Grafico" className="equity__graphic__img"></img>   
         </div>
     )
 }
 
-export default PatrimonyWallet
+export default WalletEquity

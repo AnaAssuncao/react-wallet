@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import {PatrimonyWallet} from "../PatrimonyWallet"
+import {WalletEquity} from "../WalletEquity"
 import {ContainerNavBar} from "../../Molecule/ContainerNavBar"
 
 import './mainWallet.scss'
@@ -36,7 +36,7 @@ const MainWallet = ({nameWallet})=>{
                 selectNavigation={selectNavigation}
                 handleSelectNavigations={handleSelectNavigations}></ContainerNavBar>  
             <div className="mainWallet__content">
-                <PatrimonyWallet></PatrimonyWallet>
+                <WalletEquity></WalletEquity>
             </div>  
 
         </div>

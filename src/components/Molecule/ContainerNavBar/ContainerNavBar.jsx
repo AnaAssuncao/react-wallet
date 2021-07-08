@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import {ContainerNavBarItem} from "../../Atom/ContainerNavBarItem"
-import './navigationBar.scss'
+import './containerNavBar.scss'
 
-const NavigationBar = ({arrayNavigations,selectNavigation,handleSelectNavigations}) =>{
+const ContainerNavBar = ({arrayNavigations,selectNavigation,handleSelectNavigations}) =>{
     const listNavigations = arrayNavigations.map(
         ({description,value}) =>{
             const classSelect = selectNavigation===value?"containerNavBarItem__select":""
@@ -18,17 +18,17 @@ const NavigationBar = ({arrayNavigations,selectNavigation,handleSelectNavigation
     })
 
     return (
-        <ul className="navigationBar">
+        <ul className="containerNavBar">
            {listNavigations}
         </ul>
     )
 }
 
-NavigationBar.propTypes={
+ContainerNavBar.propTypes={
     namesNavigations: PropTypes.array,
     select:PropTypes.string,
     handleSelectNavigations:PropTypes.func
 }
 
-export default NavigationBar
+export default ContainerNavBar
 

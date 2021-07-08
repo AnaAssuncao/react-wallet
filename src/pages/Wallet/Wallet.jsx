@@ -2,7 +2,7 @@ import React, {  useState } from 'react'
 
 import { ContainerMainPage } from "../../components/Atom/ContainerMainPage"
 import { ContainerAsidePanel } from "../../components/Atom/ContainerAsidePanel"
-import {AsideWallet} from "../../components/Organism/AsideWallet"
+import {WalletAsideMenu} from "../../components/Organism/WalletAsideMenu"
 import { MainWallet } from "../../components/Organism/MainWallet"
 
 import "./wallet.scss"
@@ -25,14 +25,14 @@ function Wallet(){
     return (
         <div className="pageWallet">
             <ContainerAsidePanel>
-                <AsideWallet 
+                <WalletAsideMenu 
                     dataSistemWallet={wallet.data.sistemWallet} 
                     dataWalletByBrokers={wallet.data.walletByBrokers}
                     dataPersonalizedWallet={wallet.data.personalizedWallet}
                     selectWallet={selectWallet}
                     handleSelectWallet={handleSelectWallet}
                     >
-                </AsideWallet>
+                </WalletAsideMenu>
             </ContainerAsidePanel>
 
             <ContainerMainPage>

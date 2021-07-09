@@ -2,7 +2,10 @@ import React from "react"
 
 import {InvestmentBanner} from "../../Atom/InvestmentBanner"
 import {InvestmentCard} from "../../Molecule/InvestmentCard"
-import {getAllAssets } from "./getDataAssets"
+import {getAllAssets,
+        getInfAssetsStocks,
+        getInfAssetsDirectTreasure,
+        getInfAssetsRealEstateFund } from "./getDataAssets"
 import graphic from "../../../img/graphic.png"
 import "./walletEquity.scss"
 
@@ -16,11 +19,11 @@ const WalletEquity = () =>{
                     <img src={graphic} alt="Grafico" className="equity__banner__graphic__img"></img>
                 </div>
             </div>
-        <InvestmentCard investment={directTreasure}></InvestmentCard>
+        <InvestmentCard investment={directTreasure} getInfAssets = {()=>getInfAssetsDirectTreasure}></InvestmentCard>
 
-        <InvestmentCard investment={stocks}></InvestmentCard>
+        <InvestmentCard investment={stocks} getInfAssets = {()=>getInfAssetsStocks}></InvestmentCard>
 
-        <InvestmentCard investment={realEstateFund}></InvestmentCard>
+        <InvestmentCard investment={realEstateFund} getInfAssets = {()=>getInfAssetsRealEstateFund}></InvestmentCard>
 
         <img src={graphic} alt="Grafico" className="equity__graphic__img"></img>   
         </div>

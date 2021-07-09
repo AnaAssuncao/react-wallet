@@ -12,15 +12,15 @@ const InvestmentTable = ({columns,rows}) =>{
                 rows={rows}
                 rowGetter={i => rows[i]}
                 rowsCount={rows.length}
-                className="investmentTable"
+                className="rdg-light investmentTable__container"
                 />
         </div>
     )
 }
 
 InvestmentTable.propTypes={
-    columns:PropTypes.object,
-    rows:PropTypes.object
+    columns:PropTypes.array,
+    rows:PropTypes.array
 }
 
 export default InvestmentTable

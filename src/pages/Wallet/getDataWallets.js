@@ -1,4 +1,4 @@
-import data from "../../TestData/wallets.json"
+import data from "../../TestData/wallets-DataTest.json"
 
 function getAllWallets(){
     return data

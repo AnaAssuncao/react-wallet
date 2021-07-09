@@ -1,4 +1,4 @@
-.itemNavigation{
+.containerNavBarItem{
     padding: 0.75rem;
     list-style-type: none;
     text-align: center;
@@ -6,11 +6,11 @@
     background-color: #F4FBFF;
 }
 
-.itemNavigation__name{
+.containerNavBarItem__name{
     font-size: 1rem;
     color: #353544;
 }
 
-.itemNavigation__select{
+.containerNavBarItem__select{
     background-color: #ffffff;
 }

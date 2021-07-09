@@ -1,45 +1,56 @@
-import React, {  useState } from 'react'
+import React, {  useState,useEffect } from 'react'
 
 import { ContainerMainPage } from "../../components/Atom/ContainerMainPage"
 import { ContainerAsidePanel } from "../../components/Atom/ContainerAsidePanel"
-import {AsideWallet} from "../../components/Organism/AsideWallet"
+import {WalletAsideMenu} from "../../components/Organism/WalletAsideMenu"
 import { MainWallet } from "../../components/Organism/MainWallet"
+import { Loading } from'../../components/Atom/Loading'
 
 import "./wallet.scss"
 import{getAllWallets} from "./getDataWallets"
 
+
 function Wallet(){
-    const wallet={
-        data:null, 
-        fistSelectWallet:"CEI"
-    }
-    const [selectWallet, setSelectWallet ]= useState(wallet.fistSelectWallet)
+    const fistSelectWallet = "CEI"
+    const [selectWallet, setSelectWallet ]= useState(fistSelectWallet)
+    const [walletData, setWalletData ]= useState(false)
 
     const handleSelectWallet = (selectedWallet) =>{
-
         setSelectWallet(selectedWallet)
     }
+    const handleWalletData = (allWallets)=>{
+        setWalletData(allWallets)
+    }
 
-    wallet.data=getAllWallets()
+    useEffect(()=>{
+        const allWallets=getAllWallets()
+        handleWalletData(allWallets)
+    })
 
     return (
         <div className="pageWallet">
-            <ContainerAsidePanel>
-                <AsideWallet 
-                    dataSistemWallet={wallet.data.sistemWallet} 
-                    dataWalletByBrokers={wallet.data.walletByBrokers}
-                    dataPersonalizedWallet={wallet.data.personalizedWallet}
-                    selectWallet={selectWallet}
-                    handleSelectWallet={handleSelectWallet}
-                    >
-                </AsideWallet>
-            </ContainerAsidePanel>
+            {walletData? 
+            <div>
+                <ContainerAsidePanel>
+                    <WalletAsideMenu 
+                        dataSistemWallet={walletData.sistemWallet} 
+                        dataWalletByBrokers={walletData.walletByBrokers}
+                        dataPersonalizedWallet={walletData.personalizedWallet}
+                        selectWallet={selectWallet}
+                        handleSelectWallet={handleSelectWallet}
+                        >
+                    </WalletAsideMenu>
+                </ContainerAsidePanel>
 
-            <ContainerMainPage>
-                <MainWallet nameWallet={selectWallet}>
+                <ContainerMainPage>
+                    <MainWallet nameWallet={selectWallet}>
 
-                </MainWallet>
-            </ContainerMainPage>
+                    </MainWallet>
+                </ContainerMainPage></div>:
+            <div className="pageWallet__loading">
+                <Loading  ></Loading>
+            </div>
+            }
         </div>
     )
 }

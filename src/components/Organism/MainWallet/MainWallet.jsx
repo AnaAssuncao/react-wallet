@@ -2,8 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import {PatrimonyWallet} from "../PatrimonyWallet"
-import {NavigationBar} from "../../Molecule/NavigationBar"
+import {WalletEquity} from "../WalletEquity"
+import {ContainerNavBar} from "../../Molecule/ContainerNavBar"
 
 import './mainWallet.scss'
 
@@ -11,7 +11,7 @@ const MainWallet = ({nameWallet})=>{
     const arrayNavigations =[
         {
             description:"Patrimônio",
-            value:"patrimony"
+            value:"equity"
         },{
             description:"Rentabilidade",
             value:"profitability"
@@ -32,11 +32,11 @@ const MainWallet = ({nameWallet})=>{
             <div className="mainWallet__name">
                     {nameWallet}
             </div>
-            <NavigationBar arrayNavigations={arrayNavigations}
+            <ContainerNavBar arrayNavigations={arrayNavigations}
                 selectNavigation={selectNavigation}
-                handleSelectNavigations={handleSelectNavigations}></NavigationBar>  
+                handleSelectNavigations={handleSelectNavigations}></ContainerNavBar>  
             <div className="mainWallet__content">
-                <PatrimonyWallet></PatrimonyWallet>
+                <WalletEquity></WalletEquity>
             </div>  
 
         </div>

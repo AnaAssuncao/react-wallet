@@ -1,19 +1,20 @@
 import React from 'react';
-import ItemNavigation from './ItemNavigation';
+import ContainerNavBarItem from './ContainerNavBarItem';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  title: 'ATOM/ItemNavigation',
-  component: ItemNavigation,
+  title: 'ATOM/ContainerNavBarItem',
+  component: ContainerNavBarItem,
   argTypes: { onClick: { action: 'clicked' } }
 };
 
 //👇 We create a “template” of how args map to rendering
-const Template = (args) => <ItemNavigation {...args} />;
+const Template = (args) => <ContainerNavBarItem {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  classSelect:"itemNavigation__item__select", 
+  classSelect:"containerNavBarItem__item__select", 
   name:"Patrimônio",
+  value:"equity",
   handleSelectNavigations:()=>{}
 };

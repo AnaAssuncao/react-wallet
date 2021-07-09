@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import {SelectWallet} from "../../Molecule/SelectWallet"
 import {MainButton} from "../../Atom/MainButton"
 
-import './asideWallet.scss'
+import './walletAsideMenu.scss'
 
-const AsideWallet = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedWallet,selectWallet,handleSelectWallet})=>{
+const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedWallet,selectWallet,handleSelectWallet})=>{
     return (
-        <div className="asideWallet">
-            <div className="asideWallet__items">
+        <div className="walletAsideMenu">
+            <div className="walletAsideMenu__items">
                 <SelectWallet 
                     infWallets={dataSistemWallet} 
                     select={selectWallet} 
@@ -23,14 +23,14 @@ const AsideWallet = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedWalle
                     select={selectWallet} 
                     handleSelectWallet={handleSelectWallet}></SelectWallet>    
             </div>
-            <div className="asideWallet__button">
+            <div className="walletAsideMenu__button">
                 <MainButton text="Nova Carteira" ></MainButton>
             </div>
         </div>
     )
 }
 
-AsideWallet.propTypes={
+WalletAsideMenu.propTypes={
     dataSistemWallet:PropTypes.object,
     dataWalletByBrokers:PropTypes.object,
     dataPersonalizedWallet:PropTypes.object,
@@ -38,4 +38,4 @@ AsideWallet.propTypes={
     handleSelectWallet:PropTypes.func
 }
 
-export default AsideWallet
+export default WalletAsideMenu

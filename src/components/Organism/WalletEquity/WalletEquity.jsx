@@ -19,11 +19,11 @@ const WalletEquity = () =>{
                     <img src={graphic} alt="Grafico" className="equity__banner__graphic__img"></img>
                 </div>
             </div>
-        <InvestmentCard investment={directTreasure} getInfAssets = {()=>getInfAssetsDirectTreasure}></InvestmentCard>
+        <InvestmentCard investment={directTreasure} getInfAssets = {()=>getInfAssetsDirectTreasure()}></InvestmentCard>
 
-        <InvestmentCard investment={stocks} getInfAssets = {()=>getInfAssetsStocks}></InvestmentCard>
+        <InvestmentCard investment={stocks} getInfAssets = {()=>getInfAssetsStocks()}></InvestmentCard>
 
-        <InvestmentCard investment={realEstateFund} getInfAssets = {()=>getInfAssetsRealEstateFund}></InvestmentCard>
+        <InvestmentCard investment={realEstateFund} getInfAssets = {()=>getInfAssetsRealEstateFund()}></InvestmentCard>
 
         <img src={graphic} alt="Grafico" className="equity__graphic__img"></img>   
         </div>

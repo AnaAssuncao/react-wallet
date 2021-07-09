@@ -1,0 +1,56 @@
+{
+
+    "directTreasure":{
+        "columns":[   
+               { "key": "percentage", "name": "% do Total" },
+               { "key": "name", "name": "Nome do ativo" },
+               { "key": "cost", "name": "Custo" },
+               { "key": "result", "name": "Lucro" },
+               { "key": "value", "name": "Valor" } ],
+          "rows":[
+               {"percentage": 0, "name": "Tesouro","cost": 5000, "result":5000, "value": 10000}]
+   },
+   "stocks":{
+          "columns":[   
+               { "key": "percentage", "name": "% do Total" },
+               { "key": "name", "name": "Nome do ativo" },
+               { "key": "code", "name": "Cód. Negociação" },
+               { "key": "quantity", "name": "Quantidade" },
+               { "key": "cost", "name": "Custo" },
+               { "key": "result", "name": "Lucro" },
+               { "key": "value", "name": "Valor" } ],
+          "rows":[
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000}
+          ]
+   },
+   "realEstateFund":{
+     "columns":[   
+          { "key": "percentage", "name": "% do Total" },
+          { "key": "name", "name": "Nome do ativo" },
+          { "key": "code", "name": "Cód. Negociação" },
+          { "key": "quantity", "name": "Quantidade" },
+          { "key": "cost", "name": "Custo" },
+          { "key": "result", "name": "Lucro" },
+          { "key": "value", "name": "Valor" } ],
+     "rows":[
+          {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+          {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+          {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
+          {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000}]
+   }
+}

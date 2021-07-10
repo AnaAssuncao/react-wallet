@@ -17,5 +17,6 @@ Primary.args = {
   dataSistemWallet: data.sistemWallet,
   dataWalletByBrokers:data.walletByBrokers,
   dataPersonalizedWallet:data.personalizedWallet,
-  selectWallet:"CEI"
+  selectWallet:"CEI",
+  handleSelectWallet:()=>{}
 };

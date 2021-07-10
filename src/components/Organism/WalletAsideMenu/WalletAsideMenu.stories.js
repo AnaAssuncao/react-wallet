@@ -19,4 +19,4 @@ Primary.args = {
   dataPersonalizedWallet:data.personalizedWallet,
   selectWallet:"CEI",
   handleSelectWallet:()=>{}
-};
+}

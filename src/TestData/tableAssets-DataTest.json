@@ -35,7 +35,7 @@
                {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
                {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
                {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000},
-               {"percentage": 0, "name": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000}
+               {"percentage": 0, "name": "Ambev", "code":"ABEV3", "quantity":2, "cost": 5000,  "result":5000,  "value": 10000}
           ]
    },
    "realEstateFund":{

@@ -1,32 +1,15 @@
 .investmentTable{
+    width: 62rem;
     font-size: 0.8rem;
     box-shadow: 0px 0px 5px #328BC320;
     display: flex;
     justify-content: center;
 }
 
-.investmentTable__container{
-    width: 62rem;
-    font-size: 0.8rem;
-    background-color: #fff;
-    color: #353544;
-    border-color: #328BC320;
-    box-shadow: 0px 0px 5px #328BC320;
-}
-
-.investmentTable__container::-webkit-scrollbar {
+.ag-body-viewport::-webkit-scrollbar {
     width: 0.2rem;
 }
 
-.investmentTable__container::-webkit-scrollbar-thumb {
-    background: #328bc360;
-}
-
-.rdg-row{
-    height: 2.2rem;
-}
-
-.rdg-cell {
-    border:0.1rem solid #328BC320;
-    background-color: #fff;
+.ag-body-viewport::-webkit-scrollbar-thumb {
+    background: rgb(233, 233, 233);
 }

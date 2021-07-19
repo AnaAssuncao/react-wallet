@@ -15,22 +15,20 @@ const HeaderInvestmentCard = ({investment,handleDisplayTable}) => {
         <div className={"headerInvestmentCard__card"}>
           <p>Custo</p>
           <div className={"headerInvestmentCard__results"}>
-            <p>R$</p>
-            <p className={"headerInvestmentCard__currentValue"}>{cost.toFixed(2)}</p>
+            <p className={"headerInvestmentCard__currentValue"}>{cost}</p>
           </div>
         </div>
         <div className={"headerInvestmentCard__card"}>
           <p>Lucro/Prejuízo</p>
           <div className={"headerInvestmentCard__results"}>
-            <p>R$</p>
-            <p className={"headerInvestmentCard__currentValue"}>{result.toFixed(2)}</p>
+            <p className={"headerInvestmentCard__currentValue"}>{result}</p>
           </div>
         </div>
       </div>
 
       <div className={"headerInvestmentCard__total"}>
         <p >Valor Total</p>
-        <p className={"headerInvestmentCard__total__value"}> R$ {amount.toFixed(2)} </p>
+        <p className={"headerInvestmentCard__total__value"}>{amount} </p>
       </div>
 
       <button type="button" className={"headerInvestmentCard__button"} onClick={()=>handleDisplayTable()}>

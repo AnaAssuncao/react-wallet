@@ -28,6 +28,8 @@ function addValueRows(infoAssets,amountAssets){
         data.cost = numberToCurrenty(cost)
         data.result = numberToCurrenty(result)
         data.amount = numberToCurrenty(amount)
+
+        data.percentage = data.percentage + "%"
     })
     return infoAssets
 }   

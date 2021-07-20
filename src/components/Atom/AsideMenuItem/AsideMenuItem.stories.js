@@ -13,7 +13,7 @@ const Template = (args) => <AsideMenuItem {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children:<p className="asideMenuItem__name">CEI</p>,
+  children:<p className="asideMenuItem__name">Todos Ativos</p>,
   classSelect:"asideMenuItem__select",
   handleItemAside:()=>{}
 }

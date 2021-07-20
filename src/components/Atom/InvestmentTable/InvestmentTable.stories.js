@@ -1,5 +1,6 @@
 import React from 'react';
 import InvestmentTable from './InvestmentTable';
+import assets from "../../../TestData/tableAssets-DataTest.json"
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -12,13 +13,7 @@ const Template = (args) => <InvestmentTable {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  columns:[
-    { key: 'id', name: 'ID' },
-    { key: 'title', name: 'Title' },
-    { key: 'count', name: 'Count' } ],
+  columns:assets.stocks.columns,
   
-  rows:[
-    {id: 0, title: 'row1', count: 20}, 
-    {id: 1, title: 'row1', count: 40}, 
-    {id: 2, title: 'row1', count: 60}]
+  rows:assets.stocks.rows
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import HeaderInvestmentCard from './HeaderInvestmentCard';
-import data from "../../../TestData/assets-DataTest.json"
+import assets from "../../../TestData/tableAssets-DataTest.json"
 
 export default {
   title: 'MOLECULE/HeaderInvestmentCard',
@@ -12,5 +12,6 @@ const Template = (args) => <HeaderInvestmentCard {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  investment:data.directTreasure
+  investment:assets.directTreasure.total,
+  handleDisplayTable:()=>{}
 }

@@ -1,13 +1,13 @@
 {
     "sistemWallet": {
-		"name": "CARTEIRAS SISTEMAS",
+		"name": "Carteira Unificada",
         "wallets":[{
             "percentage":100, 
-            "name":"CEI",
-            "value":"CEI"}]
+            "name":"Todos Ativos",
+            "value":"Todos Ativos"}]
 	},
     "walletByBrokers": {
-		"name": "CARTEIRAS POR CORRETORA",
+		"name": "Carteiras Por Corretoras",
         "wallets":[{
             "percentage":80, 
             "name":"Inter",
@@ -21,11 +21,16 @@
         ]
 	},
     "personalizedWallet":{
-        "name": "CARTEIRAS PERSONALIZADAS",
+        "name": "Carteiras Personalizadas",
         "wallets":[{
             "percentage":100, 
-            "name":"IDEAL",
-            "value":"IDEAL"
+            "name":"Carteira Ideal",
+            "value":"Carteira Ideal"
+        },
+        {
+            "percentage":100, 
+            "name":"Renda Fixa",
+            "value":"Renda Fixa"
         }]
     }
 }

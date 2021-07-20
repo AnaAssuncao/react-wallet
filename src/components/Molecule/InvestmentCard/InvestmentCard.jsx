@@ -1,46 +1,33 @@
-import React from 'react'
+import {useState }from 'react'
 import PropTypes from 'prop-types'
 
 import './investmentCard.scss'
-import vector from "../../../img/Vector.svg"
+import {HeaderInvestmentCard} from '../HeaderInvestmentCard'
+import {InvestmentTable} from "../../Atom/InvestmentTable"
 
-const InvestmentCard = ({investment}) => {
-  const {percentage, name,cost,result,amount} =investment
+const InvestmentCard = ({investment, getInfAssets}) => {
+  const [isDisplayTable, setDisplayTable] = useState(false)
+
+  const handleDisplayTable =()=>{
+    const isDisplay = isDisplayTable===true?false:true
+    setDisplayTable(isDisplay)
+  }
+
+  const {rows,columns} = getInfAssets()
   return (
     <div className="investmentCard">
-      <p >{percentage}%</p>
-
-      <p className="investmentCard__name">{name}</p>
-
-      <div className={"investmentCard__container"}>
-        <div className={"investmentCard__card"}>
-          <p>Custo</p>
-          <div className={"investmentCard__results"}>
-            <p>R$</p>
-            <p className={"investmentCard__currentValue"}>{cost.toFixed(2)}</p>
-          </div>
-        </div>
-        <div className={"investmentCard__card"}>
-          <p>Lucro/Prejuízo</p>
-          <div className={"investmentCard__results"}>
-            <p>R$</p>
-            <p className={"investmentCard__currentValue"}>{result.toFixed(2)}</p>
-          </div>
-        </div>
-      </div>
-
-      <div className={"investmentCard__total"}>
-        <p >Valor Total</p>
-        <p className={"investmentCard__total__value"}> R$ {amount.toFixed(2)} </p>
-      </div>
-
-      <img src={vector} alt="Seta"></img>
-     </div>
+      <HeaderInvestmentCard investment={investment} handleDisplayTable={handleDisplayTable}></HeaderInvestmentCard>
+      {isDisplayTable?
+        <InvestmentTable columns={columns} rows={rows} >{isDisplayTable}</InvestmentTable>
+        :null
+      }
+    </div>
   )
 }
 
 InvestmentCard.propTypes = {
-    investment:PropTypes.object
+    investment:PropTypes.object,
+    getInfAssets:PropTypes.func
 }
 
 export default InvestmentCard

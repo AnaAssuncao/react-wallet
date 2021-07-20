@@ -11,7 +11,7 @@ import{getAllWallets} from "./getDataWallets"
 
 
 function Wallet(){
-    const fistSelectWallet = "CEI"
+    const fistSelectWallet = "Todos Ativos"
     const [selectWallet, setSelectWallet ]= useState(fistSelectWallet)
     const [walletData, setWalletData ]= useState(false)
 
@@ -23,33 +23,37 @@ function Wallet(){
     }
 
     useEffect(()=>{
-        const allWallets=getAllWallets()
-        handleWalletData(allWallets)
+        (async () =>{
+            const allWallets= await getAllWallets()
+            handleWalletData(allWallets)
+        })()
     })
 
     return (
         <div className="pageWallet">
-            {walletData? 
-            <div>
-                <ContainerAsidePanel>
-                    <WalletAsideMenu 
-                        dataSistemWallet={walletData.sistemWallet} 
-                        dataWalletByBrokers={walletData.walletByBrokers}
-                        dataPersonalizedWallet={walletData.personalizedWallet}
-                        selectWallet={selectWallet}
-                        handleSelectWallet={handleSelectWallet}
-                        >
-                    </WalletAsideMenu>
-                </ContainerAsidePanel>
+            { walletData? 
+                <div>
+                    <ContainerAsidePanel>
+                        <WalletAsideMenu 
+                            dataSistemWallet={walletData.sistemWallet} 
+                            dataWalletByBrokers={walletData.walletByBrokers}
+                            dataPersonalizedWallet={walletData.personalizedWallet}
+                            selectWallet={selectWallet}
+                            handleSelectWallet={handleSelectWallet}
+                            >
+                        </WalletAsideMenu>
+                    </ContainerAsidePanel>
 
-                <ContainerMainPage>
-                    <MainWallet nameWallet={selectWallet}>
+                    <ContainerMainPage>
+                        <MainWallet nameWallet={selectWallet}>
 
-                    </MainWallet>
-                </ContainerMainPage></div>:
-            <div className="pageWallet__loading">
-                <Loading  ></Loading>
-            </div>
+                        </MainWallet>
+                    </ContainerMainPage>
+                </div>
+                    :
+                <div className="pageWallet__loading">
+                    <Loading  ></Loading>
+                </div>
             }
         </div>
     )

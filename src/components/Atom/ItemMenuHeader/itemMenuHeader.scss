@@ -1,0 +1,35 @@
+.itemMenuHeader{
+    display: flex;
+    width: auto;
+    height: 80%;
+    min-width: 10%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    order: -1;
+    flex: 0 0 auto;
+    border-right: 0px none #083d60;
+    border-left: 2px solid #353544;
+}
+
+.itemMenuHeader__text{
+    font-size: 0.9rem;
+    font-weight:600;
+    color:#353544;
+
+}
+
+.itemMenuHeader__select{
+    background-color: #ffffff;
+}
+
+.itemMenuHeader__fist{
+    border-left-style: none;
+}
+
+.itemMenuHeader__icon{
+    height: 1rem;
+    margin-right: 0.5rem;
+}

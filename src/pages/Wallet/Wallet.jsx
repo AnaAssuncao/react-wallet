@@ -11,7 +11,7 @@ import{getAllWallets} from "./getDataWallets"
 
 
 function Wallet(){
-    const fistSelectWallet = "CEI"
+    const fistSelectWallet = "Todos Ativos"
     const [selectWallet, setSelectWallet ]= useState(fistSelectWallet)
     const [walletData, setWalletData ]= useState(false)
 

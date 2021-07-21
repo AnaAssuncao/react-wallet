@@ -1,6 +1,6 @@
-import React from 'react';
-import ContainerNavBarItem from './ContainerNavBarItem';
-
+import React from 'react'
+import ContainerNavBarItem from './ContainerNavBarItem'
+import gold from "../../../img/gold_icon.svg"
 //👇 This default export determines where your story goes in the story list
 export default {
   title: 'ATOM/ContainerNavBarItem',
@@ -16,5 +16,7 @@ Primary.args = {
   classSelect:"containerNavBarItem__item__select", 
   name:"Patrimônio",
   value:"equity",
+  extraclass:"",
+  srcImg:gold,
   handleSelectNavigations:()=>{}
 };

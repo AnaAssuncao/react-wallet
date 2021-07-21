@@ -32,7 +32,7 @@ function Wallet(){
     return (
         <div className="pageWallet">
             { walletData? 
-                <div>
+                <div className="pageWallet__container">
                     <ContainerAsidePanel>
                         <WalletAsideMenu 
                             dataSistemWallet={walletData.sistemWallet} 

@@ -1,16 +1,27 @@
 .containerNavBarItem{
     padding: 0.75rem;
     list-style-type: none;
-    text-align: center;
-    box-shadow: 0px 0px 0.2rem #328bc360;
-    background-color: #F4FBFF;
+    border-left:1px solid #328bc3;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .containerNavBarItem__name{
     font-size: 1rem;
-    color: #353544;
+    font-weight: 600;
+    color: #328bc3;
 }
 
 .containerNavBarItem__select{
-    background-color: #ffffff;
+    border-bottom: 2px solid #328bc3;
+}
+
+.containerNavBarItem__fist{
+    border-left:none;
+}
+
+.containerNavBarItem__icon{
+    height: 1.4rem;
+    margin-right: 0.5rem;
 }

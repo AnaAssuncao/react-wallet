@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 
 import {WalletEquity} from "../WalletEquity"
 import {ContainerNavBar} from "../../Molecule/ContainerNavBar"
+import gold from "../../../img/gold_icon.svg"
+import pig from "../../../img/pig_icon.svg"
+import chart from "../../../img/chart2_icon.svg"
 
 import './mainWallet.scss'
 
@@ -11,13 +14,19 @@ const MainWallet = ({nameWallet})=>{
     const arrayNavigations =[
         {
             description:"Patrimônio",
-            value:"equity"
+            value:"equity",
+            extraclass:"containerNavBarItem__fist",
+            srcImg:gold
         },{
             description:"Rentabilidade",
-            value:"profitability"
+            value:"profitability",
+            extraclass:"",
+            srcImg:pig
         },{
             description:"Proventos",
-            value:"earnings"
+            value:"earnings",
+            extraclass:"",
+            srcImg:chart
         }
     ]
 
@@ -29,9 +38,11 @@ const MainWallet = ({nameWallet})=>{
 
     return (
         <div className="mainWallet">
-            <div className="mainWallet__name">
-                    {nameWallet}
+            <div className="mainWallet__title">
+                <div className="mainWallet__name">{nameWallet}</div>
+                <div className="mainWallet__percentage">({100} % do Patrimônio)</div>
             </div>
+            
             <ContainerNavBar arrayNavigations={arrayNavigations}
                 selectNavigation={selectNavigation}
                 handleSelectNavigations={handleSelectNavigations}></ContainerNavBar>  

@@ -1,5 +1,8 @@
 import React from 'react'
 import ContainerNavBar from './ContainerNavBar'
+import gold from "../../../img/gold_icon.svg"
+import pig from "../../../img/pig_icon.svg"
+import chart from "../../../img/chart2_icon.svg"
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -15,15 +18,21 @@ export const Primary = Template.bind({})
 Primary.args = {
   arrayNavigations:[
     {
-        description:"Patrimônio",
-        value:"equity"
-    },{
-        description:"Rentabilidade",
-        value:"profitability"
-    },{
-        description:"Proventos",
-        value:"earnings"
-    }
+      description:"Patrimônio",
+      value:"equity",
+      extraclass:"containerNavBarItem__fist",
+      srcImg:gold
+  },{
+      description:"Rentabilidade",
+      value:"profitability",
+      extraclass:"",
+      srcImg:pig
+  },{
+      description:"Proventos",
+      value:"earnings",
+      extraclass:"",
+      srcImg:chart
+  }
   ],
   selectNavigation: "equity",
   handleSelectNavigations:()=>{}

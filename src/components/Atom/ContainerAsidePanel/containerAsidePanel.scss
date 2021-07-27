@@ -1,10 +1,10 @@
 .containerAsidePanel{
-    position: fixed;
-    left: 1rem;
-    top: 4rem;
-    width: 15.875rem;
-    height: 27rem;
-    background-color:#fff;
-    box-shadow: 0px 0px 0.625rem #328bc360;
-    border-radius:0.25rem;
+    overflow: auto;
+    width: 19rem;
+    height: 100%;
+    padding-top: 2rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    background-color: #ffffff;
+    box-shadow: rgb(10, 60, 93) 0px 0px 8px -4px;
 }   

@@ -3,13 +3,15 @@ import PropTypes from 'prop-types'
 
 import {SelectWallet} from "../../Molecule/SelectWallet"
 import {MainButton} from "../../Atom/MainButton"
+import sum from "../../../img/sum_icon.svg"
 
 import './walletAsideMenu.scss'
 
 const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedWallet,selectWallet,handleSelectWallet})=>{
     return (
         <div className="walletAsideMenu">
-            <div className="walletAsideMenu__items">
+            <div className="walletAsideMenu__container">
+                <div class="walletasidemenu__title">Minhas Carteiras</div>
                 <SelectWallet 
                     infWallets={dataSistemWallet} 
                     select={selectWallet} 
@@ -22,9 +24,17 @@ const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedW
                     infWallets={dataPersonalizedWallet} 
                     select={selectWallet} 
                     handleSelectWallet={handleSelectWallet}></SelectWallet>    
+                <MainButton>
+                    <img src={sum} alt="" className="mainButton__icon"></img>
+                    <p className="mainButton__text">Nova Carteira</p>
+                </MainButton>
             </div>
-            <div className="walletAsideMenu__button">
-                <MainButton text="Nova Carteira" ></MainButton>
+            <div className="walletAsideMenu__container">
+                <div class="walletasidemenu__title">Balancear Carteiras</div>
+                <SelectWallet 
+                    infWallets={dataPersonalizedWallet} 
+                    select={selectWallet} 
+                    handleSelectWallet={handleSelectWallet}></SelectWallet>    
             </div>
         </div>
     )

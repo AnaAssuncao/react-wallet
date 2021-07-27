@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { AsideMenuItem } from '../../Atom/AsideMenuItem'
+import arrow from "../../../img/arrow.svg"
 
 import './selectWallet.scss'
 
@@ -16,15 +17,19 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
                 classSelect={classSelect} 
                 handleSelectWallet={handleSelectWallet}
                 value={wallet.value}>
-                <strong className="asideMenuItem__percentage">{wallet.percentage}%</strong>
                 <p className="asideMenuItem__name">{wallet.name}</p>
+                <p className="asideMenuItem__percentage">({wallet.percentage}% P)</p>
             </AsideMenuItem>)
     })
 
     return (
-        <div>
-            <strong className="selectWallet__title">{infWallets.name}</strong>
-            <ul className="selectWallet">
+        <div class="selectWallet">
+            <div class="selectWallet__title">
+                <img src={arrow} alt="" className="selectWallet__icon"></img>
+                <strong className="selectWallet__text">{infWallets.name}</strong>
+            </div>
+            
+            <ul className="selectWallet__list">
                 {listWallet}
             </ul>
         </div>

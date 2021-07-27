@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './mainButton.scss'
 
-const MainButton = ({text}) => {
+const MainButton = ({children}) => {
   return (
     <button type="button"  className= "mainButton" onClick={()=>{console.log("Nova Carteira")}}>
-      {text}
+      {children}
     </button>
   )
 }

@@ -1,16 +1,22 @@
 .mainButton {
-  width: 14rem;
-  height: 2.5rem; 
-  background: #25668F;
-  border-radius: 0.25rem; 
-  // box-shadow: 0px 0px 3px #25668F;
-  color: #FEFEFE;
+  height: 1.8rem; 
+  background: transparent;
   border: none;
+  margin-left: 2.2rem;
 
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
 }
 
+.mainButton__icon{
+  height: 0.9rem;
+  max-width: none;
+}
 
+.mainButton__text{
+  margin-left: 0.5rem;
+  color: #1e2631;
+  font-size: 0.9rem;
+  font-weight: 600;
+}

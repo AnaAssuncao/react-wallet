@@ -13,5 +13,5 @@ const Template = (args) => <MainButton {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
-  text: 'Nova Carteira',
+  children: <p>Nova Carteira</p>,
 };

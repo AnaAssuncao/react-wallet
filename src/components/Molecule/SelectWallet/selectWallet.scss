@@ -1,10 +1,25 @@
 .selectWallet{
-    background-color: #fff;
-    margin-bottom: 1.5rem;
-    width:14rem;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+}
+.selectWallet__title{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
-.selectWallet__title{
-    color:#353544;
-    font-size: 0.8rem;
+.selectWallet__icon{
+    width: 1rem;
+    height: auto;
+}
+
+.selectWallet__text{
+    padding-left: 0.3rem;
+    color: #1e2631;
+    font-size: 1rem;
+    }
+
+.selectWallet__list{
+    list-style-type: none;
 }

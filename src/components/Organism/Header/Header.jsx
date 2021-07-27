@@ -20,7 +20,7 @@ const Header = () =>{
         {name:"INDICADORES",value:"indicators", srcImg:chartIcon, extraClass:""}]        
         
     return (
-        <div className="header">
+        <header className="header">
             <div className="header__logo">
                 <Logo></Logo>
             </div>
@@ -35,7 +35,7 @@ const Header = () =>{
              </div>
             </div>
 
-        </div>
+        </header>
     )
 }
 

@@ -4,9 +4,9 @@ import './containerMainPage.scss'
 
 const ContainerMainPage = (props)=>{
     return (
-        <div className="containerMainPage">
+        <main className="containerMainPage">
             {props.children}
-        </div>
+        </main>
     )
 }
 

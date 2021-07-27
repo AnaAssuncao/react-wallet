@@ -4,9 +4,9 @@ import './containerAsidePanel.scss'
 
 const ContainerAsidePanel = (props)=>{
     return (
-        <div className="containerAsidePanel">
+        <aside className="containerAsidePanel">
             {props.children}
-        </div>
+        </aside>
     )
 }
 

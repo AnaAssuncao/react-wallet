@@ -1,34 +1,31 @@
 .itemMenuHeader{
     display: flex;
-    width: auto;
-    height: 80%;
+    height: 60%;
     min-width: 10%;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    flex-direction: row;
-    justify-content: center;
+    padding: 0.2rem 1rem;
+    justify-content: flex-start;
     align-items: center;
-    flex: 0 0 auto;
-    border-right: 0px none #083d60;
-    border-left: 1px solid #083d60;
+    border-right: 0px solid black;
+    border-left: 1px solid rgb(30, 38, 49);
 }
 
 .itemMenuHeader__text{
-    font-size: 1rem;
-    font-weight:600;
-    color:#083d60;
-
+    color: rgb(30, 38, 49);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 .itemMenuHeader__select{
-    background-color: #ffffff;
+    border-bottom: 0.15rem solid rgb(30, 38, 49);
+    line-height: 25px;
 }
 
 .itemMenuHeader__fist{
-    border-left-style: none;
+    border-left: none;
 }
 
 .itemMenuHeader__icon{
-    height: 1.2rem;
+    height: 1.5rem;
     margin-right: 0.5rem;
 }

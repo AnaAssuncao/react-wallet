@@ -1,38 +1,47 @@
 .mainWallet{
     position: relative;
-    width: 65.625rem;
-    background:#ffffff;
-    border-radius: 0.25rem 0.25rem 0px 0px;
-    box-shadow: 0px 0px 0.2rem #328bc360;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    height: auto;
+    margin-top: 0rem;
+    padding-top: 1.8rem;
+    background-color:  #F8F8F8;;
 }
 
-.mainWallet__name{
-    font-size: 1.5rem;
-    background-color: #328BC3;
-    color:#F4FBFF;
-    height: 3.75rem;
-    border-radius: 0.25rem 0.25rem 0px 0px;
-    /* margin-bottom: 1.5rem; */
-    padding-left:1.5rem;
-    border-bottom: solid 0.2rem #72aacc;
+.mainWallet::-webkit-scrollbar {
+    width: 0.8rem;
+}
 
+.mainWallet::-webkit-scrollbar-thumb {
+    background: #328bc3;
+}
+
+.mainWallet__title{
     display: flex;
+    height: 3rem;
+    justify-content: center;
     align-items: center;
 }
 
-.mainWallet__content{
+.mainWallet__name{
+    color: #0a3c5d;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.mainWallet__percentage{
+    color: #328bc3;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 1rem;
+    margin-top: 0.2rem;
+}
+
+.mainWallet__container{
     position: relative;
-    top: 0px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    width: 65.625rem;
-    height: 28rem;
+    width: 100%;
+    height: 40rem;
 }
 
-.mainWallet__content::-webkit-scrollbar {
-    width: 0.5rem;
-}
 
-.mainWallet__content::-webkit-scrollbar-thumb {
-    background: #72aacc;
-}

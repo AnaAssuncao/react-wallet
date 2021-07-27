@@ -46,7 +46,7 @@ const MainWallet = ({nameWallet})=>{
             <ContainerNavBar arrayNavigations={arrayNavigations}
                 selectNavigation={selectNavigation}
                 handleSelectNavigations={handleSelectNavigations}></ContainerNavBar>  
-            <div className="mainWallet__content">
+            <div className="mainWallet__container">
                 <WalletEquity></WalletEquity>
             </div>  
 

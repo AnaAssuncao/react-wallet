@@ -16,7 +16,7 @@ const InvestmentCard = ({investment, getInfAssets}) => {
   const {rows,columns} = getInfAssets()
   return (
     <div className="investmentCard">
-      <HeaderInvestmentCard investment={investment} handleDisplayTable={handleDisplayTable}></HeaderInvestmentCard>
+      <HeaderInvestmentCard investment={investment} handleDisplayTable={handleDisplayTable} isDisplayTable={isDisplayTable}></HeaderInvestmentCard>
       {isDisplayTable?
         <InvestmentTable columns={columns} rows={rows} >{isDisplayTable}</InvestmentTable>
         :null

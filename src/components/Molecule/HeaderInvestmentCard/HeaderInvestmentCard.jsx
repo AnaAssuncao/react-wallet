@@ -1,38 +1,37 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import './headerInvestmentCard.scss'
-import vector from "../../../img/Vector.svg"
+import displayTable from "../../../img/open_icon.svg"
+import noDisplayTable from "../../../img/closed_icon.svg"
 
-const HeaderInvestmentCard = ({investment,handleDisplayTable}) => {
-  const {percentage, name,cost,result,amount} = investment
+const HeaderInvestmentCard = ({investment,isDisplayTable,handleDisplayTable}) => {
+  const {name,cost,result,amount,percentResult} = investment
+
   return (
     <div className="headerInvestmentCard">
-      <p >{percentage}%</p>
-
-      <p className="headerInvestmentCard__name">{name}</p>
-
-      <div className={"headerInvestmentCard__container"}>
-        <div className={"headerInvestmentCard__card"}>
-          <p>Custo</p>
-          <div className={"headerInvestmentCard__results"}>
-            <p className={"headerInvestmentCard__currentValue"}>{cost}</p>
-          </div>
-        </div>
-        <div className={"headerInvestmentCard__card"}>
-          <p>Lucro/Prejuízo</p>
-          <div className={"headerInvestmentCard__results"}>
-            <p className={"headerInvestmentCard__currentValue"}>{result}</p>
-          </div>
-        </div>
+      <div className="headerInvestmentCard__right">
+          <p className="headerInvestmentCard__name">{name}</p>
+          <p className="headerinvestmentcard__value">Patrimônio: {amount}</p>
       </div>
 
-      <div className={"headerInvestmentCard__total"}>
-        <p >Valor Total</p>
-        <p className={"headerInvestmentCard__total__value"}>{amount} </p>
+
+      <div className="headerInvestmentCard__left">
+        <div className="headerInvestmentCard__container">
+          <p className="headerinvestmentcard__value">Lucro: {result}</p>
+          <p className="headerinvestmentcard__porcentage">({percentResult}%)</p>
+        </div>
+          <p className="headerinvestmentcard__value">Investimento: {cost}</p>
       </div>
+    
 
       <button type="button" className={"headerInvestmentCard__button"} onClick={()=>handleDisplayTable()}>
-        <img src={vector} alt="Seta"></img>
+        {isDisplayTable?
+          <img className={"headerInvestmentCard__icon"}src={displayTable} alt="Seta"></img>
+          :
+          <img className={"headerInvestmentCard__icon"}src={noDisplayTable} alt="Seta"></img>
+        }
+  
       </button>
 
     </div>

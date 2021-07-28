@@ -1,12 +1,12 @@
 .investmentCard{
-    width: 62rem;
-    background-color: #F4FBFF;
-    box-shadow: 0px 0px 5px #328bc360;
-    border-radius: 10px 10px 0px 0px;
-    margin: 0.75rem 0px 0.75rem  0px;
-
+    width: 90%;
+    border-radius: 0.8rem;
+    margin-bottom: 0.8rem;
+    background-color: #fcfcfc;
+    box-shadow: black 1px 1px 10px -8px;
+    
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 }

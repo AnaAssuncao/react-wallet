@@ -4,17 +4,21 @@ modifyTest()
 
 function modifyTest(){
     const amount = (Math.random() * 10000000)
+    const result =  amount * 0.20
     assets.totalEquity.total.amount =  numberToCurrenty(amount)
     assets.totalEquity.total.cost = numberToCurrenty(amount * 0.80)
-    assets.totalEquity.total.result = numberToCurrenty(amount * 0.20)
+    assets.totalEquity.total.result = numberToCurrenty(result)
+    assets.totalEquity.total.percentResult = (result/amount*100).toFixed(1)
 
     for(let i in assets){
         if(assets[i].rows){
             const amountAssets = amount*(assets[i].total.percentage/100)
+            const resultAssets =  amountAssets * 0.20
             assets[i]=addValueRows(assets[i],amountAssets)
             assets[i].total.amount = numberToCurrenty(amountAssets)
             assets[i].total.cost = numberToCurrenty(amountAssets*0.80)
             assets[i].total.result = numberToCurrenty(amountAssets*0.20)
+            assets[i].total.percentResult = (resultAssets/amountAssets*100).toFixed(1)
         }
     }
 }
@@ -28,6 +32,7 @@ function addValueRows(infoAssets,amountAssets){
         data.cost = numberToCurrenty(cost)
         data.result = numberToCurrenty(result)
         data.amount = numberToCurrenty(amount)
+        data.percentResult = (result/amount*100).toFixed(1)
 
         data.percentage = data.percentage + "%"
     })

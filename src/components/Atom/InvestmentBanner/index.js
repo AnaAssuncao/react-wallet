@@ -1,1 +1,0 @@
-export { default as InvestmentBanner } from "./InvestmentBanner"

@@ -1,12 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
+import PropTypes from "prop-types"
+import {RadialChart} from "../../Atom/RadialChart"
 
-import './headerInvestmentCard.scss'
+import "./headerInvestmentCard.scss"
 import displayTable from "../../../img/open_icon.svg"
 import noDisplayTable from "../../../img/closed_icon.svg"
 
 const HeaderInvestmentCard = ({investment,isDisplayTable,handleDisplayTable}) => {
-  const {name,cost,result,amount,percentResult} = investment
+  const {name,cost,result,amount,percentage,percentResult} = investment
 
   return (
     <div className="headerInvestmentCard">
@@ -15,6 +16,7 @@ const HeaderInvestmentCard = ({investment,isDisplayTable,handleDisplayTable}) =>
           <p className="headerinvestmentcard__value">Patrimônio: {amount}</p>
       </div>
 
+      <RadialChart percentage={percentage}></RadialChart>
 
       <div className="headerInvestmentCard__left">
         <div className="headerInvestmentCard__container">

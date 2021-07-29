@@ -10,11 +10,10 @@ const RadialChart = ({percentage,sizeChart}) => {
       radialBar: {
         startAngle: -135,
         endAngle: 225,
-        colors:"#00000000",
         hollow: {
           margin: 0,
           size: "65%",
-          background: "#fff",
+          background: "#fcfcfc",
           image: undefined,
           imageOffsetX: 0,
           imageOffsetY: 0,
@@ -63,17 +62,9 @@ const RadialChart = ({percentage,sizeChart}) => {
       },
     },
     fill: {
-      type: 'gradient',
-      gradient: {
-        shade: 'dark',
-        type: 'horizontal',
-        shadeIntensity: 0.5,
-        gradientToColors: ['#02C9A8'],
-        inverseColors: true,
-        opacityFrom: 1,
-        opacityTo: 1,
-        stops: [0, 100]
-      }
+      colors: "#087233",
+      opacity: 0.7,
+      type: 'solid',
     },
 
     labels: ["Carteira"]

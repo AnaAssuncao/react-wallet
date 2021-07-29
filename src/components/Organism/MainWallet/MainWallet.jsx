@@ -33,7 +33,7 @@ const MainWallet = ({nameWallet})=>{
     const [selectNavigation, setSelectNavigation ]= useState(arrayNavigations[0].value)
 
     const handleSelectNavigations = (selectedNavigations) =>{
-        setSelectNavigation(selectedNavigations)
+        setSelectNavigation(selectedNavigations.value)
     }
 
     return (

@@ -6,16 +6,16 @@ import './containerNavBar.scss'
 
 const ContainerNavBar = ({arrayNavigations,selectNavigation,handleSelectNavigations}) =>{
     const listNavigations = arrayNavigations.map(
-        ({description,value,extraclass,srcImg}) =>{
-            const classSelect = selectNavigation===value?"containerNavBarItem__select":""
+        ({navBar}) =>{
+            const classSelect = selectNavigation===navBar.value?"containerNavBarItem__select":""
             return (   
-            <ContainerNavBarItem  key={value}            
+            <ContainerNavBarItem  key={navBar.value}            
                 classSelect= {classSelect} 
                 handleSelectNavigations={handleSelectNavigations}
-                name={description}
-                value={value}
-                extraclass={extraclass}
-                srcImg={srcImg}>
+                name={navBar.description}
+                navBar={navBar}
+                extraclass={navBar.extraclass}
+                srcImg={navBar.srcImg}>
             </ContainerNavBarItem>)
     })
 

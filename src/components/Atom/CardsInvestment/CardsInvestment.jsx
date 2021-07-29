@@ -1,11 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import {numberToCurrenty} from "../../../utils/convertData"
 import './cardsInvestment.scss'
 
 const CardsInvestment = ({investment}) => 
 {
-  const {amount,cost, result,percentResult} = investment
+  let {amount,cost, result,percentResult} = investment
+  amount = numberToCurrenty(amount)
+  cost = numberToCurrenty(cost)
+  result = numberToCurrenty(result)
+
     return (
       <div className="cardsInvestment">
           <div className="cardsInvestment__result">

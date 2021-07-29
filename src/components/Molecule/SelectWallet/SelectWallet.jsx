@@ -9,7 +9,6 @@ import './selectWallet.scss'
 const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
     const listWallet = infWallets.wallets.map(
         (wallet) =>{
-            debugger
             const classSelect = select===wallet.value?"asideMenuItem__select":""
             const keyList = wallet.percentage + wallet.value
             return (   

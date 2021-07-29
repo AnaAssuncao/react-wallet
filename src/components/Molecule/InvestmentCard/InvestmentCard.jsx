@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import './investmentCard.scss'
 import {HeaderInvestmentCard} from '../HeaderInvestmentCard'
 import {InvestmentTable} from "../../Atom/InvestmentTable"
+import {numberToCurrenty} from "../../../utils/convertData"
 
 const InvestmentCard = ({investment, getInfAssets}) => {
   const [isDisplayTable, setDisplayTable] = useState(false)
@@ -14,6 +15,12 @@ const InvestmentCard = ({investment, getInfAssets}) => {
   }
 
   const {rows,columns} = getInfAssets()
+  rows.forEach((asset)=>{
+    asset.amount = numberToCurrenty(asset.amount)
+    asset.cost = numberToCurrenty(asset.cost)
+    asset.result = numberToCurrenty(asset.result)
+  })
+
   return (
     <div className="investmentCard">
       <HeaderInvestmentCard investment={investment} handleDisplayTable={handleDisplayTable} isDisplayTable={isDisplayTable}></HeaderInvestmentCard>

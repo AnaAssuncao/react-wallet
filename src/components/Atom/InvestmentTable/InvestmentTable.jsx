@@ -1,8 +1,8 @@
-import React from 'react'
-import {Suspense} from 'react'
+import React,{Suspense} from 'react'
 import {AgGridReact} from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
-import 'ag-grid-community/dist/styles/ag-theme-material.css'
+import './themeTable.css'
+// import 'ag-grid-community/dist/styles/ag-theme-material.css'
 import PropTypes from 'prop-types'
 
 import {Loading} from '../Loading'
@@ -11,7 +11,7 @@ import './investmentTable.scss'
 const InvestmentTable = ({columns,rows}) =>{
   const heigthTable ={
     row:35,
-    header:25,
+    header:35,
     max:350,
   }
 
@@ -21,7 +21,7 @@ const InvestmentTable = ({columns,rows}) =>{
     return (   
         <div className="investmentTable" >
             <Suspense fallback={<Loading/>}>
-            <div className="ag-theme-material" style={{height:heightSize, width: "62rem"}}>
+            <div className="ag-theme-material" style={{height:heightSize, width: "100%"}}>
               <AgGridReact
                     defaultColDef={{
                         flex: 1,

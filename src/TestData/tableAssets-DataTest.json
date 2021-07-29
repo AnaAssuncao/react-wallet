@@ -18,11 +18,11 @@
                "amount":0
           },
         "columns":[   
-               { "field": "percentage", "headerName": "% do Total" },
-               { "field": "headerName", "headerName": "Nome do ativo" },
-               { "field": "cost", "headerName": "Custo" },
-               { "field": "result", "headerName": "Lucro" },
-               { "field": "amount", "headerName": "Valor" } ],
+               { "field": "percentage", "headerName": "%" },
+               { "field": "headerName", "headerName": "Nome"},
+               { "field": "amount", "headerName": "Patrimônio" },
+               { "field": "cost", "headerName": "Investimento" },
+               { "field": "result", "headerName": "Lucro" } ],
           "rows":[
                {"percentage": 100, "headerName": "Tesouro","cost": 0, "result":0, "amount": 0}]
    },
@@ -35,13 +35,13 @@
                "amount":0
           },
           "columns":[   
-               { "field": "percentage", "headerName": "% do Total" },
-               { "field": "headerName", "headerName": "Nome do ativo" },
-               { "field": "code", "headerName": "Cód. Negociação" },
+               { "field": "percentage", "headerName": "%"},
+               { "field": "headerName", "headerName": "Nome" },
+               { "field": "code", "headerName": "Código" },
                { "field": "quantity", "headerName": "Quantidade" },
-               { "field": "cost", "headerName": "Custo"},
-               { "field": "result", "headerName": "Lucro" },
-               { "field": "amount", "headerName": "Valor"} ],
+               { "field": "amount", "headerName": "Patrimônio" },
+               { "field": "cost", "headerName": "Investimento" },
+               { "field": "result", "headerName": "Lucro" }],
           "rows":[
                {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
                {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
@@ -76,13 +76,14 @@
                "amount":0
           },
      "columns":[   
-          { "field": "percentage", "headerName": "% do Total" },
-          { "field": "headerName", "headerName": "Nome do ativo" },
-          { "field": "code", "headerName": "Cód. Negociação" },
+          { "field": "percentage", "headerName": "%"},
+          { "field": "headerName", "headerName": "Nome" },
+          { "field": "code", "headerName": "Código" },
           { "field": "quantity", "headerName": "Quantidade" },
-          { "field": "cost", "headerName": "Custo" },
-          { "field": "result", "headerName": "Lucro" },
-          { "field": "amount", "headerName": "Valor" } ],
+          { "field": "amount", "headerName": "Patrimônio" },
+          { "field": "cost", "headerName": "Investimento" },
+          { "field": "result", "headerName": "Lucro" }
+],
      "rows":[
           {"percentage": 20, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
           {"percentage": 20, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},

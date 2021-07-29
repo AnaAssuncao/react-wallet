@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import {numberToCurrenty} from "../../../utils/convertData"
 import {RadialChart} from "../../Atom/RadialChart"
 
 import "./headerInvestmentCard.scss"
@@ -7,7 +8,10 @@ import displayTable from "../../../img/open_icon.svg"
 import noDisplayTable from "../../../img/closed_icon.svg"
 
 const HeaderInvestmentCard = ({investment,isDisplayTable,handleDisplayTable}) => {
-  const {name,cost,result,amount,percentage,percentResult} = investment
+  let {name,cost,result,amount,percentage,percentResult} = investment
+  amount = numberToCurrenty(amount)
+  cost = numberToCurrenty(cost)
+  result = numberToCurrenty(result)
 
   return (
     <div className="headerInvestmentCard">
@@ -16,7 +20,7 @@ const HeaderInvestmentCard = ({investment,isDisplayTable,handleDisplayTable}) =>
           <p className="headerinvestmentcard__value">Patrimônio: {amount}</p>
       </div>
 
-      <RadialChart percentage={percentage}></RadialChart>
+      <RadialChart percentage={percentage} sizeChart={"100%"}></RadialChart>
 
       <div className="headerInvestmentCard__left">
         <div className="headerInvestmentCard__container">

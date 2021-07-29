@@ -9,6 +9,7 @@ import './selectWallet.scss'
 const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
     const listWallet = infWallets.wallets.map(
         (wallet) =>{
+            debugger
             const classSelect = select===wallet.value?"asideMenuItem__select":""
             const keyList = wallet.percentage + wallet.value
             return (   
@@ -16,19 +17,20 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
                 key={keyList}
                 classSelect={classSelect} 
                 handleSelectWallet={handleSelectWallet}
-                value={wallet.value}>
+                wallet={wallet}>
                 <p className="asideMenuItem__name">{wallet.name}</p>
                 <p className="asideMenuItem__percentage">({wallet.percentage}% P)</p>
             </AsideMenuItem>)
     })
 
     return (
-        <div class="selectWallet">
-            <div class="selectWallet__title">
-                <img src={arrow} alt="" className="selectWallet__icon"></img>
-                <strong className="selectWallet__text">{infWallets.name}</strong>
-            </div>
-            
+        <div className="selectWallet">
+            {infWallets.name &&
+                <div className="selectWallet__title">
+                    <img src={arrow} alt="" className="selectWallet__icon"></img>
+                    <strong className="selectWallet__text">{infWallets.name}</strong>
+                </div>
+            }
             <ul className="selectWallet__list">
                 {listWallet}
             </ul>

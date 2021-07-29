@@ -11,13 +11,16 @@ import{getAllWallets} from "./getDataWallets"
 
 
 function Wallet(){
-    const fistSelectWallet = "Todos Ativos"
+    const fistSelectWallet = "TodosAtivos"
+    const [nameWallet,setNameWallet] =useState("Todos Ativos")
     const [selectWallet, setSelectWallet ]= useState(fistSelectWallet)
     const [walletData, setWalletData ]= useState(false)
 
     const handleSelectWallet = (selectedWallet) =>{
-        setSelectWallet(selectedWallet)
+        setNameWallet(selectedWallet.name)
+        setSelectWallet(selectedWallet.value)
     }
+
     const handleWalletData = (allWallets)=>{
         setWalletData(allWallets)
     }
@@ -38,6 +41,7 @@ function Wallet(){
                             dataSistemWallet={walletData.sistemWallet} 
                             dataWalletByBrokers={walletData.walletByBrokers}
                             dataPersonalizedWallet={walletData.personalizedWallet}
+                            balanceWallet={walletData.balanceWallet}
                             selectWallet={selectWallet}
                             handleSelectWallet={handleSelectWallet}
                             >
@@ -45,7 +49,7 @@ function Wallet(){
                     </ContainerAsidePanel>
 
                     <ContainerMainPage>
-                        <MainWallet nameWallet={selectWallet}>
+                        <MainWallet nameWallet={nameWallet}>
 
                         </MainWallet>
                     </ContainerMainPage>

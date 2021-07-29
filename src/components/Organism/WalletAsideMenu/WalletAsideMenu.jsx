@@ -7,11 +7,12 @@ import sum from "../../../img/sum_icon.svg"
 
 import './walletAsideMenu.scss'
 
-const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedWallet,selectWallet,handleSelectWallet})=>{
+const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedWallet,balanceWallet,selectWallet,handleSelectWallet})=>{
+ 
     return (
         <div className="walletAsideMenu">
             <div className="walletAsideMenu__container">
-                <div class="walletasidemenu__title">Minhas Carteiras</div>
+                <div className="walletasidemenu__title">Minhas Carteiras</div>
                 <SelectWallet 
                     infWallets={dataSistemWallet} 
                     select={selectWallet} 
@@ -30,9 +31,9 @@ const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedW
                 </MainButton>
             </div>
             <div className="walletAsideMenu__container">
-                <div class="walletasidemenu__title">Balancear Carteiras</div>
+                <div className="walletasidemenu__title">Balancear Carteiras</div>
                 <SelectWallet 
-                    infWallets={dataPersonalizedWallet} 
+                    infWallets={balanceWallet} 
                     select={selectWallet} 
                     handleSelectWallet={handleSelectWallet}></SelectWallet>    
             </div>

@@ -4,7 +4,7 @@
         "wallets":[{
             "percentage":100, 
             "name":"Todos Ativos",
-            "value":"Todos Ativos"}]
+            "value":"TodosAtivos"}]
 	},
     "walletByBrokers": {
 		"name": "Carteiras Por Corretoras",
@@ -16,7 +16,7 @@
         {
             "percentage":20, 
             "name":"Órama",
-            "value":"Órama"
+            "value":"Orama"
         }
         ]
 	},
@@ -25,12 +25,25 @@
         "wallets":[{
             "percentage":100, 
             "name":"Carteira Ideal",
-            "value":"Carteira Ideal"
+            "value":"CarteiraIdeal"
         },
         {
             "percentage":100, 
             "name":"Renda Fixa",
-            "value":"Renda Fixa"
+            "value":"RendaFixa"
+        }]
+    },
+    "balanceWallet":{
+        "name": false,
+        "wallets":[{
+            "percentage":100, 
+            "name":"Carteira Ideal",
+            "value":"CarteiraIdealBalance"
+        },
+        {
+            "percentage":100, 
+            "name":"Renda Fixa",
+            "value":"RendaFixaBalance"
         }]
     }
 }

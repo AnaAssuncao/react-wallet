@@ -15,8 +15,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   classSelect:"containerNavBarItem__item__select", 
   name:"Patrimônio",
-  value:"equity",
   extraclass:"",
   srcImg:gold,
   handleSelectNavigations:()=>{}
-};
+}

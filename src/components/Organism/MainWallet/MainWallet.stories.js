@@ -13,5 +13,5 @@ const Template = (args) => <MainWallet {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  nameWallet: 'CEI',
+  nameWallet: 'Todos Ativos',
 };

@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 import "./radialChart.scss"
 
-const RadialChart = ({percentage}) => {
+const RadialChart = ({percentage,sizeChart}) => {
   const optionsRadial = {
     plotOptions: {
       radialBar: {
@@ -13,7 +13,7 @@ const RadialChart = ({percentage}) => {
         colors:"#00000000",
         hollow: {
           margin: 0,
-          size: "60%",
+          size: "65%",
           background: "#fff",
           image: undefined,
           imageOffsetX: 0,
@@ -44,18 +44,19 @@ const RadialChart = ({percentage}) => {
         dataLabels: {
           showOn: "always",
           name: {
-            offsetY: -5,
+            offsetY: 15,
             show: true,
             color: "#888",
-            fontSize: "0.7rem"
+            fontSize: "0.9rem"
           },
           value: {
-            offsetY: -1,
+            offsetY: -20,
             formatter: function (val) {
               return val + "%";
             },
             color: "#888",
-            fontSize: "1.2rem",
+            fontSize: "1.5rem",
+            fontWeight:800,
             show: true
           }
         },
@@ -75,7 +76,7 @@ const RadialChart = ({percentage}) => {
       }
     },
 
-    labels: ["Patrimônio"]
+    labels: ["Carteira"]
 }
 const seriesRadial= [percentage]
         
@@ -85,14 +86,15 @@ const seriesRadial= [percentage]
           options={optionsRadial}
           series={seriesRadial}
           type="radialBar"
-          height="100%"
+          height={sizeChart}
           />
       </div>
     )
 }
 
 RadialChart.propTypes={
-  percentage:PropTypes.number
+  percentage:PropTypes.number,
+  sizeChart:PropTypes.string
 }
 
 

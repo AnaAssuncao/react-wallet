@@ -11,5 +11,6 @@ const Template = (args) => <RadialChart {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  percentage:15
+  percentage:15,
+  sizeChart:"100%"
 }

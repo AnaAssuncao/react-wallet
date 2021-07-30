@@ -1,12 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import {useState} from "react"
+import PropTypes from "prop-types"
 
-import { AsideMenuItem } from '../../Atom/AsideMenuItem'
+import { AsideMenuItem } from "../../Atom/AsideMenuItem"
 import arrow from "../../../img/arrow.svg"
 
-import './selectWallet.scss'
+import "./selectWallet.scss"
 
 const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
+    const [isDisplayWallets,SetIsDisplayWallets] =useState(true)
     const listWallet = infWallets.wallets.map(
         (wallet) =>{
             const classSelect = select===wallet.value?"asideMenuItem__select":""
@@ -22,17 +23,26 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
             </AsideMenuItem>)
     })
 
+    const handlesDisplayWallets=()=>{
+        const isDisplay= isDisplayWallets===true? false:true
+        SetIsDisplayWallets(isDisplay)
+    }
+
     return (
         <div className="selectWallet">
             {infWallets.name &&
                 <div className="selectWallet__title">
-                    <img src={arrow} alt="" className="selectWallet__icon"></img>
+                    <img src={arrow} alt="" className="selectWallet__icon" onClick={handlesDisplayWallets}></img>
                     <strong className="selectWallet__text">{infWallets.name}</strong>
                 </div>
             }
-            <ul className="selectWallet__list">
-                {listWallet}
-            </ul>
+            {
+                isDisplayWallets &&
+                    <ul className="selectWallet__list">
+                        {listWallet}
+                    </ul>
+            }
+
         </div>
     )
 }

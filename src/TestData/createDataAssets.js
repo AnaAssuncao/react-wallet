@@ -29,8 +29,6 @@ function addValueRows(infoAssets,amountAssets){
         data.result = amount*0.20
         data.amount = amount
         data.percentResult = 20
-
-        data.percentage = data.percentage + "%"
     })
     return infoAssets
 }   

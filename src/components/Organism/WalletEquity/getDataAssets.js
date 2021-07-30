@@ -1,7 +1,7 @@
 import {modifyTest} from "../../../TestData/createDataAssets"
 const assets = modifyTest()
 
-function getAllAssets(){
+ function getAllAssets(){
     const data = {
         totalEquity: assets.totalEquity.total,
         directTreasure: assets.directTreasure.total,
@@ -11,24 +11,49 @@ function getAllAssets(){
     return data
 }
 
-function getInfAssetsDirectTreasure(){
+ function getInfAssetsDirectTreasure(){
     const tableData = assets.directTreasure
     return tableData
 }
 
-function getInfAssetsStocks(){
+ function getInfAssetsStocks(){
     const tableData = assets.stocks
     return tableData
 }
 
-function getInfAssetsRealEstateFund(){
+ function getInfAssetsRealEstateFund(){
     const tableData = assets.realEstateFund
     return tableData
+}
+
+ function getDataTreemap(){
+    const treemapChart = []
+    treemapChart[0]=createDataTreemap(assets.directTreasure)
+    treemapChart[1]=createDataTreemap(assets.stocks)
+    treemapChart[2]=createDataTreemap(assets.realEstateFund)
+    return treemapChart
+}
+
+function createDataTreemap(objAsset){
+    const seriesAsset = {
+        name:objAsset.total.name,
+        data:[]
+    }
+    for(let i =0;i<objAsset.rows.length;i++){
+    
+        const dataAsset = {
+            x:objAsset.rows[i].headerName,
+            y: objAsset.rows[i].amount
+         }
+        seriesAsset.data.push(dataAsset)
+    }
+    return seriesAsset  
 }
 
 export{
     getAllAssets,
     getInfAssetsStocks,
     getInfAssetsDirectTreasure,
-    getInfAssetsRealEstateFund
+    getInfAssetsRealEstateFund,
+    getDataTreemap
 }

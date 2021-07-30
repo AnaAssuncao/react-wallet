@@ -38,7 +38,7 @@
                { "field": "percentage", "headerName": "%"},
                { "field": "headerName", "headerName": "Nome" },
                { "field": "code", "headerName": "Código" },
-               { "field": "quantity", "headerName": "Quantidade" },
+               { "field": "quantity", "headerName": "Qtde"},
                { "field": "amount", "headerName": "Patrimônio" },
                { "field": "cost", "headerName": "Investimento" },
                { "field": "result", "headerName": "Lucro" }],
@@ -65,7 +65,7 @@
                {"percentage": 1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
                {"percentage": 1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
                {"percentage": 1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0}]
+               {"percentage": 5, "headerName": "AMBEV", "code":"ABEV3", "quantity":2, "cost": 0,  "result":0,  "amount": 0}]
    },
    "realEstateFund":{
           "total":{
@@ -79,7 +79,7 @@
           { "field": "percentage", "headerName": "%"},
           { "field": "headerName", "headerName": "Nome" },
           { "field": "code", "headerName": "Código" },
-          { "field": "quantity", "headerName": "Quantidade" },
+          { "field": "quantity", "headerName": "Qtde" },
           { "field": "amount", "headerName": "Patrimônio" },
           { "field": "cost", "headerName": "Investimento" },
           { "field": "result", "headerName": "Lucro" }

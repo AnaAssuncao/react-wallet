@@ -4,7 +4,7 @@ import './containerMainPage.scss'
 
 const ContainerMainPage = (props)=>{
     return (
-        <main className="containerMainPage">
+        <main className="container-main-page">
             {props.children}
         </main>
     )

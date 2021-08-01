@@ -4,7 +4,7 @@ import './containerAsidePanel.scss'
 
 const ContainerAsidePanel = (props)=>{
     return (
-        <aside className="containerAsidePanel">
+        <aside className="container-aside-panel">
             {props.children}
         </aside>
     )

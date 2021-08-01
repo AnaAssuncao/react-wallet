@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import {SelectWallet} from "../../Molecule/SelectWallet"
-import {MainButton} from "../../Atom/MainButton"
+import {AsideButton} from "../../Atom/AsideButton"
 import sum from "../../../img/sum_icon.svg"
 
 import './walletAsideMenu.scss'
@@ -25,10 +25,10 @@ const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedW
                     infWallets={dataPersonalizedWallet} 
                     select={selectWallet} 
                     handleSelectWallet={handleSelectWallet}></SelectWallet>    
-                <MainButton>
-                    <img src={sum} alt="" className="mainButton__icon"></img>
-                    <p className="mainButton__text">Nova Carteira</p>
-                </MainButton>
+                <AsideButton>
+                    <img src={sum} alt="" className="aside-button__icon"></img>
+                    <p className="aside-button__text">Nova Carteira</p>
+                </AsideButton>
             </div>
             <div className="wallet-aside-menu__container">
                 <div className="wallet-aside-menu__title">Balancear Carteiras</div>

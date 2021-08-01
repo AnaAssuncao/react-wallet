@@ -1,4 +1,4 @@
-.mainButton {
+.aside-button {
   height: 1.8rem; 
   background: transparent;
   border: none;
@@ -9,12 +9,12 @@
   align-items: center;
 }
 
-.mainButton__icon{
+.aside-button__icon{
   height: 0.9rem;
   max-width: none;
 }
 
-.mainButton__text{
+.aside-button__text{
   margin-left: 0.5rem;
   color: #1e2631;
   font-size: 0.9rem;

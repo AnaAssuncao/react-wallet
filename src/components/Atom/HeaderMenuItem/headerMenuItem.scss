@@ -1,4 +1,4 @@
-.itemMenuHeader{
+.header-menu-item{
     display: flex;
     height: 60%;
     min-width: 10%;
@@ -9,23 +9,23 @@
     border-left: 1px solid rgb(30, 38, 49);
 }
 
-.itemMenuHeader__text{
+.header-menu-item__text{
     color: rgb(30, 38, 49);
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
 }
 
-.itemMenuHeader__select{
+.header-menu-item__select{
     border-bottom: 0.15rem solid rgb(30, 38, 49);
     line-height: 25px;
 }
 
-.itemMenuHeader__fist{
+.header-menu-item__fist{
     border-left: none;
 }
 
-.itemMenuHeader__icon{
+.header-menu-item__icon{
     height: 1.5rem;
     margin-right: 0.5rem;
 }

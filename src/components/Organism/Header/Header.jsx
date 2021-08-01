@@ -13,7 +13,7 @@ import configIcon from "../../../img/config_icon.svg"
 import "./header.scss"
 const Header = () =>{
     const arrayListMenu =[
-        {name:"CARTEIRAS",value:"wallet", srcImg:walletIcon, extraClass:"itemMenuHeader__fist"},
+        {name:"CARTEIRAS",value:"wallet", srcImg:walletIcon},
         {name:"NEGOCIAÇÕES",value:"negotiations", srcImg:transactionsIcon, extraClass:""},
         {name:"INFO. TRIBUTOS",value:"taxes", srcImg:calcIcon, extraClass:""},
         {name:"NOTÍCIAS",value:"news", srcImg:newsIcon, extraClass:""},
@@ -30,8 +30,8 @@ const Header = () =>{
             </div>
             <div>
             <div className={"header__config"}> 
-                <img src={configIcon} loading="lazy" alt="" className="itemMenuHeader__icon"></img>
-                <p className="itemMenuHeader__text">CONFIGURAÇÕES</p>
+                <img src={configIcon} loading="lazy" alt="" className="header-menu-item__icon"></img>
+                <p className="header-menu-item__text">CONFIGURAÇÕES</p>
              </div>
             </div>
 

@@ -1,16 +1,16 @@
 import React from 'react'
-import ItemMenuHeader from './ItemMenuHeader'
+import HeaderMenuItem from './HeaderMenuItem'
 import transactionsIcon from "../../../img/transactions_icon.svg"
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  title: 'ATOM/ItemMenuHeader',
-  component: ItemMenuHeader,
+  title: 'ATOM/HeaderMenuItem',
+  component: HeaderMenuItem,
   argTypes: { onClick: { action: 'clicked' } }
 }
 
 //👇 We create a “template” of how args map to rendering
-const Template = (args) => <ItemMenuHeader {...args} />
+const Template = (args) => <HeaderMenuItem {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

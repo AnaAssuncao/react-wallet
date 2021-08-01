@@ -1,19 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {ItemMenuHeader} from "../../Atom/ItemMenuHeader"
+import {HeaderMenuItem} from "../../Atom/HeaderMenuItem"
 import './containerMenuHeader.scss'
 
 const ContainerMenuHeader = ({arrayListMenu}) =>{
     const listNavigations = arrayListMenu.map(
-        ({name,value,srcImg,extraClass}) =>{
+        ({name,value,srcImg},ind) =>{
+            let extraClass = ""
+            if(ind===0){ 
+                extraClass="header-menu-item__fist" }
             return (   
-            <ItemMenuHeader  key={value}            
-                extraClass= {extraClass} 
+            <HeaderMenuItem  key={value}     
+                extraClass={extraClass}       
                 srcImg={srcImg}
                 name={name}
                 value={value}>
-            </ItemMenuHeader>)
+            </HeaderMenuItem>)
     })
 
     return (

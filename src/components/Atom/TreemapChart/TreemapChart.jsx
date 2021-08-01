@@ -11,9 +11,12 @@ const TreemapChart = ({sizeChart,dataChart}) => {
       show: true,
       fontSize:  "12px",
       color:  "#0a3c5d",
-      offsetY: 5,
+      offsetY: 8,
     },
     chart: {
+      toolbar: {
+        show: false
+      },
       height: 350,
       type: "treemap",
     },

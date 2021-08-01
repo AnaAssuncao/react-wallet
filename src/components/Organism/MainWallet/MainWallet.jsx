@@ -39,16 +39,16 @@ const MainWallet = ({nameWallet})=>{
     }
 
     return (
-        <div className="mainWallet">
-            <div className="mainWallet__title">
-                <div className="mainWallet__name">{nameWallet}</div>
-                <div className="mainWallet__percentage">({100} % do Patrimônio)</div>
+        <div className="main-wallet">
+            <div className="main-wallet__title">
+                <div className="main-wallet__name">{nameWallet}</div>
+                <div className="main-wallet__percentage">({100} % do Patrimônio)</div>
             </div>
             
             <ContainerNavBar arrayNavigations={arrayNavigations}
                 selectNavigation={selectNavigation}
                 handleSelectNavigations={handleSelectNavigations}/>
-            <div className="mainWallet__container">
+            <div className="main-wallet__container">
                 <WalletEquity></WalletEquity>
             </div>  
 

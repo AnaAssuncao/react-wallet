@@ -1,4 +1,4 @@
-.mainWallet{
+.main-wallet{
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -9,28 +9,28 @@
     background-color:  #F8F8F8;;
 }
 
-.mainWallet::-webkit-scrollbar {
+.main-wallet::-webkit-scrollbar {
     width: 0.8rem;
 }
 
-.mainWallet::-webkit-scrollbar-thumb {
+.main-wallet::-webkit-scrollbar-thumb {
     background: #c5c5c5;
 }
 
-.mainWallet__title{
+.main-wallet__title{
     display: flex;
     height: 3rem;
     justify-content: center;
     align-items: center;
 }
 
-.mainWallet__name{
+.main-wallet__name{
     color: #0a3c5d;
     font-size: 1.8rem;
     font-weight: 800;
 }
 
-.mainWallet__percentage{
+.main-wallet__percentage{
     color: #328bc3;
     font-size: 1rem;
     font-weight: 600;
@@ -38,7 +38,7 @@
     margin-top: 0.2rem;
 }
 
-.mainWallet__container{
+.main-wallet__container{
     position: relative;
     width: 100%;
     height: 40rem;

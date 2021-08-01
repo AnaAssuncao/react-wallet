@@ -8,8 +8,8 @@ const RadialChart = ({percentage,sizeChart}) => {
   const optionsRadial = {
     plotOptions: {
       radialBar: {
-        startAngle: -135,
-        endAngle: 225,
+        startAngle: 0,
+        endAngle: 360,
         hollow: {
           margin: 0,
           size: "65%",
@@ -87,6 +87,5 @@ RadialChart.propTypes={
   percentage:PropTypes.number,
   sizeChart:PropTypes.string
 }
-
 
 export default RadialChart

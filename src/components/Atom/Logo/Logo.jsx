@@ -7,8 +7,8 @@ import forYouLogo from "../../../img/4u.svg"
 const Logo = () => {
   return (
     <div className="logo">
-        <img src={walletLogo} alt="Logo" className="logo__imgWallet"></img>
-        <img src={textLogo} alt="Logo" className="logo__imgText"></img>
+        <img src={walletLogo} alt="Logo" className="logo__img-wallet"></img>
+        <img src={textLogo} alt="Logo" className="logo__img-text"></img>
         <img src={forYouLogo} alt="Logo" className="logo__img4u"></img>
     </div>
   )

@@ -1,4 +1,4 @@
-.cardsInvestment{
+.cards-investment{
   width: 100%;
   margin-top: 1.8rem;
   margin-bottom: 3rem;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.cardsInvestment__item{
+.cards-investment__item{
   margin-right: 0rem;
   margin-left: 0rem;
   flex-flow: column wrap;
@@ -15,33 +15,33 @@
   align-items: center;
 }
 
-.cardsInvestment__result{
+.cards-investment__result{
   width: 33%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.cardsInvestment__total{
+.cards-investment__total{
   margin-right: 3.5rem;
   margin-left: 3.5rem;
 }
 
-.cardsInvestment__cost{
+.cards-investment__cost{
   width: 33%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.cardsInvestment__value{
+.cards-investment__value{
     display: inline;
     color: #0a3c5d;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.cardsInvestment__percent{
+.cards-investment__percent{
     color: #0a3c5d;
     display: inline;
     padding-left: 0.5rem;
@@ -49,19 +49,19 @@
     font-weight: 600;
 }
 
-.cardsInvestment__legend{
+.cards-investment__legend{
   color: #0a3c5d;
   margin-top: 0.3rem;
   font-size: 0.8rem;
   text-align: center;
 }
 
-.cardsInvestment__value--main{
+.cards-investment__value--main{
   color: #087233;
   font-size: 2.2rem;
   font-weight: 600;
 }
 
-.cardsInvestment__legend--main{
+.cards-investment__legend--main{
   color: #087233;
 }

@@ -11,28 +11,28 @@ const CardsInvestment = ({investment}) =>
   result = numberToCurrenty(result)
 
     return (
-      <div className="cardsInvestment">
-          <div className="cardsInvestment__result">
-            <div className="cardsInvestment__item" >
+      <div className="cards-investment">
+          <div className="cards-investment__result">
+            <div className="cards-investment__item" >
               <div>
-                <p className="cardsInvestment__value">{result}</p>
-                <p className="cardsInvestment__percent">{percentResult}%</p>
+                <p className="cards-investment__value">{result}</p>
+                <p className="cards-investment__percent">{percentResult}%</p>
               </div>
-              <p className="cardsInvestment__legend"> Lucro Bruto</p>
+              <p className="cards-investment__legend"> Lucro Bruto</p>
             </div>
           </div>
 
-          <div className="cardsInvestment__total">
-            <div className="cardsInvestment__item" >
-              <p  className="cardsInvestment__value cardsInvestment__value--main">{amount}</p>
-              <p className="cardsInvestment__legend cardsInvestment__legend--main">Total Patrimônio Carteira</p>
+          <div className="cards-investment__total">
+            <div className="cards-investment__item" >
+              <p  className="cards-investment__value cards-investment__value--main">{amount}</p>
+              <p className="cards-investment__legend cards-investment__legend--main">Total Patrimônio Carteira</p>
               </div>
           </div>
 
-          <div className="cardsInvestment__cost">
-            <div className="cardsInvestment__item" >
-              <p className="cardsInvestment__value">{cost}</p>
-              <p className="cardsInvestment__legend">Investimento</p>
+          <div className="cards-investment__cost">
+            <div className="cards-investment__item" >
+              <p className="cards-investment__value">{cost}</p>
+              <p className="cards-investment__legend">Investimento</p>
             </div>
           </div>
       </div>

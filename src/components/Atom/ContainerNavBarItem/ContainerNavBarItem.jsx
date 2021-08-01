@@ -5,9 +5,9 @@ import './containerNavBarItem.scss'
 
 const ContainerNavBarItem =({classSelect,name, extraclass, srcImg,navBar, handleSelectNavigations}) =>{
     return (   
-        <li className={"containerNavBarItem " +  extraclass} onClick={()=>handleSelectNavigations(navBar)}>
-            <img src={srcImg} alt="" className="containerNavBarItem__icon"></img>
-            <p className={ "containerNavBarItem__name " + classSelect } >{name}</p>
+        <li className={"nav-bar-item " +  extraclass} onClick={()=>handleSelectNavigations(navBar)}>
+            <img src={srcImg} alt="" className="nav-bar-item__icon"></img>
+            <p className={ "nav-bar-item__name " + classSelect } >{name}</p>
         </li>)
 }
   

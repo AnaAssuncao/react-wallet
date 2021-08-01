@@ -1,4 +1,4 @@
-.containerNavBarItem{
+.nav-bar-item{
     padding: 0.4rem 1rem;
     list-style-type: none;
     border-left:1px solid #328bc3;
@@ -7,22 +7,22 @@
     align-content: center;
 }
 
-.containerNavBarItem__name{
+.nav-bar-item__name{
     font-size: 1rem;
     font-weight: 600;
     color: #328bc3;
 }
 
-.containerNavBarItem__select{
+.nav-bar-item__select{
     border-bottom: 2px solid #25668F;
     color: #25668F;
 }
 
-.containerNavBarItem__fist{
+.nav-bar-item__fist{
     border-left:none;
 }
 
-.containerNavBarItem__icon{
+.nav-bar-item__icon{
     height: 1.4rem;
     margin-right: 0.5rem;
 }

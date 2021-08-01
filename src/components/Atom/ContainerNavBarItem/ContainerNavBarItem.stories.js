@@ -13,7 +13,7 @@ const Template = (args) => <ContainerNavBarItem {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  classSelect:"containerNavBarItem__item__select", 
+  classSelect:"nav-bar-item__item__select", 
   name:"Patrimônio",
   extraclass:"",
   srcImg:gold,

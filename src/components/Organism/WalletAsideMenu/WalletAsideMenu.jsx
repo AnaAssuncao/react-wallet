@@ -10,9 +10,9 @@ import './walletAsideMenu.scss'
 const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedWallet,balanceWallet,selectWallet,handleSelectWallet})=>{
  
     return (
-        <div className="walletAsideMenu">
-            <div className="walletAsideMenu__container">
-                <div className="walletasidemenu__title">Minhas Carteiras</div>
+        <div className="wallet-aside-menu">
+            <div className="wallet-aside-menu__container">
+                <div className="wallet-aside-menu__title">Minhas Carteiras</div>
                 <SelectWallet 
                     infWallets={dataSistemWallet} 
                     select={selectWallet} 
@@ -30,8 +30,8 @@ const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedW
                     <p className="mainButton__text">Nova Carteira</p>
                 </MainButton>
             </div>
-            <div className="walletAsideMenu__container">
-                <div className="walletasidemenu__title">Balancear Carteiras</div>
+            <div className="wallet-aside-menu__container">
+                <div className="wallet-aside-menu__title">Balancear Carteiras</div>
                 <SelectWallet 
                     infWallets={balanceWallet} 
                     select={selectWallet} 

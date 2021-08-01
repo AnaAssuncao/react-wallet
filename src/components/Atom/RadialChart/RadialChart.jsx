@@ -72,7 +72,7 @@ const RadialChart = ({percentage,sizeChart}) => {
 const seriesRadial= [percentage]
         
     return(
-      <div className="radialChart">
+      <div className="radial-chart">
           <Chart
           options={optionsRadial}
           series={seriesRadial}

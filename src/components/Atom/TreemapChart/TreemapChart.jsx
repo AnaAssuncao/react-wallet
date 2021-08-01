@@ -38,7 +38,7 @@ const TreemapChart = ({sizeChart,dataChart}) => {
 
   const series=dataChart
     return(
-      <div className="treemapChart">
+      <div className="treemap-chart">
           <Chart
             options={options}
             series={series}

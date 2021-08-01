@@ -10,28 +10,18 @@ const TreemapChart = ({sizeChart,dataChart}) => {
     legend: {
       show: true,
       fontSize:  "12px",
-      color:  "#0a3c5d"
+      color:  "#0a3c5d",
+      offsetY: 5,
     },
     chart: {
       height: 350,
       type: "treemap",
     },
-    title: {
-      text: "Patrimônio",
-      align: "center",
-      offsetY: 20,
-      style: {
-        fontSize:  "1.5rem",
-        fontWeight:  "bold",
-        color:  "#0a3c5d"
-      }
-    },
     dataLabels: {
       enabled: true,
       style: {
         fontSize: "16px",
-      },
-      offsetY: -4
+      }
     },
     yaxis:{
       labels: {

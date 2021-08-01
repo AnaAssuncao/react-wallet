@@ -18,13 +18,15 @@
                "amount":0
           },
         "columns":[   
-               { "field": "percentage", "headerName": "%" },
-               { "field": "headerName", "headerName": "Nome"},
-               { "field": "amount", "headerName": "Patrimônio" },
-               { "field": "cost", "headerName": "Investimento" },
-               { "field": "result", "headerName": "Lucro" } ],
+          { "field": "percentage", "headerName": "%"},
+          { "field": "headerName", "headerName": "Nome" },
+          { "field": "code", "headerName": "Código" },
+          { "field": "quantity", "headerName": "Qtde"},
+          { "field": "amount", "headerName": "Patrimônio" },
+          { "field": "cost", "headerName": "Investimento" },
+          { "field": "result", "headerName": "Lucro" }],
           "rows":[
-               {"percentage": 100, "headerName": "Tesouro","cost": 0, "result":0, "amount": 0}]
+               {"percentage": 100, "headerName": "Tesouro","code":"Tesouro","quantity":2,"cost": 0, "result":0, "amount": 0}]
    },
    "stocks":{
           "total":{

@@ -42,7 +42,7 @@ function createDataTreemap(objAsset){
     for(let i =0;i<objAsset.rows.length;i++){
     
         const dataAsset = {
-            x:objAsset.rows[i].headerName,
+            x:objAsset.rows[i].code,
             y: objAsset.rows[i].amount
          }
         seriesAsset.data.push(dataAsset)

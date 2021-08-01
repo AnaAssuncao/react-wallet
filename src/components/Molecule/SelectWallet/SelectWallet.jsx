@@ -10,7 +10,7 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
     const [isDisplayWallets,SetIsDisplayWallets] =useState(true)
     const listWallet = infWallets.wallets.map(
         (wallet) =>{
-            const classSelect = select===wallet.value?"asideMenuItem__select":""
+            const classSelect = select===wallet.value?"aside-menu-item__select":""
             const keyList = wallet.percentage + wallet.value
             return (   
             <AsideMenuItem
@@ -18,8 +18,8 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
                 classSelect={classSelect} 
                 handleSelectWallet={handleSelectWallet}
                 wallet={wallet}>
-                <p className="asideMenuItem__name">{wallet.name}</p>
-                <p className="asideMenuItem__percentage">({wallet.percentage}% P)</p>
+                <p className="aside-menu-item__name">{wallet.name}</p>
+                <p className="aside-menu-item__percentage">({wallet.percentage}% P)</p>
             </AsideMenuItem>)
     })
 

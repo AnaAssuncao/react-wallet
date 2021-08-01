@@ -5,7 +5,7 @@ import './asideMenuItem.scss'
 
 const AsideMenuItem = ({classSelect,wallet,handleSelectWallet,children}) =>{
     return (   
-        <li className={"asideMenuItem " + classSelect} 
+        <li className={"aside-menu-item " + classSelect} 
             onClick={()=>handleSelectWallet(wallet)}> 
             {children}
         </li>)

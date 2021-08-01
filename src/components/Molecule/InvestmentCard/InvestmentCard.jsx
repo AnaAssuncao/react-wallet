@@ -15,17 +15,19 @@ const InvestmentCard = ({investment, getInfAssets}) => {
   }
 
   const {rows,columns} = getInfAssets()
-  rows.forEach((asset)=>{
-    asset.amount = numberToCurrenty(asset.amount)
-    asset.cost = numberToCurrenty(asset.cost)
-    asset.result = numberToCurrenty(asset.result)
+  const chancedRows =[]
+  rows.forEach((asset,ind)=>{
+    chancedRows[ind]=Object.assign({}, asset)
+    chancedRows[ind].amount = numberToCurrenty(asset.amount)
+    chancedRows[ind].cost = numberToCurrenty(asset.cost)
+    chancedRows[ind].result = numberToCurrenty(asset.result)
   })
 
   return (
     <div className="investment-card">
       <HeaderInvestmentCard investment={investment} handleDisplayTable={handleDisplayTable} isDisplayTable={isDisplayTable}></HeaderInvestmentCard>
       {isDisplayTable?
-        <InvestmentTable columns={columns} rows={rows} >{isDisplayTable}</InvestmentTable>
+        <InvestmentTable columns={columns} rows={chancedRows} >{isDisplayTable}</InvestmentTable>
         :null
       }
     </div>

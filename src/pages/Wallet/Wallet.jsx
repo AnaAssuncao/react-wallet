@@ -33,9 +33,9 @@ function Wallet(){
     })
 
     return (
-        <div className="pageWallet">
+        <div className="page-wallet">
             { walletData? 
-                <div className="pageWallet__container">
+                <div className="page-wallet__container">
                     <ContainerAsidePanel>
                         <WalletAsideMenu 
                             dataSistemWallet={walletData.sistemWallet} 
@@ -55,7 +55,7 @@ function Wallet(){
                     </ContainerMainPage>
                 </div>
                     :
-                <div className="pageWallet__loading">
+                <div className="page-wallet__loading">
                     <Loading  ></Loading>
                 </div>
             }

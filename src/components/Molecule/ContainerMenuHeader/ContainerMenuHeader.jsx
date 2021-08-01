@@ -20,7 +20,7 @@ const ContainerMenuHeader = ({arrayListMenu}) =>{
     })
 
     return (
-        <ul className="containerMenuHeader">
+        <ul className="header-menu">
            {listNavigations}
         </ul>
     )

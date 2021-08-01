@@ -19,7 +19,7 @@ const InvestmentTable = ({columns,rows}) =>{
   const heightSize = totalRows<heigthTable.max?totalRows:heigthTable.max
 
     return (   
-        <div className="investmentTable" >
+        <div className="investment-table" >
             <Suspense fallback={<Loading/>}>
             <div className="ag-theme-material" style={{height:heightSize, width: "100%"}}>
               <AgGridReact

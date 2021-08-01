@@ -24,7 +24,7 @@ const ContainerNavBar = ({arrayNavigations,selectNavigation,handleSelectNavigati
     })
 
     return (
-        <ul className="containerNavBar">
+        <ul className="container-nav-bar">
            {listNavigations}
         </ul>
     )

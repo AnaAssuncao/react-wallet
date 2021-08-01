@@ -29,16 +29,16 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
     }
 
     return (
-        <div className="selectWallet">
+        <div className="select-wallet">
             {infWallets.name &&
-                <div className="selectWallet__title">
-                    <img src={arrow} alt="" className="selectWallet__icon" onClick={handlesDisplayWallets}></img>
-                    <strong className="selectWallet__text">{infWallets.name}</strong>
+                <div className="select-wallet__title">
+                    <img src={arrow} alt="" className="select-wallet__icon" onClick={handlesDisplayWallets}></img>
+                    <strong className="select-wallet__text">{infWallets.name}</strong>
                 </div>
             }
             {
                 isDisplayWallets &&
-                    <ul className="selectWallet__list">
+                    <ul className="select-wallet__list">
                         {listWallet}
                     </ul>
             }

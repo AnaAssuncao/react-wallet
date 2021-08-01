@@ -17,14 +17,16 @@ const MainWallet = ({nameWallet})=>{
             value:"equity",
             extraclass:"containerNavBarItem__fist",
             srcImg:gold
-        },{
-            description:"Rentabilidade",
-            value:"profitability",
-            extraclass:"",
-            srcImg:pig
-        },{
+        },
+        {
             description:"Proventos",
             value:"earnings",
+            extraclass:"",
+            srcImg:pig
+        },
+        {
+            description:"Rentabilidade",
+            value:"profitability",
             extraclass:"",
             srcImg:chart
         }
@@ -45,7 +47,7 @@ const MainWallet = ({nameWallet})=>{
             
             <ContainerNavBar arrayNavigations={arrayNavigations}
                 selectNavigation={selectNavigation}
-                handleSelectNavigations={handleSelectNavigations}></ContainerNavBar>  
+                handleSelectNavigations={handleSelectNavigations}/>
             <div className="mainWallet__container">
                 <WalletEquity></WalletEquity>
             </div>  

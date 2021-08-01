@@ -14,28 +14,28 @@ const HeaderInvestmentCard = ({investment,isDisplayTable,handleDisplayTable}) =>
   result = numberToCurrenty(result)
 
   return (
-    <div className="headerInvestmentCard">
-      <div className="headerInvestmentCard__right">
-          <p className="headerInvestmentCard__name">{name}</p>
-          <p className="headerinvestmentcard__value">Patrimônio: {amount}</p>
+    <div className="header-investment-card">
+      <div className="header-investment-card__right">
+          <p className="header-investment-card__name">{name}</p>
+          <p className="header-investment-card__value">Patrimônio: {amount}</p>
       </div>
 
       <RadialChart percentage={percentage} sizeChart={"100%"}></RadialChart>
 
-      <div className="headerInvestmentCard__left">
-        <div className="headerInvestmentCard__container">
-          <p className="headerinvestmentcard__value">Lucro: {result}</p>
-          <p className="headerinvestmentcard__porcentage">({percentResult}%)</p>
+      <div className="header-investment-card__left">
+        <div className="header-investment-card__container">
+          <p className="header-investment-card__value">Lucro: {result}</p>
+          <p className="header-investment-card__porcentage">({percentResult}%)</p>
         </div>
-          <p className="headerinvestmentcard__value">Investimento: {cost}</p>
+          <p className="header-investment-card__value">Investimento: {cost}</p>
       </div>
     
 
-      <button type="button" className={"headerInvestmentCard__button"} onClick={()=>handleDisplayTable()}>
+      <button type="button" className={"header-investment-card__button"} onClick={()=>handleDisplayTable()}>
         {isDisplayTable?
-          <img className={"headerInvestmentCard__icon"}src={displayTable} alt="Seta"></img>
+          <img className={"header-investment-card__icon"}src={displayTable} alt="Seta"></img>
           :
-          <img className={"headerInvestmentCard__icon"}src={noDisplayTable} alt="Seta"></img>
+          <img className={"header-investment-card__icon"}src={noDisplayTable} alt="Seta"></img>
         }
   
       </button>

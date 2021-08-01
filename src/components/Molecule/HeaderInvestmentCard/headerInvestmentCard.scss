@@ -1,4 +1,4 @@
-.headerInvestmentCard{
+.header-investment-card{
     position: relative;
     display: flex;
     width: 98%;
@@ -14,7 +14,7 @@
     box-shadow: none;
 }
 
-.headerInvestmentCard__right{
+.header-investment-card__right{
     display: flex;
     width: 40%;
     flex-direction: column;
@@ -22,26 +22,26 @@
     align-items: center;
 }
 
-.headerInvestmentCard__left{
+.header-investment-card__left{
     width: 40%;
-    padding-left: 3rem;
+    padding-left: 4.5rem;
 }
 
-.headerInvestmentCard__name{
+.header-investment-card__name{
     margin-bottom: 0.5rem;
     color: #074b7e;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.headerinvestmentcard__value{
+.header-investment-card__value{
     display: inline;
     color: #4989b9;
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-.headerinvestmentcard__porcentage{
+.header-investment-card__porcentage{
     display: inline;
     color: #4989b9;
     font-size: 1rem;
@@ -49,13 +49,13 @@
     margin-left: 0.3rem;
 }
 
-.headerInvestmentCard__container{
+.header-investment-card__container{
     display: flex;
     margin-bottom: 0.5rem;
     align-items: center;
 }
 
-.headerInvestmentCard__button{
+.header-investment-card__button{
     background-color: transparent;
     position: absolute;
     bottom: 0.5rem;
@@ -66,6 +66,6 @@
     border:none;
 }
 
-.headerInvestmentCard__icon{
+.header-investment-card__icon{
     height: 1rem;
 }

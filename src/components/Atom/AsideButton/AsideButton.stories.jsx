@@ -1,14 +1,14 @@
 import React from 'react';
 
-import MainButton from './MainButton';
+import AsideButton from './AsideButton';
 
 export default {
-  title: 'ATOM/MainButton',
-  component: MainButton,
+  title: 'ATOM/AsideButton',
+  component: AsideButton,
   argTypes: { onClick: { action: 'clicked' } }
 };
 
-const Template = (args) => <MainButton {...args} />;
+const Template = (args) => <AsideButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

@@ -3,9 +3,9 @@ import {  useState,useEffect }from "react"
 import {CardsInvestment} from "../../Atom/CardsInvestment"
 import {InvestmentCard} from "../../Molecule/InvestmentCard"
 import {getAllAssets,
-        getInfAssetsStocks,
-        getInfAssetsDirectTreasure,
-        getInfAssetsRealEstateFund,
+        getDataTreasureTable,
+        getDataStocksTable,
+        getDataRealEstateFundTable,
         getDataTreemap } from "./getDataAssets"
 import { Loading } from'../../Atom/Loading'
 import "./walletEquity.scss"
@@ -30,11 +30,11 @@ const WalletEquity = () =>{
         <div className="equity">
             <CardsInvestment investment={totalEquity}></CardsInvestment>
 
-            <InvestmentCard investment={directTreasure} getInfAssets = {()=>getInfAssetsDirectTreasure()}></InvestmentCard>
+            <InvestmentCard investment={directTreasure} getInfAssets = {()=>getDataTreasureTable()}></InvestmentCard>
 
-            <InvestmentCard investment={stocks} getInfAssets = {()=>getInfAssetsStocks()}></InvestmentCard>
+            <InvestmentCard investment={stocks} getInfAssets = {()=>getDataStocksTable()}></InvestmentCard>
 
-            <InvestmentCard investment={realEstateFund} getInfAssets = {()=>getInfAssetsRealEstateFund()}></InvestmentCard>
+            <InvestmentCard investment={realEstateFund} getInfAssets = {()=>getDataRealEstateFundTable()}></InvestmentCard>
             {dataTreemap?
                 <div className="equity__treemap">
                     < TreemapChart dataChart={dataTreemap} sizeChart={"400"}></TreemapChart>

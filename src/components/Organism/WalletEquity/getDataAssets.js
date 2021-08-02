@@ -11,17 +11,17 @@ const assets = modifyTest()
     return data
 }
 
- function getInfAssetsDirectTreasure(){
+ function getDataTreasureTable(){
     const tableData = assets.directTreasure
     return tableData
 }
 
- function getInfAssetsStocks(){
+ function getDataStocksTable(){
     const tableData = assets.stocks
     return tableData
 }
 
- function getInfAssetsRealEstateFund(){
+ function  getDataRealEstateFundTable(){
     const tableData = assets.realEstateFund
     return tableData
 }
@@ -51,8 +51,8 @@ function createDataTreemap(objAsset){
 
 export{
     getAllAssets,
-    getInfAssetsStocks,
-    getInfAssetsDirectTreasure,
-    getInfAssetsRealEstateFund,
+    getDataTreasureTable,
+    getDataStocksTable,
+    getDataRealEstateFundTable,
     getDataTreemap
 }

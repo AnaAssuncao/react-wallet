@@ -48,18 +48,20 @@ const WalletEquity = () =>{
                     <InvestmentCard investment={allAssets.realEstateFund} getInfAssets = {()=>getDataRealEstateFundTable()}></InvestmentCard>
                 </div>
                 :
-                <Loading className="equity__loading"></Loading>
+                <div className="equity__loading"> 
+                    <Loading></Loading>
+                </div>
             }
             {dataTreemap?
                 <div className="equity__treemap">
                     < TreemapChart dataChart={dataTreemap} sizeChart={"400"}></TreemapChart>
                 </div>
                 :
-                <Loading className="equity__loading"></Loading>
+                <div className="equity__loading"> 
+                    <Loading></Loading>
+                </div>
             }
-           
         </div>
-    )
-}
+    )}
 
 export default WalletEquity

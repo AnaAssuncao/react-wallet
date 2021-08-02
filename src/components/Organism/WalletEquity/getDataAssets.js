@@ -26,7 +26,7 @@ const assets = modifyTest()
     return tableData
 }
 
- function getDataTreemap(){
+async function getDataTreemap(){
     const treemapChart = []
     treemapChart[0]=createDataTreemap(assets.directTreasure)
     treemapChart[1]=createDataTreemap(assets.stocks)
@@ -39,14 +39,13 @@ function createDataTreemap(objAsset){
         name:objAsset.total.name,
         data:[]
     }
-    for(let i =0;i<objAsset.rows.length;i++){
-    
+    objAsset.rows.forEach(rows => {
         const dataAsset = {
-            x:objAsset.rows[i].code,
-            y: objAsset.rows[i].amount
+            x:rows.code,
+            y: rows.amount
          }
         seriesAsset.data.push(dataAsset)
-    }
+    });
     return seriesAsset  
 }
 

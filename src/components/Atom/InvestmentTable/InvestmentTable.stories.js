@@ -1,7 +1,8 @@
 import React from 'react';
 import InvestmentTable from './InvestmentTable';
-import assets from "../../../TestData/tableAssets-DataTest.json"
 import {numberToCurrenty} from "../../../utils/convertData"
+import {modifyTest} from "../../../TestData/createDataAssets"
+const assets = modifyTest()
 
 assets.stocks.rows.forEach((asset)=>{
   asset.amount = numberToCurrenty(asset.amount)

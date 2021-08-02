@@ -13,16 +13,16 @@ import TreemapChart from "../../Atom/TreemapChart/TreemapChart"
 
 const WalletEquity = () =>{
     const {totalEquity,directTreasure,stocks,realEstateFund} = getAllAssets()
-    const [dataChart,setDataChart] = useState(false)
+    const [dataTreemap,setDataChart] = useState(false)
 
-    const handleDataChart = (allWallets)=>{
-        setDataChart(allWallets)
+    const handleDataChart = (dataChart)=>{
+        setDataChart(dataChart)
     }
 
     useEffect(()=>{
         (async () =>{
-            const allWallets= await getDataTreemap()
-            handleDataChart(allWallets)
+            const dataChart= await getDataTreemap()
+            handleDataChart(dataChart)
         })()
     },[])
 
@@ -35,9 +35,9 @@ const WalletEquity = () =>{
             <InvestmentCard investment={stocks} getInfAssets = {()=>getInfAssetsStocks()}></InvestmentCard>
 
             <InvestmentCard investment={realEstateFund} getInfAssets = {()=>getInfAssetsRealEstateFund()}></InvestmentCard>
-            {dataChart?
+            {dataTreemap?
                 <div className="equity__treemap">
-                    < TreemapChart dataChart={dataChart} sizeChart={"400"}></TreemapChart>
+                    < TreemapChart dataChart={dataTreemap} sizeChart={"400"}></TreemapChart>
                 </div>:
                 <Loading className="equity__loading"></Loading>
             }

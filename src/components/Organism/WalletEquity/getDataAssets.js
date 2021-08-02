@@ -1,7 +1,7 @@
 import {modifyTest} from "../../../TestData/createDataAssets"
 const assets = modifyTest()
 
- function getAllAssets(){
+async function getAllAssets(){
     const data = {
         totalEquity: assets.totalEquity.total,
         directTreasure: assets.directTreasure.total,
@@ -11,7 +11,7 @@ const assets = modifyTest()
     return data
 }
 
- function getDataTreasureTable(){
+function getDataTreasureTable(){
     const tableData = assets.directTreasure
     return tableData
 }

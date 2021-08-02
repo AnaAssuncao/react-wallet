@@ -11,14 +11,23 @@ import { Loading } from'../../Atom/Loading'
 import "./walletEquity.scss"
 import TreemapChart from "../../Atom/TreemapChart/TreemapChart"
 
-const WalletEquity = () =>{
-    const {totalEquity,directTreasure,stocks,realEstateFund} = getAllAssets()
+const WalletEquity = () =>{    
+    const [allAssets,setAllAssets] = useState(false)
     const [dataTreemap,setDataChart] = useState(false)
 
+    const handleAllAssets = (assets)=>{
+        setAllAssets(assets)
+    }
     const handleDataChart = (dataChart)=>{
         setDataChart(dataChart)
     }
 
+    useEffect(()=>{
+        (async () =>{
+            const assets= await getAllAssets()
+            handleAllAssets(assets)
+        })()
+    },[])
     useEffect(()=>{
         (async () =>{
             const dataChart= await getDataTreemap()
@@ -27,18 +36,25 @@ const WalletEquity = () =>{
     },[])
 
     return(
-        <div className="equity">
-            <CardsInvestment investment={totalEquity}></CardsInvestment>
+        <div>
+            {allAssets?
+                <div className="equity">
+                    <CardsInvestment investment={allAssets.totalEquity}></CardsInvestment>
 
-            <InvestmentCard investment={directTreasure} getInfAssets = {()=>getDataTreasureTable()}></InvestmentCard>
+                    <InvestmentCard investment={allAssets.directTreasure} getInfAssets = {()=>getDataTreasureTable()}></InvestmentCard>
 
-            <InvestmentCard investment={stocks} getInfAssets = {()=>getDataStocksTable()}></InvestmentCard>
+                    <InvestmentCard investment={allAssets.stocks} getInfAssets = {()=>getDataStocksTable()}></InvestmentCard>
 
-            <InvestmentCard investment={realEstateFund} getInfAssets = {()=>getDataRealEstateFundTable()}></InvestmentCard>
+                    <InvestmentCard investment={allAssets.realEstateFund} getInfAssets = {()=>getDataRealEstateFundTable()}></InvestmentCard>
+                </div>
+                :
+                <Loading className="equity__loading"></Loading>
+            }
             {dataTreemap?
                 <div className="equity__treemap">
                     < TreemapChart dataChart={dataTreemap} sizeChart={"400"}></TreemapChart>
-                </div>:
+                </div>
+                :
                 <Loading className="equity__loading"></Loading>
             }
            

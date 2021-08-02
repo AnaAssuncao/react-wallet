@@ -8,7 +8,7 @@ export default {
   argTypes: { onClick: { action: 'clicked' } }
 }
 
-const Template = (args) => <Loading {...args} />
+const Template = (args) =><div style={{width:"5rem"}}> <Loading {...args} /> </div>
 
 export const Primary = Template.bind({})
 

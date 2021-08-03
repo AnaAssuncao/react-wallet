@@ -15,7 +15,7 @@ const Template = (args) => <SelectWallet {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  infWallets:data.walletByBrokers,
+  infoWallets:data.walletByBrokers,
   select:data.walletByBrokers.wallets[0].value,
   handleSelectWallet:()=>{}
 }

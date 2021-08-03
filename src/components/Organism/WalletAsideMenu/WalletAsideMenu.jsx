@@ -14,15 +14,15 @@ const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedW
             <div className="wallet-aside-menu__container">
                 <div className="wallet-aside-menu__title">Minhas Carteiras</div>
                 <SelectWallet 
-                    infWallets={dataSistemWallet} 
+                    infoWallets={dataSistemWallet} 
                     select={selectWallet} 
                     handleSelectWallet={handleSelectWallet}></SelectWallet>
                 <SelectWallet 
-                    infWallets={dataWalletByBrokers} 
+                    infoWallets={dataWalletByBrokers} 
                     select={selectWallet} 
                     handleSelectWallet={handleSelectWallet}></SelectWallet>
                 <SelectWallet 
-                    infWallets={dataPersonalizedWallet} 
+                    infoWallets={dataPersonalizedWallet} 
                     select={selectWallet} 
                     handleSelectWallet={handleSelectWallet}></SelectWallet>    
                 <AsideButton>
@@ -33,7 +33,7 @@ const WalletAsideMenu = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedW
             <div className="wallet-aside-menu__container">
                 <div className="wallet-aside-menu__title">Balancear Carteiras</div>
                 <SelectWallet 
-                    infWallets={balanceWallet} 
+                    infoWallets={balanceWallet} 
                     select={selectWallet} 
                     handleSelectWallet={handleSelectWallet}></SelectWallet>    
             </div>

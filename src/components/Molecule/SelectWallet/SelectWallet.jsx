@@ -6,9 +6,9 @@ import arrow from "../../../img/arrow.svg"
 
 import "./selectWallet.scss"
 
-const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
+const SelectWallet = ({infoWallets,select,handleSelectWallet}) =>{
     const [isDisplayWallets,SetIsDisplayWallets] =useState(true)
-    const listWallet = infWallets.wallets.map(
+    const listWallet = infoWallets.wallets.map(
         (wallet) =>{
             const classSelect = select===wallet.value?"aside-menu-item__select":""
             const keyList = wallet.percentage + wallet.value
@@ -30,10 +30,10 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
 
     return (
         <div className="select-wallet">
-            {infWallets.name &&
+            {infoWallets.name &&
                 <div className="select-wallet__title">
                     <img src={arrow} alt="" className="select-wallet__icon" onClick={handlesDisplayWallets}></img>
-                    <strong className="select-wallet__text">{infWallets.name}</strong>
+                    <strong className="select-wallet__text">{infoWallets.name}</strong>
                 </div>
             }
             {
@@ -48,7 +48,7 @@ const SelectWallet = ({infWallets,select,handleSelectWallet}) =>{
 }
 
 SelectWallet.propTypes={
-    infWallets: PropTypes.object,
+    infoWallets: PropTypes.object,
     select:PropTypes.string,
     handleSelectWallet:PropTypes.func
 }

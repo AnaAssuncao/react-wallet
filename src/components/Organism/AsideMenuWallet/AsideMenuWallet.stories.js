@@ -1,16 +1,16 @@
 import React from 'react';
 
-import WalletAsideMenu from './WalletAsideMenu';
+import AsideMenuWallet from './AsideMenuWallet';
 import data from "../../../TestData/wallets-DataTest.json"
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  title: 'ORGANISM/WalletAsideMenu',
-  component: WalletAsideMenu
+  title: 'ORGANISM/AsideMenuWallet',
+  component: AsideMenuWallet
 };
 
 //👇 We create a “template” of how args map to rendering
-const Template = (data) => <WalletAsideMenu {...data} />;
+const Template = (data) => <AsideMenuWallet {...data} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

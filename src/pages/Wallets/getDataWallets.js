@@ -1,10 +1,10 @@
 import data from "../../TestData/wallets-DataTest.json"
 
 async function getAllWallets(){
+    await delay(1000)
     return data
 }
 
-delay(0)
 function delay (ms){
     return new Promise((resolve)=>
         setTimeout(

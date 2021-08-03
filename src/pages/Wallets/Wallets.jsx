@@ -6,14 +6,14 @@ import {AsideMenuWallet} from "../../components/Organism/AsideMenuWallet"
 import { MainWallet } from "../../components/Organism/MainWallet"
 import { Loading } from'../../components/Atom/Loading'
 
-import "./wallet.scss"
+import "./wallets.scss"
 import{getAllWallets} from "./getDataWallets"
 
-function Wallet(){
+function Wallets(){
     const fistSelectWallet = "TodosAtivos"
     const [nameWallet,setNameWallet] =useState("Todos Ativos")
     const [selectWallet, setSelectWallet ]= useState(fistSelectWallet)
-    const [walletData, setWalletData ]= useState(false)
+    const [walletsData, setWalletData ]= useState(false)
 
     const handleSelectWallet = (selectedWallet) =>{
         setNameWallet(selectedWallet.name)
@@ -32,15 +32,15 @@ function Wallet(){
     },[])
 
     return (
-        <div className="page-wallet">
-            { walletData? 
-                <div className="page-wallet__container">
+        <div className="page-wallets">
+            { walletsData? 
+                <div className="page-wallets__container">
                     <ContainerAsidePanel>
                         <AsideMenuWallet 
-                            dataSistemWallet={walletData.sistemWallet} 
-                            dataWalletByBrokers={walletData.walletByBrokers}
-                            dataPersonalizedWallet={walletData.personalizedWallet}
-                            balanceWallet={walletData.balanceWallet}
+                            dataSistemWallet={walletsData.sistemWallet} 
+                            dataWalletByBrokers={walletsData.walletByBrokers}
+                            dataPersonalizedWallet={walletsData.personalizedWallet}
+                            balanceWallet={walletsData.balanceWallet}
                             selectWallet={selectWallet}
                             handleSelectWallet={handleSelectWallet}
                             >
@@ -54,10 +54,10 @@ function Wallet(){
                     </ContainerMainPage>
                 </div>
                     :
-                <Loading className="page-wallet__loading"></Loading>
+                <Loading className="page-wallets__loading"></Loading>
             }
         </div>
     )
 }
 
-export default Wallet
+export default Wallets

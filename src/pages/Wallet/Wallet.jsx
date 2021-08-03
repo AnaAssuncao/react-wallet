@@ -1,14 +1,13 @@
-import React, {  useState,useEffect } from 'react'
+import {  useState, useEffect } from 'react'
 
 import { ContainerMainPage } from "../../components/Atom/ContainerMainPage"
 import { ContainerAsidePanel } from "../../components/Atom/ContainerAsidePanel"
-import {WalletAsideMenu} from "../../components/Organism/WalletAsideMenu"
+import {AsideMenuWallet} from "../../components/Organism/AsideMenuWallet"
 import { MainWallet } from "../../components/Organism/MainWallet"
 import { Loading } from'../../components/Atom/Loading'
 
 import "./wallet.scss"
 import{getAllWallets} from "./getDataWallets"
-
 
 function Wallet(){
     const fistSelectWallet = "TodosAtivos"
@@ -30,14 +29,14 @@ function Wallet(){
             const allWallets= await getAllWallets()
             handleWalletData(allWallets)
         })()
-    })
+    },[])
 
     return (
         <div className="page-wallet">
             { walletData? 
                 <div className="page-wallet__container">
                     <ContainerAsidePanel>
-                        <WalletAsideMenu 
+                        <AsideMenuWallet 
                             dataSistemWallet={walletData.sistemWallet} 
                             dataWalletByBrokers={walletData.walletByBrokers}
                             dataPersonalizedWallet={walletData.personalizedWallet}
@@ -45,7 +44,7 @@ function Wallet(){
                             selectWallet={selectWallet}
                             handleSelectWallet={handleSelectWallet}
                             >
-                        </WalletAsideMenu>
+                        </AsideMenuWallet>
                     </ContainerAsidePanel>
 
                     <ContainerMainPage>
@@ -55,9 +54,7 @@ function Wallet(){
                     </ContainerMainPage>
                 </div>
                     :
-                <div className="page-wallet__loading">
-                    <Loading  ></Loading>
-                </div>
+                <Loading className="page-wallet__loading"></Loading>
             }
         </div>
     )

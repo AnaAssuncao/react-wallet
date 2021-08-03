@@ -36,7 +36,7 @@ const WalletEquity = () =>{
     },[])
 
     return(
-        <div>
+        <div className="equity">
             {allAssets?
                 <div className="equity">
                     <CardsInvestment investment={allAssets.totalEquity}></CardsInvestment>
@@ -48,18 +48,14 @@ const WalletEquity = () =>{
                     <InvestmentCard investment={allAssets.realEstateFund} getInfAssets = {()=>getDataRealEstateFundTable()}></InvestmentCard>
                 </div>
                 :
-                <div className="equity__loading"> 
-                    <Loading></Loading>
-                </div>
+                 <Loading className="equity__loading"></Loading>
             }
             {dataTreemap?
                 <div className="equity__treemap">
                     < TreemapChart dataChart={dataTreemap} sizeChart={"400"}></TreemapChart>
                 </div>
                 :
-                <div className="equity__loading"> 
-                    <Loading></Loading>
-                </div>
+                <Loading className="equity__loading"></Loading>
             }
         </div>
     )}

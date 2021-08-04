@@ -14,7 +14,6 @@ const InvestmentTable = ({columns,rows}) =>{
     header:35,
     max:350,
   }
-
   const totalRows = ((rows.length)*heigthTable.row+heigthTable.header+1)
   const heightSize = totalRows<heigthTable.max?totalRows:heigthTable.max
 

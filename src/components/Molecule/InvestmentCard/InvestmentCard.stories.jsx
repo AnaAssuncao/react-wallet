@@ -1,7 +1,7 @@
 import React from 'react';
 
 import InvestmentCard from './InvestmentCard';
-import assets from "../../../TestData/tableAssets-DataTest.json"
+import assetsTabela from "../../../TestData/tableAssets-DataTest.json"
 
 export default {
   title: 'MOLECULE/InvestmentCard',
@@ -12,6 +12,14 @@ const Template = (args) => <InvestmentCard {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  investment:assets.directTreasure.total,
-  getInfAssets:()=>{return assets.directTreasure}
+  investment:assetsTabela.assets.stocks.totalEquity,
+  nameAsset:"stocks",
+  getDataTable:(nameAssets)=>{
+    const tableData = {
+        columns:assetsTabela.assets[nameAssets].columns,
+        rows:assetsTabela.assets[nameAssets].rows
+    }
+    return tableData
+}
+
 }

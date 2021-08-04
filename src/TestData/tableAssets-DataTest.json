@@ -1,95 +1,95 @@
 {
      "totalEquity":{
-          "total":
-          {
-               "percentage":100,
-               "name":"Patrimônio Total",
-               "cost":0,
-               "result":0,
-               "amount":0
-          }
+          "percentage":100,
+          "name":"Patrimônio Total",
+          "cost":0,
+          "result":0,
+          "amount":0
      },
-    "directTreasure":{
-          "total":{
-               "percentage":10,
-               "name":"Tesouro Direto",
-               "cost":0,
-               "result":0,
-               "amount":0
+     "assets":{
+          "directTreasure":{
+                    "totalEquity":{
+                         "percentage":0.20,
+                         "name":"Tesouro Direto",
+                         "cost":0,
+                         "result":0,
+                         "amount":0
+                    },
+                    "columns":[   
+                         { "field": "percentage", "headerName": "%"},
+                         { "field": "headerName", "headerName": "Nome" },
+                         { "field": "code", "headerName": "Código" },
+                         { "field": "quantity", "headerName": "Qtde"},
+                         { "field": "amount", "headerName": "Patrimônio" },
+                         { "field": "cost", "headerName": "Investimento" },
+                         { "field": "result", "headerName": "Lucro" }],
+                    "rows":[
+                         {"percentage": 1.00, "headerName": "Tesouro","code":"Tesouro","quantity":2,"cost": 0, "result":0, "amount": 0}]
           },
-        "columns":[   
-          { "field": "percentage", "headerName": "%"},
-          { "field": "headerName", "headerName": "Nome" },
-          { "field": "code", "headerName": "Código" },
-          { "field": "quantity", "headerName": "Qtde"},
-          { "field": "amount", "headerName": "Patrimônio" },
-          { "field": "cost", "headerName": "Investimento" },
-          { "field": "result", "headerName": "Lucro" }],
-          "rows":[
-               {"percentage": 100, "headerName": "Tesouro","code":"Tesouro","quantity":2,"cost": 0, "result":0, "amount": 0}]
-   },
-   "stocks":{
-          "total":{
-               "percentage":60,
-               "name":"Ações",
-               "cost":0,
-               "result":0,
-               "amount":0
+          "stocks":{
+                    "totalEquity":{
+                         "percentage":0.50,
+                         "name":"Ações",
+                         "cost":0,
+                         "result":0,
+                         "amount":0
+                    },
+                    "columns":[   
+                         { "field": "percentage", "headerName": "%"},
+                         { "field": "headerName", "headerName": "Nome" },
+                         { "field": "code", "headerName": "Código" },
+                         { "field": "quantity", "headerName": "Qtde"},
+                         { "field": "amount", "headerName": "Patrimônio" },
+                         { "field": "cost", "headerName": "Investimento" },
+                         { "field": "result", "headerName": "Lucro" }],
+                    "rows":[
+                         {"percentage": 0.5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.01, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.09, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.02, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.03, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.03, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.07, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.01, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.01, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.01, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.01, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.01, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                         {"percentage": 0.5, "headerName": "AMBEV", "code":"ABEV3", "quantity":2, "cost": 0,  "result":0,  "amount": 0}]
           },
-          "columns":[   
-               { "field": "percentage", "headerName": "%"},
-               { "field": "headerName", "headerName": "Nome" },
-               { "field": "code", "headerName": "Código" },
-               { "field": "quantity", "headerName": "Qtde"},
-               { "field": "amount", "headerName": "Patrimônio" },
-               { "field": "cost", "headerName": "Investimento" },
-               { "field": "result", "headerName": "Lucro" }],
-          "rows":[
-               {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 9, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 2, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 3, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 10, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 10, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 5, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 3, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 7, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 10, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 10, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 1, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-               {"percentage": 5, "headerName": "AMBEV", "code":"ABEV3", "quantity":2, "cost": 0,  "result":0,  "amount": 0}]
-   },
-   "realEstateFund":{
-          "total":{
-               "percentage":30,
-               "name":"Fundos Imobiliários",
-               "cost":0,
-               "result":0,
-               "amount":0
-          },
-     "columns":[   
-          { "field": "percentage", "headerName": "%"},
-          { "field": "headerName", "headerName": "Nome" },
-          { "field": "code", "headerName": "Código" },
-          { "field": "quantity", "headerName": "Qtde" },
-          { "field": "amount", "headerName": "Patrimônio" },
-          { "field": "cost", "headerName": "Investimento" },
-          { "field": "result", "headerName": "Lucro" }
-],
-     "rows":[
-          {"percentage": 20, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-          {"percentage": 20, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-          {"percentage": 20, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
-          {"percentage": 40, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0}]
-   }
-}
+          "realEstateFund":{
+                    "totalEquity":{
+                         "percentage":0.30,
+                         "name":"Fundos Imobiliários",
+                         "cost":0,
+                         "result":0,
+                         "amount":0
+                    },
+               "columns":[   
+                    { "field": "percentage", "headerName": "%"},
+                    { "field": "headerName", "headerName": "Nome" },
+                    { "field": "code", "headerName": "Código" },
+                    { "field": "quantity", "headerName": "Qtde" },
+                    { "field": "amount", "headerName": "Patrimônio" },
+                    { "field": "cost", "headerName": "Investimento" },
+                    { "field": "result", "headerName": "Lucro" }
+          ],
+               "rows":[
+                    {"percentage": 0.20, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                    {"percentage": 0.20, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                    {"percentage": 0.20, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0},
+                    {"percentage": 0.40, "headerName": "ITAUUNIBANCO", "code":"ITUB3", "quantity":2, "cost": 0,  "result":0,  "amount": 0}]
+          
+               }
+          }
+     }

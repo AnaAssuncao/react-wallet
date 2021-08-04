@@ -2,15 +2,13 @@ import React from 'react'
 
 import TreemapChart from './TreemapChart'
 
-import {modifyTest} from "../../../TestData/createDataAssets"
-const assets = modifyTest()
-
+import assetsTreemap from "../../../TestData/tableAssets-DataTest.json"
 const treemapChart = [{
-  name:assets.stocks.total.name,
+  name:assetsTreemap.assets.stocks.totalEquity.name,
   data:[]
 }]
 
-assets.stocks.rows.forEach((rows)=>{
+assetsTreemap.assets.stocks.rows.forEach((rows)=>{
     const dataAsset = {
     x:rows.code,
     y:rows.amount

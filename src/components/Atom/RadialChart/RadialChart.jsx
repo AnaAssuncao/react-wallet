@@ -68,8 +68,8 @@ const RadialChart = ({percentage,sizeChart}) => {
     },
 
     labels: ["Carteira"]
-}
-const seriesRadial= [percentage]
+  }
+const seriesRadial= [(percentage*100)]
         
     return(
       <div className="radial-chart">

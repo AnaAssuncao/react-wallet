@@ -1,4 +1,4 @@
-import {useState }from 'react'
+import {useState,useEffect }from 'react'
 import PropTypes from 'prop-types'
 
 import './investmentCard.scss'
@@ -6,36 +6,59 @@ import {HeaderInvestmentCard} from '../HeaderInvestmentCard'
 import {InvestmentTable} from "../../Atom/InvestmentTable"
 import {numberToCurrenty} from "../../../utils/convertData"
 
-const InvestmentCard = ({investment, getInfAssets}) => {
+const InvestmentCard = ({investment, nameAsset, getDataTable}) => {
   const [isDisplayTable, setDisplayTable] = useState(false)
+  const [infoAsset,setInfoAsset]= useState(false)
 
   const handleDisplayTable =()=>{
     const isDisplay = isDisplayTable===true?false:true
     setDisplayTable(isDisplay)
   }
 
-  const {rows,columns} = getInfAssets()
+  const handleInfoAsset = (dataChart)=>{
+    setInfoAsset(dataChart)
+}
+
+  useEffect(()=>{
+      (async () =>{
+          const data= await getDataTable(nameAsset)
+          const copyAsset = Object.assign({}, data)
+          const assetDataFormatted=formatAssets(copyAsset)
+          handleInfoAsset(assetDataFormatted)
+      })()  
+  },[])
+
+const formatAssets = (dataAsset) =>{
   const chancedRows =[]
-  rows.forEach((asset,ind)=>{
-    chancedRows[ind]=Object.assign({}, asset)
-    chancedRows[ind].amount = numberToCurrenty(asset.amount)
-    chancedRows[ind].cost = numberToCurrenty(asset.cost)
-    chancedRows[ind].result = numberToCurrenty(asset.result)
-  })
+    dataAsset.rows.forEach((asset,ind)=>{
+         chancedRows[ind]=Object.assign({}, asset)
+         chancedRows[ind].amount = numberToCurrenty(asset.amount)
+         chancedRows[ind].cost = numberToCurrenty(asset.cost)
+         chancedRows[ind].result = numberToCurrenty(asset.result)
+         chancedRows[ind].percentage = (asset.percentage * 100).toFixed() + "%"
+    })
+    return {
+      rows:chancedRows,
+      columns:dataAsset.columns
+    }
+  }
 
   return (
     <div className="investment-card">
       <HeaderInvestmentCard investment={investment} handleDisplayTable={handleDisplayTable} isDisplayTable={isDisplayTable}></HeaderInvestmentCard>
-      {isDisplayTable?
-        <InvestmentTable columns={columns} rows={chancedRows} >{isDisplayTable}</InvestmentTable>
-        :null
-      }
+      {infoAsset &&
+        isDisplayTable?
+          <InvestmentTable columns={infoAsset.columns} rows={infoAsset.rows} >{isDisplayTable}</InvestmentTable>
+          :null
+        
+      } 
     </div>
   )
 }
 
 InvestmentCard.propTypes = {
     investment:PropTypes.object,
+    nameAsset:PropTypes.string,
     getInfAssets:PropTypes.func
 }
 

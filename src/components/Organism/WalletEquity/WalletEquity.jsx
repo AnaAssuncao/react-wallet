@@ -2,21 +2,19 @@ import {  useState,useEffect }from "react"
 
 import {CardsInvestment} from "../../Atom/CardsInvestment"
 import {InvestmentCard} from "../../Molecule/InvestmentCard"
-import {getAllAssets,
-        getDataTreasureTable,
-        getDataStocksTable,
-        getDataRealEstateFundTable,
-        getDataTreemap } from "./getDataAssets"
+import {getEquity,
+        getDataTreemap, 
+        getDataTable} from "./getDataAssets"
 import { Loading } from'../../Atom/Loading'
 import "./walletEquity.scss"
 import TreemapChart from "../../Atom/TreemapChart/TreemapChart"
 
 const WalletEquity = () =>{    
-    const [allAssets,setAllAssets] = useState(false)
+    const [equity,setEquity] = useState(false)
     const [dataTreemap,setDataChart] = useState(false)
 
-    const handleAllAssets = (assets)=>{
-        setAllAssets(assets)
+    const handleEquity = (assets)=>{
+        setEquity(assets)
     }
     const handleDataChart = (dataChart)=>{
         setDataChart(dataChart)
@@ -24,8 +22,8 @@ const WalletEquity = () =>{
 
     useEffect(()=>{
         (async () =>{
-            const assets= await getAllAssets()
-            handleAllAssets(assets)
+            const assets= await getEquity()
+            handleEquity(assets)
         })()
     },[])
     useEffect(()=>{
@@ -37,22 +35,19 @@ const WalletEquity = () =>{
 
     return(
         <div className="equity">
-            {allAssets?
+            {equity?
                 <div className="equity">
-                    <CardsInvestment investment={allAssets.totalEquity}></CardsInvestment>
-
-                    <InvestmentCard investment={allAssets.directTreasure} getInfAssets = {()=>getDataTreasureTable()}></InvestmentCard>
-
-                    <InvestmentCard investment={allAssets.stocks} getInfAssets = {()=>getDataStocksTable()}></InvestmentCard>
-
-                    <InvestmentCard investment={allAssets.realEstateFund} getInfAssets = {()=>getDataRealEstateFundTable()}></InvestmentCard>
+                    <CardsInvestment investment={equity.totalEquity}></CardsInvestment>
+                    {equity.arrayNameAssets.map((nameAsset,ind)=> 
+                      <InvestmentCard key={nameAsset+ind} investment={equity[nameAsset]} nameAsset = {nameAsset} getDataTable={getDataTable}/>)}
+                    
                 </div>
                 :
-                 <Loading className="equity__loading"></Loading>
+                 <Loading className="equity__loading"/>
             }
             {dataTreemap?
                 <div className="equity__treemap">
-                    < TreemapChart dataChart={dataTreemap} sizeChart={"400"}></TreemapChart>
+                    < TreemapChart dataChart={dataTreemap} sizeChart={"400"}/>
                 </div>
                 :
                 <Loading className="equity__loading"></Loading>

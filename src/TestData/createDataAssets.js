@@ -1,36 +1,37 @@
-import assetsDataTest from "./tableAssets-DataTest"
+import assetsTest from "./tableAssets-DataTest"
 
 function modifyTest(){
-    const assets = assetsDataTest
     const amount = (Math.random() * 10000000) 
-    assets.totalEquity.total.amount =  amount
-    assets.totalEquity.total.cost = amount * 0.80
-    assets.totalEquity.total.result = amount * 0.20
-    assets.totalEquity.total.percentResult = 20
+    assetsTest.totalEquity.amount =  amount
+    assetsTest.totalEquity.cost = amount * 0.80
+    assetsTest.totalEquity.result = amount * 0.20
+    assetsTest.totalEquity.percentResult = 20
 
-    for(let i in assets){
-        if(assets[i].rows){
-            const amountAssets = amount*(assets[i].total.percentage/100)
-            assets[i]=addValueRows(assets[i],amountAssets)
-            assets[i].total.amount = amountAssets
-            assets[i].total.cost = amountAssets*0.80
-            assets[i].total.result = amountAssets*0.20
-            assets[i].total.percentResult = 20
-        }
-    }
-    return assets
+    const arrayAssets = Object.keys(assetsTest.assets)
+
+    arrayAssets.forEach((nameAsset)=>{
+        const objAsset= assetsTest.assets[nameAsset]
+        const amountAssets = amount*objAsset.totalEquity.percentage
+        objAsset.rows=addValueRows(objAsset.rows,amountAssets)
+        objAsset.totalEquity.amount = amountAssets
+        objAsset.totalEquity.cost = amountAssets*0.80
+        objAsset.totalEquity.result = amountAssets*0.20
+        objAsset.totalEquity.percentResult = 20
+    })
+
+    return assetsTest
 }
 
-function addValueRows(infoAssets,amountAssets){
-    infoAssets.rows.forEach((data)=>{
-        const amount = amountAssets*(data.percentage/100)
+function addValueRows(rowsAsset,amountAssets){
+    rowsAsset.forEach((data)=>{
+        const amount = amountAssets*data.percentage
     
         data.cost = amount*0.80
         data.result = amount*0.20
         data.amount = amount
         data.percentResult = 20
     })
-    return infoAssets
+    return rowsAsset
 }   
 
 export {

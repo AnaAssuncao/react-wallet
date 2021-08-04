@@ -46,6 +46,7 @@ const HeaderInvestmentCard = ({investment,isDisplayTable,handleDisplayTable}) =>
 
 HeaderInvestmentCard.propTypes = {
     investment:PropTypes.object,
+    isDisplayTable:PropTypes.bool,
     handleDisplayTable:PropTypes.func,
 }
 

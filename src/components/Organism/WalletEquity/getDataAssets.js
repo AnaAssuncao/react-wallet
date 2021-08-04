@@ -1,42 +1,40 @@
 import {modifyTest} from "../../../TestData/createDataAssets"
-const assets = modifyTest()
+const equity = modifyTest()
 
-async function getAllAssets(){
+async function getEquity(){
     const data = {
-        totalEquity: assets.totalEquity.total,
-        directTreasure: assets.directTreasure.total,
-        stocks: assets.stocks.total,
-        realEstateFund: assets.realEstateFund.total,
+        totalEquity: equity.totalEquity,
+        arrayNameAssets: Object.keys(equity.assets)
     }
+
+    data.arrayNameAssets.forEach((nameAssets)=>{
+        data[nameAssets] = equity.assets[nameAssets].totalEquity
+    })
+
     return data
 }
 
-function getDataTreasureTable(){
-    const tableData = assets.directTreasure
-    return tableData
-}
-
- function getDataStocksTable(){
-    const tableData = assets.stocks
-    return tableData
-}
-
- function  getDataRealEstateFundTable(){
-    const tableData = assets.realEstateFund
+function getDataTable(nameAssets){
+    const tableData = {
+        columns:equity.assets[nameAssets].columns,
+        rows:equity.assets[nameAssets].rows
+    }
     return tableData
 }
 
 async function getDataTreemap(){
     const treemapChart = []
-    treemapChart[0]=createDataTreemap(assets.directTreasure)
-    treemapChart[1]=createDataTreemap(assets.stocks)
-    treemapChart[2]=createDataTreemap(assets.realEstateFund)
+    const arrayNameAssets= Object.keys(equity.assets)
+    arrayNameAssets.forEach((nameAssets)=>{
+        const data = createDataTreemap(equity.assets[nameAssets])
+        treemapChart.push(data)
+    })
     return treemapChart
 }
 
 function createDataTreemap(objAsset){
     const seriesAsset = {
-        name:objAsset.total.name,
+        name:objAsset.totalEquity.name,
         data:[]
     }
     objAsset.rows.forEach(rows => {
@@ -50,9 +48,7 @@ function createDataTreemap(objAsset){
 }
 
 export{
-    getAllAssets,
-    getDataTreasureTable,
-    getDataStocksTable,
-    getDataRealEstateFundTable,
+    getEquity,
+    getDataTable,
     getDataTreemap
 }

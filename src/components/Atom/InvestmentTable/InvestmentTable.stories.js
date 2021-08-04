@@ -1,13 +1,15 @@
 import React from 'react';
 import InvestmentTable from './InvestmentTable';
 import {numberToCurrenty} from "../../../utils/convertData"
-import {modifyTest} from "../../../TestData/createDataAssets"
-const assets = modifyTest()
+import assetsTabela from "../../../TestData/tableAssets-DataTest.json"
 
-assets.stocks.rows.forEach((asset)=>{
-  asset.amount = numberToCurrenty(asset.amount)
-  asset.cost = numberToCurrenty(asset.cost)
-  asset.result = numberToCurrenty(asset.result)
+const chancedRows =[]
+assetsTabela.assets.stocks.rows.forEach((asset,ind)=>{
+     chancedRows[ind]=Object.assign({}, asset)
+     chancedRows[ind].amount = numberToCurrenty(asset.amount)
+     chancedRows[ind].cost = numberToCurrenty(asset.cost)
+     chancedRows[ind].result = numberToCurrenty(asset.result)
+     chancedRows[ind].percentage = (asset.percentage * 100).toFixed() + "%"
 })
 
 //👇 This default export determines where your story goes in the story list
@@ -21,7 +23,7 @@ const Template = (args) => <InvestmentTable {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  columns:assets.stocks.columns,
+  columns:assetsTabela.assets.stocks.columns,
   
-  rows:assets.stocks.rows
+  rows:chancedRows
 }

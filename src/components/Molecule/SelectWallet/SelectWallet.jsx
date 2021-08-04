@@ -6,20 +6,24 @@ import arrow from "../../../img/arrow.svg"
 
 import "./selectWallet.scss"
 
-const SelectWallet = ({infoWallets,select,handleSelectWallet}) =>{
+const SelectWallet = ({summaryWallet,nameCategory, listWallets,selectCode,handleSelectCodeWallet}) =>{
+
     const [isDisplayWallets,SetIsDisplayWallets] =useState(true)
-    const listWallet = infoWallets.wallets.map(
-        (wallet) =>{
-            const classSelect = select===wallet.value?"aside-menu-item__select":""
-            const keyList = wallet.percentage + wallet.value
+    const listWallet = listWallets.map(
+        (codeWallet) =>{
+            const classSelect = selectCode===codeWallet?"aside-menu-item__select":""
+            const keyList = codeWallet
+            const nameWallet = summaryWallet.wallets[codeWallet].name
+            const percentageWallet = summaryWallet.wallets[codeWallet].percentEquity*100
+
             return (   
             <AsideMenuItem
                 key={keyList}
                 classSelect={classSelect} 
-                handleSelectWallet={handleSelectWallet}
-                wallet={wallet}>
-                <p className="aside-menu-item__name">{wallet.name}</p>
-                <p className="aside-menu-item__percentage">({wallet.percentage}% P)</p>
+                handleSelectCodeWallet={handleSelectCodeWallet}
+                codeWallet={codeWallet}>
+                <p className="aside-menu-item__name">{nameWallet}</p>
+                <p className="aside-menu-item__percentage">({percentageWallet}% P)</p>
             </AsideMenuItem>)
     })
 
@@ -30,10 +34,10 @@ const SelectWallet = ({infoWallets,select,handleSelectWallet}) =>{
 
     return (
         <div className="select-wallet">
-            {infoWallets.name &&
+            {nameCategory &&
                 <div className="select-wallet__title">
                     <img src={arrow} alt="" className="select-wallet__icon" onClick={handlesDisplayWallets}></img>
-                    <strong className="select-wallet__text">{infoWallets.name}</strong>
+                    <strong className="select-wallet__text">{summaryWallet.categories[nameCategory].title}</strong>
                 </div>
             }
             {
@@ -42,7 +46,6 @@ const SelectWallet = ({infoWallets,select,handleSelectWallet}) =>{
                         {listWallet}
                     </ul>
             }
-
         </div>
     )
 }
@@ -50,7 +53,7 @@ const SelectWallet = ({infoWallets,select,handleSelectWallet}) =>{
 SelectWallet.propTypes={
     infoWallets: PropTypes.object,
     select:PropTypes.string,
-    handleSelectWallet:PropTypes.func
+    handleSelectCodeWallet:PropTypes.func
 }
 
 export default SelectWallet

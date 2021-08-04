@@ -10,7 +10,7 @@ import chart from "../../../img/chart2_icon.svg"
 
 import './mainWallet.scss'
 
-const MainWallet = ({nameWallet})=>{
+const MainWallet = ({summaryWallet,selectCodeWallet})=>{
     const arrayNavigations =[
         {
             description:"Patrimônio",
@@ -33,6 +33,8 @@ const MainWallet = ({nameWallet})=>{
     ]
 
     const [selectNavigation, setSelectNavigation ]= useState(arrayNavigations[0].value)
+    const nameWallet = summaryWallet.wallets[selectCodeWallet].name
+    const percentageWallet = summaryWallet.wallets[selectCodeWallet].percentEquity * 100
 
     const handleSelectNavigations = (selectedNavigations) =>{
         setSelectNavigation(selectedNavigations.value)
@@ -42,7 +44,7 @@ const MainWallet = ({nameWallet})=>{
         <div className="main-wallet">
             <div className="main-wallet__title">
                 <div className="main-wallet__name">{nameWallet}</div>
-                <div className="main-wallet__percentage">({100} % do Patrimônio)</div>
+                <div className="main-wallet__percentage">({percentageWallet} % do Patrimônio)</div>
             </div>
             
             <ContainerNavBar arrayNavigations={arrayNavigations}
@@ -51,7 +53,6 @@ const MainWallet = ({nameWallet})=>{
             <div className="main-wallet__container">
                 <WalletEquity></WalletEquity>
             </div>  
-
         </div>
     )
 }

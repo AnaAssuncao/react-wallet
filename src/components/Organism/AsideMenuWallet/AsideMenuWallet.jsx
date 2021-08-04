@@ -6,24 +6,31 @@ import sum from "../../../img/sum_icon.svg"
 
 import './asideMenuWallet.scss'
 
-const AsideMenuWallet = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedWallet,balanceWallet,selectWallet,handleSelectWallet})=>{
- 
+const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet})=>{
+
+    const arrayCategoriesSumary = Object.keys(summaryWallet.categories) 
+    const arrayCodeWallets =  Object.keys(summaryWallet.wallets) 
+
+    const getCategoryWallets= (nameCategory) =>{
+          return arrayCodeWallets.filter((wallet)=> summaryWallet.wallets[wallet].category===nameCategory)
+    }
+
+    const listSelectWallets = arrayCategoriesSumary.map((nameCategory)=>{
+        const listWallets = getCategoryWallets(nameCategory,arrayCodeWallets)
+        return <SelectWallet 
+                    key={nameCategory}
+                    summaryWallet = {summaryWallet}
+                    nameCategory = {nameCategory}
+                    listWallets={listWallets} 
+                    selectCode={selectCodeWallet} 
+                    handleSelectCodeWallet={handleSelectCodeWallet}/>
+    })
+
     return (
         <div className="aside-menu-wallet">
             <div className="aside-menu-wallet__container">
                 <div className="aside-menu-wallet__title">Minhas Carteiras</div>
-                <SelectWallet 
-                    infoWallets={dataSistemWallet} 
-                    select={selectWallet} 
-                    handleSelectWallet={handleSelectWallet}></SelectWallet>
-                <SelectWallet 
-                    infoWallets={dataWalletByBrokers} 
-                    select={selectWallet} 
-                    handleSelectWallet={handleSelectWallet}></SelectWallet>
-                <SelectWallet 
-                    infoWallets={dataPersonalizedWallet} 
-                    select={selectWallet} 
-                    handleSelectWallet={handleSelectWallet}></SelectWallet>    
+                {listSelectWallets}
                 <AsideButton>
                     <img src={sum} alt="" className="aside-button__icon"></img>
                     <p className="aside-button__text">Nova Carteira</p>
@@ -31,21 +38,19 @@ const AsideMenuWallet = ({dataSistemWallet,dataWalletByBrokers,dataPersonalizedW
             </div>
             <div className="aside-menu-wallet__container">
                 <div className="aside-menu-wallet__title">Balancear Carteiras</div>
-                <SelectWallet 
+                {/* <SelectWallet 
                     infoWallets={balanceWallet} 
-                    select={selectWallet} 
-                    handleSelectWallet={handleSelectWallet}></SelectWallet>    
+                    select={selectCodeWallet} 
+                    handleSelectCodeWallet={handleSelectCodeWallet}></SelectWallet>*/}
             </div>
         </div>
     )
 }
 
 AsideMenuWallet.propTypes={
-    dataSistemWallet:PropTypes.object,
-    dataWalletByBrokers:PropTypes.object,
-    dataPersonalizedWallet:PropTypes.object,
-    selectWallet:PropTypes.string,
-    handleSelectWallet:PropTypes.func
+    summaryWallets:PropTypes.object,
+    selectCodeWallet:PropTypes.string,
+    handleSelectCodeWallet:PropTypes.func
 }
 
 export default AsideMenuWallet

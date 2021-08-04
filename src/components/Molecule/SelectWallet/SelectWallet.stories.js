@@ -1,7 +1,7 @@
 import React from 'react'
 
 import SelectWallet from './SelectWallet'
-import data from "../../../TestData/wallets-DataTest.json"
+import summaryWallet from "../../../TestData/wallets-DataTest.json"
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -12,10 +12,15 @@ export default {
 
 //👇 We create a “template” of how args map to rendering
 const Template = (args) => <SelectWallet {...args} />;
-
+ 
 export const Primary = Template.bind({});
+const arrayCodeWallets =  Object.keys(summaryWallet.wallets) 
+const listWallets = arrayCodeWallets.filter((wallet)=> summaryWallet.wallets[wallet].category==="brokersWallets")
+
 Primary.args = {
-  infoWallets:data.walletByBrokers,
-  select:data.walletByBrokers.wallets[0].value,
-  handleSelectWallet:()=>{}
+  summaryWallet:summaryWallet,
+  nameCategory:"brokersWallets",
+  listWallets:listWallets,
+  selectCode:listWallets[0],
+  handleSelectCodeWallet :()=>{}
 }

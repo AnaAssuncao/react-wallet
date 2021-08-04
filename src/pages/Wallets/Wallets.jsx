@@ -1,4 +1,4 @@
-import {  useState, useEffect } from 'react'
+import React, {  useState, useEffect } from 'react'
 
 import { ContainerMainPage } from "../../components/Atom/ContainerMainPage"
 import { ContainerAsidePanel } from "../../components/Atom/ContainerAsidePanel"
@@ -9,19 +9,17 @@ import { Loading } from'../../components/Atom/Loading'
 import "./wallets.scss"
 import{getAllWallets} from "./getDataWallets"
 
-function Wallets(){
-    const fistSelectWallet = "TodosAtivos"
-    const [nameWallet,setNameWallet] =useState("Todos Ativos")
-    const [selectWallet, setSelectWallet ]= useState(fistSelectWallet)
-    const [walletsData, setWalletData ]= useState(false)
-
-    const handleSelectWallet = (selectedWallet) =>{
-        setNameWallet(selectedWallet.name)
-        setSelectWallet(selectedWallet.value)
+const Wallets = () =>{
+    const [selectCodeWallet, setSelectCodeWallet ]= useState(null)
+    const [summaryWallet, setSummaryWallet ]= useState(false)
+ 
+    const handleSelectCodeWallet = (selectedCodeWallet) =>{
+        setSelectCodeWallet(selectedCodeWallet)
     }
-
+    
     const handleWalletData = (allWallets)=>{
-        setWalletData(allWallets)
+        setSelectCodeWallet(allWallets.defaultWallet)
+        setSummaryWallet(allWallets)
     }
 
     useEffect(()=>{
@@ -33,28 +31,22 @@ function Wallets(){
 
     return (
         <div className="page-wallets">
-            { walletsData? 
-                <div className="page-wallets__container">
+            { summaryWallet? 
+                <React.Fragment>
                     <ContainerAsidePanel>
                         <AsideMenuWallet 
-                            dataSistemWallet={walletsData.sistemWallet} 
-                            dataWalletByBrokers={walletsData.walletByBrokers}
-                            dataPersonalizedWallet={walletsData.personalizedWallet}
-                            balanceWallet={walletsData.balanceWallet}
-                            selectWallet={selectWallet}
-                            handleSelectWallet={handleSelectWallet}
-                            >
-                        </AsideMenuWallet>
+                            summaryWallet={summaryWallet}
+                            selectCodeWallet={selectCodeWallet}
+                            handleSelectCodeWallet={handleSelectCodeWallet}
+                            />
                     </ContainerAsidePanel>
 
                     <ContainerMainPage>
-                        <MainWallet nameWallet={nameWallet}>
-
-                        </MainWallet>
+                        <MainWallet summaryWallet={summaryWallet} selectCodeWallet={selectCodeWallet}/>
                     </ContainerMainPage>
-                </div>
+                </React.Fragment>
                     :
-                <Loading className="page-wallets__loading"></Loading>
+                <Loading className="page-wallets__loading"/>
             }
         </div>
     )

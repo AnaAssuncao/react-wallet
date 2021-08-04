@@ -13,7 +13,8 @@ const Template = (args) => <AsideMenuItem {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
+  codeWallet:"",
   children:<p className="aside-menu-item__name">Todos Ativos</p>,
   classSelect:"aside-menu-item__select",
-  handleItemAside:()=>{}
+  handleSelectCodeWallet:()=>{}
 }

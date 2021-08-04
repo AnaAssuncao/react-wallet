@@ -1,49 +1,58 @@
 {
-    "sistemWallet": {
-		"name": "Carteira Unificada",
-        "wallets":[{
-            "percentage":100, 
+    "defaultWallet":"allAssets001",
+    "wallets":{
+        "allAssets001":{
+            "category":"systemWallet",
             "name":"Todos Ativos",
-            "value":"TodosAtivos"}]
-	},
-    "walletByBrokers": {
-		"name": "Carteiras Por Corretoras",
-        "wallets":[{
-            "percentage":80, 
+            "percentEquity":1,
+            "editable":false
+        },
+        "inter001":{
+            "category":"brokersWallets",
             "name":"Inter",
-            "value":"Inter"
+            "percentEquity":0.80,
+            "editable":false
         },
-        {
-            "percentage":20, 
+        "orama001":{
+            "category":"brokersWallets",
             "name":"Órama",
-            "value":"Orama"
+            "percentEquity":0.20,
+            "editable":false
+        },
+        "CarteiraIdeal001":{
+            "category":"customWallets",
+            "name":"Carteira Ideal",
+            "percentEquity":1,
+            "editable":false
+        },
+        "NaoClassificados001":{
+            "category":"customWallets",
+            "name":"Não Classificados",
+            "percentEquity":1,
+            "editable":false
+        },
+        "rendafixa001":{
+            "category":"customWallets",
+            "name":"Renda Fixa",
+            "percentEquity":0.5,
+            "editable":false
         }
-        ]
-	},
-    "personalizedWallet":{
-        "name": "Carteiras Personalizadas",
-        "wallets":[{
-            "percentage":100, 
-            "name":"Carteira Ideal",
-            "value":"CarteiraIdeal"
-        },
-        {
-            "percentage":100, 
-            "name":"Renda Fixa",
-            "value":"RendaFixa"
-        }]
     },
-    "balanceWallet":{
-        "name": false,
-        "wallets":[{
-            "percentage":100, 
-            "name":"Carteira Ideal",
-            "value":"CarteiraIdealBalance"
+    "categories": {
+        "systemWallet":{
+            "title":"Carteira Unificada",
+            "order":1,
+            "addNewWallet":false
         },
-        {
-            "percentage":100, 
-            "name":"Renda Fixa",
-            "value":"RendaFixaBalance"
-        }]
+        "brokersWallets":{
+            "title":"Carteira por corretora",
+            "order":2,
+            "addNewWallet":false
+        },
+        "customWallets":{
+            "title":"Carteira Personalizada",
+            "order":3,
+            "addNewWallet":true
+        }
     }
 }

@@ -14,10 +14,10 @@ import "./header.scss"
 const Header = () =>{
     const arrayListMenu =[
         {name:"CARTEIRAS",value:"wallet", srcImg:walletIcon},
-        {name:"NEGOCIAÇÕES",value:"negotiations", srcImg:transactionsIcon, extraClass:""},
-        {name:"INFO. TRIBUTOS",value:"taxes", srcImg:calcIcon, extraClass:""},
-        {name:"NOTÍCIAS",value:"news", srcImg:newsIcon, extraClass:""},
-        {name:"INDICADORES",value:"indicators", srcImg:chartIcon, extraClass:""}]        
+        {name:"NEGOCIAÇÕES",value:"negotiations", srcImg:transactionsIcon},
+        {name:"INFO. TRIBUTOS",value:"taxes", srcImg:calcIcon},
+        {name:"NOTÍCIAS",value:"news", srcImg:newsIcon},
+        {name:"INDICADORES",value:"indicators", srcImg:chartIcon}]        
         
     return (
         <header className="header">

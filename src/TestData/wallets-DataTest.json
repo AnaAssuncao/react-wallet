@@ -7,6 +7,12 @@
             "percentEquity":1,
             "editable":false
         },
+        "allAssets":{
+            "category":"customWallets",
+            "name":"Todos ativos",
+            "percentEquity":1,
+            "editable":true
+        },
         "inter001":{
             "category":"brokersWallets",
             "name":"Inter",
@@ -23,19 +29,19 @@
             "category":"customWallets",
             "name":"Carteira Ideal",
             "percentEquity":1,
-            "editable":false
+            "editable":true
         },
         "NaoClassificados001":{
             "category":"customWallets",
             "name":"Não Classificados",
             "percentEquity":1,
-            "editable":false
+            "editable":true
         },
         "rendafixa001":{
             "category":"customWallets",
             "name":"Renda Fixa",
             "percentEquity":0.5,
-            "editable":false
+            "editable":true
         }
     },
     "categories": {
@@ -53,6 +59,20 @@
             "title":"Carteira Personalizada",
             "order":3,
             "addNewWallet":true
+        }
+    },
+    "balanceWallets":{
+        "allAssetsBalance":{
+            "category":"customWallets",
+            "name":"Todos ativos",
+            "percentEquity":1,
+            "editable":true
+        },
+        "NaoClassificados001Balance":{
+            "category":"customWallets",
+            "name":"Não Classificados",
+            "percentEquity":1,
+            "editable":true
         }
     }
 }

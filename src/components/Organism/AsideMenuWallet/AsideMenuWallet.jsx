@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types'
 
 import {SelectWallet} from "../../Molecule/SelectWallet"
+import {SelectWalletToBalance} from "../../Molecule/SelectWalletToBalance"
 import {AsideButton} from "../../Atom/AsideButton"
 import sum from "../../../img/sum_icon.svg"
 
 import './asideMenuWallet.scss'
 
-const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet})=>{
-
+const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet,handleSelectCodeBalanceWallet})=>{
     const arrayCategoriesSumary = Object.keys(summaryWallet.categories) 
     const arrayCodeWallets =  Object.keys(summaryWallet.wallets) 
-
     const getCategoryWallets= (nameCategory) =>{
           return arrayCodeWallets.filter((wallet)=> summaryWallet.wallets[wallet].category===nameCategory)
     }
@@ -26,6 +25,8 @@ const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet}
                     handleSelectCodeWallet={handleSelectCodeWallet}/>
     })
 
+    const listBalanceWallets = Object.keys(summaryWallet.balanceWallets)
+
     return (
         <div className="aside-menu-wallet">
             <div className="aside-menu-wallet__container">
@@ -38,10 +39,11 @@ const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet}
             </div>
             <div className="aside-menu-wallet__container">
                 <div className="aside-menu-wallet__title">Balancear Carteiras</div>
-                {/* <SelectWallet 
-                    infoWallets={balanceWallet} 
-                    select={selectCodeWallet} 
-                    handleSelectCodeWallet={handleSelectCodeWallet}></SelectWallet>*/}
+               <SelectWalletToBalance 
+                    summaryWallet = {summaryWallet}
+                    listWallets={listBalanceWallets}
+                    selectCode={selectCodeWallet} 
+                    handleSelectCodeWallet={handleSelectCodeBalanceWallet}/>
             </div>
         </div>
     )

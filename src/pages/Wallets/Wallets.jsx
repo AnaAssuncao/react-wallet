@@ -10,15 +10,23 @@ import "./wallets.scss"
 import{getAllWallets} from "./getDataWallets"
 
 const Wallets = () =>{
-    const [selectCodeWallet, setSelectCodeWallet ]= useState(null)
+    const [selectCodeWallet, setSelectCodeWallet ]= useState({codeWallet:null,type:null})
     const [summaryWallet, setSummaryWallet ]= useState(false)
+    const typesWallets={
+        wallets:"wallets",
+        balanceWallets:"balanceWallets"
+    }
  
     const handleSelectCodeWallet = (selectedCodeWallet) =>{
-        setSelectCodeWallet(selectedCodeWallet)
+        setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.wallets})
+    }
+
+    const handleSelectCodeBalanceWallet = (selectedCodeWallet) =>{
+        setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.balanceWallets})
     }
     
     const handleWalletData = (allWallets)=>{
-        setSelectCodeWallet(allWallets.defaultWallet)
+        setSelectCodeWallet({codeWallet:allWallets.defaultWallet,type:typesWallets.wallets})
         setSummaryWallet(allWallets)
     }
 
@@ -36,13 +44,18 @@ const Wallets = () =>{
                     <ContainerAsidePanel>
                         <AsideMenuWallet 
                             summaryWallet={summaryWallet}
-                            selectCodeWallet={selectCodeWallet}
+                            selectCodeWallet={selectCodeWallet.codeWallet}
                             handleSelectCodeWallet={handleSelectCodeWallet}
+                            handleSelectCodeBalanceWallet={handleSelectCodeBalanceWallet}
                             />
                     </ContainerAsidePanel>
 
                     <ContainerMainPage>
-                        <MainWallet summaryWallet={summaryWallet} selectCodeWallet={selectCodeWallet}/>
+                        {typesWallets.wallets===selectCodeWallet.type?
+                            <MainWallet summaryWallet={summaryWallet} selectCodeWallet={selectCodeWallet.codeWallet}/>
+                            :
+                            null
+                        }         
                     </ContainerMainPage>
                 </React.Fragment>
                     :

@@ -43,8 +43,8 @@ const MainWallet = ({summaryWallet,selectCodeWallet})=>{
     return (
         <div className="main-wallet">
             <div className="main-wallet__title">
-                <div className="main-wallet__name">{nameWallet}</div>
-                <div className="main-wallet__percentage">({percentageWallet} % do Patrimônio)</div>
+                <span className="main-wallet__name">{nameWallet}</span>
+                <span className="main-wallet__percentage">({percentageWallet} % do Patrimônio)</span>
             </div>
             
             <ContainerNavBar arrayNavigations={arrayNavigations}

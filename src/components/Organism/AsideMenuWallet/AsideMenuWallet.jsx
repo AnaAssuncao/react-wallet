@@ -28,24 +28,24 @@ const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet,
     const listBalanceWallets = Object.keys(summaryWallet.balanceWallets)
 
     return (
-        <div className="aside-menu-wallet">
+        <aside className="aside-menu-wallet">
             <div className="aside-menu-wallet__container">
                 <div className="aside-menu-wallet__title">Minhas Carteiras</div>
                 {listSelectWallets}
                 <AsideButton>
                     <img src={sum} alt="" className="aside-button__icon"></img>
-                    <p className="aside-button__text">Nova Carteira</p>
+                    <span className="aside-button__text">Nova Carteira</span>
                 </AsideButton>
             </div>
             <div className="aside-menu-wallet__container">
-                <div className="aside-menu-wallet__title">Balancear Carteiras</div>
+                <strong className="aside-menu-wallet__title">Balancear Carteiras</strong>
                <SelectWalletToBalance 
                     summaryWallet = {summaryWallet}
                     listWallets={listBalanceWallets}
                     selectCode={selectCodeWallet} 
                     handleSelectCodeWallet={handleSelectCodeBalanceWallet}/>
             </div>
-        </div>
+        </aside>
     )
 }
 

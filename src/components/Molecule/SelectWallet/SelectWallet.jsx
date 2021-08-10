@@ -22,8 +22,8 @@ const SelectWallet = ({summaryWallet,nameCategory, listWallets,selectCode,handle
                 classSelect={classSelect} 
                 handleSelectCodeWallet={handleSelectCodeWallet}
                 codeWallet={codeWallet}>
-                <p className="aside-menu-item__name">{nameWallet}</p>
-                <p className="aside-menu-item__percentage">({percentageWallet}% P)</p>
+                <span className="aside-menu-item__name">{nameWallet}</span>
+                <span className="aside-menu-item__percentage">({percentageWallet}% P)</span>
             </AsideMenuItem>)
     })
 

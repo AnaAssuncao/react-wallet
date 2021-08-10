@@ -24,10 +24,10 @@ const HeaderInvestmentCard = ({investment,isDisplayTable,handleDisplayTable}) =>
 
       <div className="header-investment-card__left">
         <div className="header-investment-card__container">
-          <p className="header-investment-card__value">Lucro: {result}</p>
-          <p className="header-investment-card__porcentage">({percentResult}%)</p>
+          <span className="header-investment-card__value">Lucro: {result}</span>
+          <span className="header-investment-card__porcentage">({percentResult}%)</span>
         </div>
-          <p className="header-investment-card__value">Investimento: {cost}</p>
+          <span className="header-investment-card__value">Investimento: {cost}</span>
       </div>
     
 

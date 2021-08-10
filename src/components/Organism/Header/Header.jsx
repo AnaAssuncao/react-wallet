@@ -31,7 +31,7 @@ const Header = () =>{
             <div>
             <div className={"header__config"}> 
                 <img src={configIcon} loading="lazy" alt="" className="header-menu-item__icon"></img>
-                <p className="header-menu-item__text">CONFIGURAÇÕES</p>
+                <span className="header-menu-item__text">CONFIGURAÇÕES</span>
              </div>
             </div>
 

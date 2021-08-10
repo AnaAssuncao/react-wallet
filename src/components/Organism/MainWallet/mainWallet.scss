@@ -1,22 +1,11 @@
 .main-wallet{
     position: relative;
-    overflow-y: scroll;
-    overflow-x: hidden;
     width: 100%;
-    height: auto;
     margin-top: 0rem;
     padding-top: 1.8rem;
     padding-left: 5%;
     padding-right: 5%;
     background-color:  #F8F8F8;
-}
-
-.main-wallet::-webkit-scrollbar {
-    width: 0.8rem;
-}
-
-.main-wallet::-webkit-scrollbar-thumb {
-    background: #c5c5c5;
 }
 
 .main-wallet__title{

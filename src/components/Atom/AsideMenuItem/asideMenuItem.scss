@@ -16,12 +16,16 @@
     color: #0a3c5d;
 }
 
-.aside-menu-item__percentage,
+.aside-menu-item__percentage{
+    margin-bottom: 0.3rem;
+    margin-left: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 .aside-menu-item__name
 {
-    display:inline;
     margin-bottom: 0.3rem;
-    margin-left: 0rem;
     padding-left: 0.6rem;
     font-size: 0.9rem;
     font-weight: 600;

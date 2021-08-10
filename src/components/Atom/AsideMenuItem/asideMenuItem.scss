@@ -1,21 +1,19 @@
 .aside-menu-item{
     margin-top: 0.8rem;
     margin-bottom: 0.8rem;
-    margin-left: 0rem;
+    margin-left: 0rem;    
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     padding-left: 1.2rem;
     list-style-type: none;
     color: #1e2631;
  }
 
 .aside-menu-item__select{
-    margin-bottom: 0rem;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
+    padding-left: 1.1rem;
     border-left: 3px solid #0a3c5d;
     background-color: #f8f8f8;
     color: #0a3c5d;
-    font-size: 0.9rem;
-    font-weight: 600;
 }
 
 .aside-menu-item__percentage,

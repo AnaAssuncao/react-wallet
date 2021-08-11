@@ -1,0 +1,23 @@
+.input-text{
+    width: 100%;
+}
+
+.input-text__name{
+    width: 100%;
+    font-size: 0.8rem;
+    color:#436175;
+    font-weight: 700;
+}
+
+.input-text__input{
+    font-size: 1.8rem;
+    color:#436175;
+    font-weight: 700;
+    border:none;
+    border-bottom:1px solid #436175;;
+}
+
+textarea:focus, input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}

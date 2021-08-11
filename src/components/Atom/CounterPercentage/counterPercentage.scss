@@ -1,0 +1,32 @@
+.counter-percentage{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.counter-percentage__button{
+    color:#fff;
+    border: none;
+    display: flex;
+    width: 1.3rem;
+    height: 1.3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+.counter-percentage__value{
+    margin-right: 0.3rem;
+    margin-left: 0.3rem;
+    font-weight: 600;
+}
+.counter-percentage__input{
+    width: 2rem;
+    font-weight: 600;
+    border: none;
+    border-bottom:1px solid;
+    text-align: center;
+}
+textarea:focus, input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}

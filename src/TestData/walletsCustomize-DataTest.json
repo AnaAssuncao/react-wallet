@@ -1,0 +1,43 @@
+{
+
+    "totalEquity":{
+        "category":"customWallets",
+        "name":"Não Classificados",
+        "percentEquity":0.80,
+        "percentCustomed":0.80
+    },
+    "assets":{
+        "NTB2026":{
+            "category":"directTreasure",
+            "nameCategory":"Tesouro Direto",
+            "description":"Tesouro",
+            "code":"NTB2026",
+            "percentWallet":0.1,
+            "percentCustomed":0.1
+        },
+        "ITUB3":{
+            "category":"stocks",
+            "nameCategory":"Ações",
+            "description":"Itaú",
+            "code":"ITUB3",
+            "percentWallet":0.2,
+            "percentCustomed":0.2
+        },
+        "WIZS3":{
+            "category":"stocks",
+            "nameCategory":"Ações",
+            "description":"WIZ S.A.",
+            "code":"WIZS3",
+            "percentWallet":0.2,
+            "percentCustomed":0.2
+        },
+        "ABEV3":{
+            "category":"stocks",
+            "nameCategory":"Ações",
+            "description":"Ambev",
+            "code":"ABEV3",
+            "percentWallet":0.2,
+            "percentCustomed":0.2
+        }
+    }
+}

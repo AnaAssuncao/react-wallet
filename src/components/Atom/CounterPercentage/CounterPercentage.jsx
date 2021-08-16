@@ -2,14 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 import "./counterPercentage.scss"
 
-const CounterPercentage = ({valuePercent,colorButton, maxLength, handleValuePercentage}) => {
-  const value = (valuePercent*100)
+const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,classNameInput}) => {
+  const value = Number((valuePercent*100).toFixed())
 
   const handleChange = (valueChance) =>{
     if(valueChance>0 && valueChance<100){
       handleValuePercentage(valueChance)
     }
-    else if(valueChance<0){
+    else if(valueChance<=0 || valueChance===""){
       handleValuePercentage(0)
     }
     else{
@@ -19,7 +19,7 @@ const CounterPercentage = ({valuePercent,colorButton, maxLength, handleValuePerc
 
   const handleChanceNumber=(numberChange)=>{
     const newValue=value + numberChange
-    handleValuePercentage(newValue)
+    handleChange(newValue)
   }
   
   return (
@@ -27,12 +27,11 @@ const CounterPercentage = ({valuePercent,colorButton, maxLength, handleValuePerc
         <button className="counter-percentage__button" 
                 style={{backgroundColor:colorButton}}
                 onClick={() => handleChanceNumber(-1)}>-</button>
-        <div className="counter-percentage__value"> 
+        <div className="counter-percentage__value" style={{color:colorButton}}> 
             <input type="text"
                     style={{color:colorButton}}
-                    maxLength={maxLength} 
-                    className="counter-percentage__input" 
-                    defaultValue={value}
+                    className={"counter-percentage__input " + classNameInput}
+                    value={value}
                     onChange={(e)=>handleChange(e.target.value)} 
                     />%
         </div>

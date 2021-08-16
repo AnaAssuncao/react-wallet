@@ -1,5 +1,5 @@
 .input-text{
-    width: 100%;
+    margin: 0 1rem;
 }
 
 .input-text__name{
@@ -10,7 +10,9 @@
 }
 
 .input-text__input{
+    background-color: transparent;
     font-size: 1.8rem;
+    width: 16rem;
     color:#436175;
     font-weight: 700;
     border:none;

@@ -31,7 +31,7 @@ const ContainerTitleEditable = ({nameInput,defaultValuesWallet,handleHeaderChang
                 maxLength={15} 
                 onChange={(e)=>handleNameInput({change:"name", name:e.target.value})}/>
             <CounterPercentage valuePercent={dataHeader.percentCustomed}
-                colorButton={"#2b86bd"} 
+                colorButton={"titleBlue"} 
                 maxLength={3} 
                 classNameInput = "container-title-editable__counter"
                 handleValuePercentage={(valuePercentage)=>handleValuePercentage(valuePercentage)}/> 

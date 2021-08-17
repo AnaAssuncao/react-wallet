@@ -1,39 +1,29 @@
 import React from "react";
 import { makeStyles , emphasize} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { getColors } from "../../../utils/colors"
 import PropTypes from "prop-types"
 import "./mainButton.scss"
 
-const colorsButton={
-  save:{
-    background:"#34df53",
-    color:"#fcfcfc"
-  },
-  cancel:{
-    background:"#1976d2",
-    color:"#fcfcfc"
-  },
-  delete:{
-    background:"#c70e50",
-    color:"#fcfcfc"
-  }
-}
-
 const MainButton = ({children,color, ...others}) => {
-  debugger
+  const colors = getColors(color)
   const useStyles = makeStyles({
     root: {
-      background:colorsButton[color].background,
+      background:colors.background,
       borderRadius: 3,
-      boxShadow: '0px 1px 3px #000',
-      color: colorsButton[color].color,
+      border:"none",  
+      color: colors.color,
+      fontSize:"1rem",
+      minWidth: "2rem",
+      minHeight: "1.5rem",
+      lineHeight: "1rem",
     },
     label:{
       "&:hover": {
-        backgroundColor: emphasize(colorsButton[color].background, 0.2),
+        backgroundColor: emphasize(colors.background, 0.2),
       '&:active': {
         boxShadow: 'none',
-        backgroundColor: emphasize(colorsButton[color].background, 0.9),
+        backgroundColor: emphasize(colors.background, 0.9),
       },
       '&:focus': {
         boxShadow: '0px 1px 6px -2 #000',

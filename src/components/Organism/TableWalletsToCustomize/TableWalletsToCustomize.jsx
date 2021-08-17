@@ -29,7 +29,7 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges})=>{
             <section className="table-wallets-customize">
                 <div className="table-wallets-customize__header">
                     <span className="table-wallets-customize__title">Ativos Da Carteira</span>
-                    <MainButton>Adicionar</MainButton>
+                    <MainButton color={"save"} size="medium" variant="outlined">+ ADICIONAR NOVO ATIVO</MainButton>
                 </div>
                 <div className="table-wallets-customize__columns">
                     <span className="table-wallets-customize__cell">CATEGORIA</span>

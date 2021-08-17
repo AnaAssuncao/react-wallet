@@ -1,9 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { MainButton } from "../MainButton"
+import { getColors } from "../../../utils/colors"
 import "./counterPercentage.scss"
 
 const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,classNameInput}) => {
   const value = Number((valuePercent*100).toFixed())
+  const colors = getColors(colorButton)
 
   const handleChange = (valueChance) =>{
     if(valueChance>0 && valueChance<100){
@@ -24,20 +27,18 @@ const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,class
   
   return (
     <div className="counter-percentage">
-        <button className="counter-percentage__button" 
-                style={{backgroundColor:colorButton}}
-                onClick={() => handleChanceNumber(-1)}>-</button>
-        <div className="counter-percentage__value" style={{color:colorButton}}> 
+      <MainButton color={colorButton} size="small" variant="contained"
+              onClick={() => handleChanceNumber(-1)}>-</MainButton>
+        <div className="counter-percentage__value" style={{color:colors.background}}> 
             <input type="text"
-                    style={{color:colorButton}}
+                    style={{color:colors.background}}
                     className={"counter-percentage__input " + classNameInput}
                     value={value}
                     onChange={(e)=>handleChange(e.target.value)} 
                     />%
         </div>
-        <button className="counter-percentage__button" 
-                style={{backgroundColor:colorButton}}
-                onClick={() => handleChanceNumber(1)}>+</button>
+        <MainButton color={colorButton} size="small" variant="contained"
+                  onClick={() => handleChanceNumber(-1)}>+</MainButton>
     </div>
 
   )

@@ -13,10 +13,10 @@ const TableRowForView = ({tableRowData, handleValuePercentage}) => {
       <span className="table-row-for-view__text" >{tableRowData.name}</span>
       <span className="table-row-for-view__text" >{tableRowData.percentWallet*100}%</span>
       <CounterPercentage valuePercent={tableRowData.percentCustomed}
-        colorButton={"#1D2731"}
+        colorButton={"dark"}
         maxLength={3}
         handleValuePercentage={(valuePercentage)=>handleValuePercentage(valuePercentage,tableRowData.code)}/>
-       <MainButton className="table-row-for-view__button" onClick={()=>handleValuePercentage(0,tableRowData.code)}>Deletar</MainButton>
+       <MainButton color={"delete"} size="medium" onClick={()=>handleValuePercentage(0,tableRowData.code)}>Deletar</MainButton>
     </div>
   )
 }

@@ -12,7 +12,8 @@ const Template = (args) => <CounterPercentage {...args} />
 export const Primary = Template.bind({})
 Primary.args = {
   valuePercent:0.50,
-  colorButton:"#000",
+  colorButton:"dark",
+  classNameInput:"",
   maxLength:3,
   handleValuePercentage:()=>{}
 }

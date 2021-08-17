@@ -12,6 +12,18 @@ const Template = (args) => <MainButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
+  color:"delete",
   children: <p>Deletar</p>,
+};
+
+export const Secundary = Template.bind({});
+Secundary.args = {
+  color:"save",
+  children: <p>Salvar</p>,
+};
+
+export const Tertiar= Template.bind({});
+Tertiar.args = {
+  color:"cancel",
+  children: <p>Cancelar</p>,
 };

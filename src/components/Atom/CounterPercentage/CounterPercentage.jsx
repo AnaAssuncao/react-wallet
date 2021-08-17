@@ -38,7 +38,7 @@ const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,class
                     />%
         </div>
         <MainButton color={colorButton} size="small" variant="contained"
-                  onClick={() => handleChanceNumber(-1)}>+</MainButton>
+                  onClick={() => handleChanceNumber(1)}>+</MainButton>
     </div>
 
   )

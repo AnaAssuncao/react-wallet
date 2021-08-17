@@ -13,15 +13,19 @@ const ContainerTitleEditable = ({nameInput,defaultValuesWallet,handleHeaderChang
     const handleNameInput =(newNameWallet)=>{
         dataHeader.name=newNameWallet
         setDataHeader(dataHeader)
-        const codeRef= "name"
-        handleHeaderChanges(codeRef,newNameWallet)
+        handleHeaderChanges({
+            name:newNameWallet,
+            percent:dataHeader.percentCustomed
+        })
     }
     const handleValuePercentage = (valuePercentage)=>{
         const percent = valuePercentage/100
         dataHeader.percentCustomed= percent
         setDataHeader({...dataHeader})
-        const codeRef= "percentCustomed"
-        handleHeaderChanges(codeRef,percent)
+        handleHeaderChanges({
+            name:dataHeader.name,
+            percent:percent
+        })
     }
 
     return (
@@ -29,7 +33,7 @@ const ContainerTitleEditable = ({nameInput,defaultValuesWallet,handleHeaderChang
             <InputText nameInput={nameInput} 
                 defaultValue={dataHeader.name}
                 maxLength={15} 
-                onChange={(e)=>handleNameInput({change:"name", name:e.target.value})}/>
+                onChange={(e)=>handleNameInput(e.target.value)}/>
             <CounterPercentage valuePercent={dataHeader.percentCustomed}
                 colorButton={"titleBlue"} 
                 maxLength={3} 

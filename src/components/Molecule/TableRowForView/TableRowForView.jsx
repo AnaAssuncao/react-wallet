@@ -16,7 +16,7 @@ const TableRowForView = ({tableRowData, handleValuePercentage}) => {
         colorButton={"dark"}
         maxLength={3}
         handleValuePercentage={(valuePercentage)=>handleValuePercentage(valuePercentage,tableRowData.code)}/>
-       <MainButton color={"delete"} size="medium" onClick={()=>handleValuePercentage(0,tableRowData.code)}>Deletar</MainButton>
+       <MainButton color={"delete"} size="medium" onClick={()=>handleValuePercentage(-1,tableRowData.code)}>Deletar</MainButton>
     </div>
   )
 }

@@ -14,6 +14,7 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges})=>{
     // botão add vai estar neste componente
     const handleValuePercentage = (valuePercentage, codeWallet)=>{
         const percent = valuePercentage/100
+        debugger
         dataTable.assets[codeWallet].percentCustomed= percent
         const infoWalletChanges={
             codeWallet: codeWallet,
@@ -39,7 +40,7 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges})=>{
                     <span className="table-wallets-customize__cell">% APOS A MUDANÇA</span>  
                 </div>
                 {keysDataTable.map((codeAssets)=>
-                    dataTable.assets[codeAssets].percentCustomed!==0 &&
+                    dataTable.assets[codeAssets].percentCustomed>=0 &&
                     <TableRowForView tableRowData={dataTable.assets[codeAssets]}
                                     handleValuePercentage={handleValuePercentage}
                                     key={codeAssets}

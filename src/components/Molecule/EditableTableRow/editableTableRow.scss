@@ -1,0 +1,21 @@
+.editable-table-row{
+    background-color: #def7e3;
+    width: 100%;
+    height: 3.46rem;
+    padding: 1rem 0.5rem 1rem 0rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 0.1rem solid black;
+}
+
+.editable-table-row__text{
+    width: 12rem;
+    margin: 0rem 0.5rem;
+    text-align: center;
+}
+
+.editable-table-row__loading{
+    margin:0.5rem;
+    width: 3rem;
+}

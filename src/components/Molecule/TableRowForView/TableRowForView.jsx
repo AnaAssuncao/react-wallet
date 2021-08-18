@@ -7,11 +7,21 @@ import "./tableRowForView.scss"
 
 const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow}) => {
   const [percentage, setPercentage] = useState(tableRowData.percentWallet)
+  const [newClass,setNewClass] = useState("")
 
   const handlePercentage = (valuePercentage)=>{
     const value = valuePercentage/100
     setPercentage(value)
     handleValuePercentage(valuePercentage,tableRowData.code)
+    handleNewClass(value)
+  }
+  const handleNewClass = (value)=>{
+    if(tableRowData.percentWallet!==value){
+      setNewClass(" table-row-for-view--color")
+    }
+    else{
+      setNewClass("")
+    }
   }
 
   const handleDelete = ()=>{
@@ -21,7 +31,7 @@ const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow})
   }
 
   return (
-    <div className="table-row-for-view">
+    <div className={"table-row-for-view"+ newClass}>
       <span className="table-row-for-view__text">{tableRowData.nameCategory}</span>
       <span className="table-row-for-view__text" >{tableRowData.code}</span>
       <span className="table-row-for-view__text" >{tableRowData.name}</span>

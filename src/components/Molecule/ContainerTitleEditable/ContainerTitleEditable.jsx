@@ -6,7 +6,6 @@ import { CounterPercentage } from "../../Atom/CounterPercentage"
 import './containerTitleEditable.scss'
 
 const ContainerTitleEditable = ({nameInput,defaultValuesWallet,handleHeaderChanges}) =>{
-
     const defaultTitle = Object.assign({}, defaultValuesWallet.totalEquity)
     const [dataHeader, setDataHeader]=useState(defaultTitle)
 
@@ -15,12 +14,12 @@ const ContainerTitleEditable = ({nameInput,defaultValuesWallet,handleHeaderChang
         setDataHeader(dataHeader)
         handleHeaderChanges({
             name:newNameWallet,
-            percent:dataHeader.percentCustomed
+            percent:dataHeader.percentEquity
         })
     }
     const handleValuePercentage = (valuePercentage)=>{
         const percent = valuePercentage/100
-        dataHeader.percentCustomed= percent
+        dataHeader.percentEquity= percent
         setDataHeader({...dataHeader})
         handleHeaderChanges({
             name:dataHeader.name,
@@ -29,18 +28,18 @@ const ContainerTitleEditable = ({nameInput,defaultValuesWallet,handleHeaderChang
     }
 
     return (
-        <React.Fragment>
+        <div className="container-title-editable">
             <InputText nameInput={nameInput} 
                 defaultValue={dataHeader.name}
                 maxLength={15} 
                 onChange={(e)=>handleNameInput(e.target.value)}/>
-            <CounterPercentage valuePercent={dataHeader.percentCustomed}
+            <CounterPercentage valuePercent={dataHeader.percentEquity}
                 colorButton={"titleBlue"} 
                 maxLength={3} 
                 classNameInput = "container-title-editable__counter"
                 handleValuePercentage={(valuePercentage)=>handleValuePercentage(valuePercentage)}/> 
             <span className="container-title-editable__text">do Patrimônio</span>
-        </React.Fragment>
+        </div>
     )
 }
 

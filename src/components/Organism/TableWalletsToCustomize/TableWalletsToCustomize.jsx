@@ -1,44 +1,75 @@
-import React from "react"
 import { useState } from "react"
 import PropTypes from "prop-types"
-
+import { DataAssetsProvider } from "../../../context/dataAssets"
 import { TableRowForView } from "../../Molecule/TableRowForView"
+import { EditableTableRow } from "../../Molecule/EditableTableRow"
 import { MainButton } from "../../Atom/MainButton"
 import "./tableWalletsToCustomize.scss"
 
 const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges})=>{
-    const namesHeader = ["CATEGORIA","CÓDIGO ATIVO","DESCRIÇÃO ATIVO","% CARTEIRA ATUAL","% APOS A MUDANÇA"]
+    const namesHeader = ["CATEGORIA","CÓDIGO","DESCRIÇÃO","% DA CARTEIRA","% DESEJADA"]
     const defaultWallets = Object.assign({}, walletsToCustomize)
-    const [dataTable, setDataTable]=useState({assets:defaultWallets,changesAssets:{}})
-    const keysDataTable = Object.keys(dataTable.assets)
-    const total = getTotalAssets(dataTable,keysDataTable) 
+    const [dataTable, setDataTable]=useState(defaultWallets)  
+    const [changesAssets, setChangesAssets] = useState({})
+    const [dataEditable, setDataEditable]=useState([])  
+    const keysDataTable = Object.keys(dataTable)
+    const [allPercentages, setAllPercentages] = useState(getCodeAndPercent(keysDataTable,dataTable))
+    const total =  getTotalAssets(allPercentages)
 
     const handleValuePercentage = (valuePercentage, codeWallet)=>{
         const percent = valuePercentage/100
-        dataTable.assets[codeWallet].percentCustomed= percent
-        dataTable.changesAssets[codeWallet]={   
+        changesAssets[codeWallet]={   
             codeWallet: codeWallet,
             newInfo: percent
         }
-        setDataTable({assets: dataTable.assets, changesAssets:dataTable.changesAssets})
-        handleAssetsChanges(dataTable.changesAssets)
+        allPercentages[codeWallet] = percent
+        setChangesAssets({...changesAssets})
+        setAllPercentages({...allPercentages})
+        handleAssetsChanges(changesAssets)
     }
+    const handleDeleteRow = (codeWallet)=>{
+        delete dataTable[codeWallet]
+        allPercentages.codeWallet = 0
+        setDataTable({...dataTable})
+        setAllPercentages({...allPercentages})
+    }
+    const handleNewAssets = () =>{
+        const key = "dataEditable" + dataEditable.length
+        dataEditable.push(key)
+        setDataEditable([...dataEditable])
+    }
+    const handleDeleteEditableRow = (indice) =>{
+        dataEditable.splice(indice, 1)
+        setDataEditable([...dataEditable])
+    }   
 
     return(
         <section className="table-wallets-customize">
             <div className="table-wallets-customize__header">
                 <span className="table-wallets-customize__title">Ativos Da Carteira</span>
-                <MainButton color={"save"} size="medium" variant="outlined">+ ADICIONAR NOVO ATIVO</MainButton>
+                <MainButton color={"save"} 
+                            size="medium"
+                            onClick={()=>handleNewAssets()} 
+                            variant="outlined">+ ADICIONAR NOVO ATIVO</MainButton>
             </div>
             <div className="table-wallets-customize__columns">
                 {namesHeader.map((name)=>{    
                     return <span className="table-wallets-customize__cell" key={name}>{name}</span>
                 })}
             </div>
+            <DataAssetsProvider>
+                {dataEditable.map((key,indice)=>{
+                    return <EditableTableRow key={key} 
+                            handleValuePercentage={handleValuePercentage}
+                            handleDeleteEditableRow={()=>handleDeleteEditableRow(indice)}/>
+                     })
+                }
+            </DataAssetsProvider>
             {keysDataTable.map((codeAssets)=>
-                    dataTable.assets[codeAssets].percentCustomed>=0 &&
-                    <TableRowForView tableRowData={dataTable.assets[codeAssets]}
+                    dataTable[codeAssets] &&
+                    <TableRowForView tableRowData={dataTable[codeAssets]}
                                     handleValuePercentage={handleValuePercentage}
+                                    handleDeleteRow={handleDeleteRow}
                                 key={codeAssets}/>            
             )}
             <div className="table-wallets-customize__footer">
@@ -62,8 +93,18 @@ TableWalletsToCustomize.propTypes={
 
 export default TableWalletsToCustomize
 
-function getTotalAssets(dataTable, nameKeys){
-    return nameKeys.reduce((valueTotal, nameKey)=>{
-        return valueTotal + dataTable.assets[nameKey].percentCustomed
+function getTotalAssets(allPercentages){
+    const namesCode = Object.keys(allPercentages)
+    return namesCode.reduce((valueTotal, nameCode)=>{
+        return valueTotal + allPercentages[nameCode]
     },0)
+}
+
+function getCodeAndPercent(keysDataTable,dataTableAssets){
+    const allPercentages = {}
+    keysDataTable.forEach((nameKey)=>{
+        const code = dataTableAssets[nameKey].code
+        allPercentages[code]=dataTableAssets[nameKey].percentWallet
+    })
+    return allPercentages
 }

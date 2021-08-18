@@ -1,24 +1,15 @@
 .table-row-for-view{
     width: 100%;
     height: 3rem;
-    padding: 1rem 1rem 1rem 0rem;
+    padding: 1rem 0.5rem 1rem 0rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     border-bottom: 0.1rem solid black;
 }
 
 .table-row-for-view__text{
-    width: 8rem;
+    width: 12rem;
     margin: 0rem 0.5rem;
     text-align: center;
-}
-
-.table-row-for-view__counter{
-    width:10rem;
-    display: flex;
-}
-
-.table-row-for-view__button{
-    width: 4rem;
 }

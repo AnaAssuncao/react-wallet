@@ -4,7 +4,7 @@ import { MainButton } from "../MainButton"
 import { getColors } from "../../../utils/colors"
 import "./counterPercentage.scss"
 
-const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,classNameInput}) => {
+const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,classNameInput,style}) => {
   const value = Number((valuePercent*100).toFixed())
   const colors = getColors(colorButton)
 
@@ -26,7 +26,7 @@ const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,class
   }
   
   return (
-    <div className="counter-percentage">
+    <div className="counter-percentage" style={style}>
       <MainButton color={colorButton} size="small" variant="contained"
               onClick={() => handleChanceNumber(-1)}>-</MainButton>
         <div className="counter-percentage__value" style={{color:colors.background}}> 

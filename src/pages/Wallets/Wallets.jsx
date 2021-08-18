@@ -4,6 +4,7 @@ import { ContainerMainPage } from "../../components/Atom/ContainerMainPage"
 import { ContainerAsidePanel } from "../../components/Atom/ContainerAsidePanel"
 import {AsideMenuWallet} from "../../components/Organism/AsideMenuWallet"
 import { MainWallet } from "../../components/Organism/MainWallet"
+import { WalletsToCustomize } from "../../components/Organism/WalletsToCustomize"
 import { Loading } from'../../components/Atom/Loading'
 
 import "./wallets.scss"
@@ -51,11 +52,12 @@ const Wallets = () =>{
                     </ContainerAsidePanel>
 
                     <ContainerMainPage>
-                        {typesWallets.wallets===selectCodeWallet.type?
+                        {typesWallets.wallets===selectCodeWallet.type &&
                             <MainWallet summaryWallet={summaryWallet} selectCodeWallet={selectCodeWallet.codeWallet}/>
-                            :
-                            null
-                        }         
+                        }    
+                        {typesWallets.balanceWallets===selectCodeWallet.type &&     
+                            <WalletsToCustomize code={selectCodeWallet}/>
+                        }
                     </ContainerMainPage>
                 </React.Fragment>
                     :

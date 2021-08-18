@@ -1,6 +1,6 @@
 import equity from "../../../TestData/walletsCustomize-DataTest.json"
 
-async function getDataDefaultAssets(){
+async function getDataDefaultAssets(codeWallet){
     const tableData = {
         totalEquity:equity.totalEquity,
         assets:equity.assets

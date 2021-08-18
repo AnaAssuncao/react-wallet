@@ -12,10 +12,11 @@ const Template = (args) => <TableRowForView {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   tableRowData:{
-    category:"Ações",
+    nameCategory:"Ações",
     code:"ITUB",
-    headerName:"Itaú",
-    percentEquity:0.05
+    name:"Itaú",
+    percentWallet:0.05
   },
-  handleValuePercentage:()=>{}
+  handleValuePercentage:()=>{},
+  handleDeleteRow:()=>{}
 }

@@ -1,0 +1,135 @@
+{
+    "categories":{
+        "directTreasure":{
+            "title":"Tesouro Direto"
+        },
+        "stocks":{
+            "title":"Ações"
+        },
+        "realEstateFund":{
+            "title":"Fundo Imobiliário"
+        }
+    },
+    "assets":{
+    "directTreasure":{
+        "LFT2027":{
+            "name":"Tesouro Selic 2027",
+            "code":"LFT 2027",
+            "cnpj":"12.091.809/0001-55"
+        },
+        "NTNB2055":{
+            "name":"Tesouro IPCA+ com Juros Semestrais 2045",
+            "code":"NTN-B 2055",
+            "cnpj":"12.091.809/0001-55"
+        },
+        "NTNBPRINCIPAL":{
+            "name":"Tesouro IPCA+ 2035",
+            "code":"NTN-B PRINCIPAL 2035",
+            "cnpj":"12.091.809/0001-55"
+        },
+        "NTNF":{
+            "name":"Tesouro Prefixado com Juros Semestrais 2031",
+            "code":"NTN-F 2031",
+            "cnpj":"12.091.809/0001-55"
+        },
+        "LTN2026":{
+            "name":"Tesouro Prefixado 2026",
+            "code":"LTN 2026",
+            "cnpj":"12.091.809/0001-55"
+        }
+    },
+    "stocks":{
+        "RRRP3":{
+            "name":"3R PETROLEUM",
+            "code":"RRRP3",
+            "cnpj":"12.091.809/0001-55"
+        },
+        "QVQP3B":{
+            "name":"524 PARTICIP",
+            "code":"QVQP3B",
+            "cnpj":"01.851.771/0001-55"
+        },
+        "AERI3":{
+            "name":"AERIS",
+            "code":"AERI3",
+            "cnpj":"12.528.708/0001-07"
+        },
+        "AESB3":{
+            "name":"AES BRASIL",
+            "code":"AESB3",
+            "cnpj":"37.663.076/0001-07"
+        },
+        "TIET11":{
+            "name":"AES TIETE E",
+            "code":"AESB3",
+            "cnpj":"04.128.563/0001-10"
+        },
+        "TIET3":{
+            "name":"AES TIETE E",
+            "code":"AESB3",
+            "cnpj":"04.128.563/0001-10"
+        },
+        "TIET4":{
+            "name":"AES TIETE E",
+            "code":"AESB3",
+            "cnpj":"04.128.563/0001-10"
+        },
+        "AFLT3":{
+            "name":"AFLUENTE T",
+            "code":"AFLT3",
+            "cnpj":"10.338.320/0001-00"
+        },
+        "RPAD3":{
+            "name":"ALFA HOLDIN",
+            "code":"RPAD3",
+            "cnpj":"17.167.396/0001-69"
+        },
+        "RPAD5":{
+            "name":"ALFA HOLDIN",
+            "code":"RPAD5",
+            "cnpj":"17.167.396/0001-69"
+        },
+        "RPAD6":{
+            "name":"ALFA HOLDIN",
+            "code":"RPAD6",
+            "cnpj":"17.167.396/0001-69"
+        },
+        "ABEV3":{
+            "name":"AMBEV S/A",
+            "code":"ABEV3",
+            "cnpj":"07.526.557/0001-00"
+        },
+        "AMBP3":{
+            "name":"AMBIPAR",
+            "code":"AMBP3",
+            "cnpj":"12.648.266/0001-24"
+        }
+    },
+    "realEstateFund":{
+        "HCTR11":{
+            "name":"FII HECTARE",
+            "code":"HCTR11",
+            "cnpj":"0.248.180/0001-96"
+        },
+        "HCST11":{
+            "name":"FII HECT DES",
+            "code":"HCST11 ",
+            "cnpj":"31.152.015/0001-07"
+        },
+        "HAAA11":{
+            "name":"FII HEDGEAAA",
+            "code":"HAAA11",
+            "cnpj":"27.445.482/0001-40"
+        },
+        "ATSA11":{
+            "name":"FII HATRIUM",
+            "code":"HAAA11",
+            "cnpj":"12.809.972/0001-00"
+        },
+        "HGBS11":{
+            "name":"FII HEDGEBS",
+            "code":"HGBS11",
+            "cnpj":"08.431.747/0001-06"
+        }
+    }}
+}

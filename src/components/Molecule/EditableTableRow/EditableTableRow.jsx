@@ -5,6 +5,7 @@ import { CounterPercentage } from "../../Atom/CounterPercentage"
 import { AutocompleteInput } from "../../Atom/AutocompleteInput"
 import { MainButton } from "../../Atom/MainButton"
 import { Loading } from "../../Atom/Loading"
+import DeleteIcon from '@material-ui/icons/Delete';
 import "./editableTableRow.scss"
 
 const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
@@ -74,10 +75,12 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
           <CounterPercentage valuePercent={newAssets.percentCustomed}
             colorButton={"dark"}
             maxLength={3}
-            style={{width:"10rem"}}
+            style={{width:"12rem"}}
             handleValuePercentage={(valuePercentage)=>handleNewValueAssets(valuePercentage)}/>
-        <MainButton color={"delete"} size="medium" style={{marginLeft:"1rem"}} 
-                    onClick={handleDelete}>Deletar</MainButton>
+        <MainButton color={"delete"} size="medium"
+                    onClick={handleDelete}>
+        <DeleteIcon style={{margin:"0"}}/>    
+      </MainButton>
       </div>
       :
       <Loading className="editable-table-row__loading"/>

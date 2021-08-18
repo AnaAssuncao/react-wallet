@@ -4,6 +4,7 @@ import { DataAssetsProvider } from "../../../context/dataAssets"
 import { TableRowForView } from "../../Molecule/TableRowForView"
 import { EditableTableRow } from "../../Molecule/EditableTableRow"
 import { MainButton } from "../../Atom/MainButton"
+import AddIcon from '@material-ui/icons/Add';
 import "./tableWalletsToCustomize.scss"
 
 const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges})=>{
@@ -50,7 +51,9 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges})=>{
                 <MainButton color={"save"} 
                             size="medium"
                             onClick={()=>handleNewAssets()} 
-                            variant="outlined">+ ADICIONAR NOVO ATIVO</MainButton>
+                            variant="outlined"
+                            fontSize="0.8rem"
+                            startIcon={<AddIcon/>}>ADICIONAR NOVO ATIVO</MainButton>
             </div>
             <div className="table-wallets-customize__columns">
                 {namesHeader.map((name)=>{    

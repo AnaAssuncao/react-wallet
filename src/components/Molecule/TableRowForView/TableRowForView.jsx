@@ -2,6 +2,7 @@ import {useState} from "react"
 import PropTypes from "prop-types"
 import {CounterPercentage} from "../../Atom/CounterPercentage"
 import {MainButton} from "../../Atom/MainButton"
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import "./tableRowForView.scss"
 
@@ -39,10 +40,12 @@ const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow})
       <CounterPercentage valuePercent={percentage}
         colorButton={"dark"}
         maxLength={3}
-        style={{width:"10rem"}}
+        style={{width:"12rem"}}
         handleValuePercentage={(valuePercentage)=>handlePercentage(valuePercentage)}/>
-       <MainButton color={"delete"} size="medium" style={{marginLeft:"1rem"}} 
-                  onClick={()=>handleDelete()}>Deletar</MainButton>
+       <MainButton color={"delete"} size="medium"
+                  onClick={()=>handleDelete()}> 
+          <DeleteIcon style={{margin:"0"}}/>    
+      </MainButton>
     </div>
   )
 }

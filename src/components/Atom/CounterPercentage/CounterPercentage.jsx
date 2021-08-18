@@ -27,7 +27,7 @@ const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,class
   
   return (
     <div className="counter-percentage" style={style}>
-      <MainButton color={colorButton} size="small" variant="contained"
+      <MainButton color={colorButton} size="small" variant="contained" fontSize="1.3rem"
               onClick={() => handleChanceNumber(-1)}>-</MainButton>
         <div className="counter-percentage__value" style={{color:colors.background}}> 
             <input type="text"
@@ -37,7 +37,7 @@ const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,class
                     onChange={(e)=>handleChange(e.target.value)} 
                     />%
         </div>
-        <MainButton color={colorButton} size="small" variant="contained"
+        <MainButton color={colorButton} size="small" variant="contained" fontSize="1.3rem"
                   onClick={() => handleChanceNumber(1)}>+</MainButton>
     </div>
 

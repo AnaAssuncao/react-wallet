@@ -51,10 +51,10 @@ const WalletsToCustomize = ({codeWallet})=>{
                                         handleHeaderChanges={handleHeaderChanges}/>
                     </header>
                     <div className="wallets-customize__buttons">
-                        <MainButton color={"save"} size="large" variant="contained">SALVAR MODIFICAÇÕES</MainButton>
-                        <MainButton color={"cancel"} size="large" variant="contained" 
+                        <MainButton color={"save"} size="large" variant="contained"fontSize="1.1rem">SALVAR MODIFICAÇÕES</MainButton>
+                        <MainButton color={"cancel"} size="large" variant="contained" fontSize="1.1rem"
                                 onClick={()=>cancelWalletsChanges()}>CANCELAR MODIFICAÇÕES</MainButton>
-                        <MainButton color={"delete"} size="large" variant="contained">DELETAR CARTEIRA</MainButton>
+                        <MainButton color={"delete"} size="large" variant="contained" fontSize="..1rem">DELETAR CARTEIRA</MainButton>
                         
                     </div>
                     <TableWalletsToCustomize walletsToCustomize={defaultValuesWallet.assets} 

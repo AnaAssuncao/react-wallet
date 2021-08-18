@@ -5,7 +5,7 @@ import { getColors } from "../../../utils/colors"
 import PropTypes from "prop-types"
 import "./mainButton.scss"
 
-const MainButton = ({children,color, ...others}) => {
+const MainButton = ({children,color, fontSize, ...others}) => {
   const colors = getColors(color)
   const useStyles = makeStyles({
     root: {
@@ -13,7 +13,7 @@ const MainButton = ({children,color, ...others}) => {
       borderRadius: 3,
       border:"none",  
       color: colors.color,
-      fontSize:"1rem",
+      fontSize:fontSize,
       minWidth: "2rem",
       minHeight: "1.5rem",
       lineHeight: "1rem",

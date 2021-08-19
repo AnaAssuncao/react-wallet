@@ -7,7 +7,7 @@ import { MainButton } from "../../Atom/MainButton"
 import AddIcon from '@material-ui/icons/Add';
 import "./tableWalletsToCustomize.scss"
 
-const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges})=>{
+const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleTotalPercent})=>{
     const namesHeader = ["CATEGORIA","CÓDIGO","DESCRIÇÃO","% DA CARTEIRA","% DESEJADA"]
     const defaultWallets = Object.assign({}, walletsToCustomize)
     const [dataTable, setDataTable]=useState(defaultWallets)  
@@ -16,6 +16,7 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges})=>{
     const keysDataTable = Object.keys(dataTable)
     const [allPercentages, setAllPercentages] = useState(getCodeAndPercent(keysDataTable,dataTable))
     const total =  getTotalAssets(allPercentages)
+    handleTotalPercent(total)
 
     const handleValuePercentage = (valuePercentage, codeWallet)=>{
         const percent = valuePercentage/100

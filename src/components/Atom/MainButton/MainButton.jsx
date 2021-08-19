@@ -35,7 +35,6 @@ const MainButton = ({children,color, fontSize, ...others}) => {
 }
 
 MainButton.propTypes = {
-  children: PropTypes.string,
   color: PropTypes.string
 }
 

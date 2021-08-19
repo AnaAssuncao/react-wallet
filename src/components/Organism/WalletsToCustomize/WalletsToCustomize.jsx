@@ -2,7 +2,7 @@ import React from "react"
 import { useState,useEffect } from "react"
 import PropTypes from "prop-types"
 
-import { getDataDefaultAssets } from "./getDataAssets"
+import { getDataDefaultAssets, sendChanges } from "./getDataAssets"
 import { TableWalletsToCustomize } from "../TableWalletsToCustomize"
 import { ContainerTitleEditable } from "../../Molecule/ContainerTitleEditable"
 import { MainButton } from "../../Atom/MainButton"
@@ -10,13 +10,17 @@ import { Loading } from "../../Atom/Loading"
 
 import "./walletsToCustomize.scss"
 
-const WalletsToCustomize = ({codeWallet})=>{
+const WalletsToCustomize = ({selectCodeWallet})=>{
     const [defaultValuesWallet, setDefaultValuesWallet] = useState(null)
-    const [changes, setChanges] = useState({totalEquity:null, assets:null})
+    const [changes, setChanges] = useState({totalEquity:{}, assets:{}})
+    const [totalPercent, setTotalPercent]=useState(100)
     const nameInput = "Nome da Carteira"
 
     const handleDefaultValue = (dataAssets)=>{
         setDefaultValuesWallet(dataAssets)
+    }
+    const handleTotalPercent=(total)=>{
+        setTotalPercent(total)
     }
     const handleHeaderChanges = (newChange)=>{
         changes.totalEquity=newChange
@@ -26,17 +30,25 @@ const WalletsToCustomize = ({codeWallet})=>{
         changes.assets=newChange
         setChanges({...changes})
     }
-
     const salveWalletsChanges = ()=>{
-
+        if(totalPercent===1){
+            sendChanges(selectCodeWallet,changes)
+        }
+        else{
+            console.log("alerta")
+        }
     }
     const cancelWalletsChanges = ()=>{
         setChanges({})
     }
+    const deleteWalletChanges= ()=>{
+        changes.totalEquity.percentEquity=0
+        sendChanges(selectCodeWallet,changes)
+    }
 
     useEffect(()=>{
         (async () =>{
-            const assets= await getDataDefaultAssets(codeWallet)
+            const assets= await getDataDefaultAssets(selectCodeWallet)
             handleDefaultValue(assets)
         })()
     },[])
@@ -51,14 +63,17 @@ const WalletsToCustomize = ({codeWallet})=>{
                                         handleHeaderChanges={handleHeaderChanges}/>
                     </header>
                     <div className="wallets-customize__buttons">
-                        <MainButton color={"save"} size="large" variant="contained"fontSize="1.1rem">SALVAR MODIFICAÇÕES</MainButton>
+                        <MainButton color={"save"} size="large" variant="contained" fontSize="1.1rem"
+                                onClick={()=>salveWalletsChanges()}>SALVAR MODIFICAÇÕES</MainButton>
                         <MainButton color={"cancel"} size="large" variant="contained" fontSize="1.1rem"
                                 onClick={()=>cancelWalletsChanges()}>CANCELAR MODIFICAÇÕES</MainButton>
-                        <MainButton color={"delete"} size="large" variant="contained" fontSize="..1rem">DELETAR CARTEIRA</MainButton>
+                        <MainButton color={"delete"} size="large" variant="contained" fontSize="..1rem"
+                            onClick={()=>deleteWalletChanges()}>DELETAR CARTEIRA</MainButton>
                         
                     </div>
                     <TableWalletsToCustomize walletsToCustomize={defaultValuesWallet.assets} 
-                                            handleAssetsChanges={handleAssetsChanges}/>
+                                            handleAssetsChanges={handleAssetsChanges}
+                                            handleTotalPercent={handleTotalPercent}/>
                 </div>
             :
             <Loading className="page-wallets__loading"/>
@@ -68,7 +83,7 @@ const WalletsToCustomize = ({codeWallet})=>{
 }
 
 WalletsToCustomize.propTypes={
-    codeWallet:PropTypes.string
+    selectCodeWallet:PropTypes.object
 }
 
 export default WalletsToCustomize

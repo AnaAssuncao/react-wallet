@@ -56,7 +56,7 @@ const Wallets = () =>{
                             <MainWallet summaryWallet={summaryWallet} selectCodeWallet={selectCodeWallet.codeWallet}/>
                         }    
                         {typesWallets.balanceWallets===selectCodeWallet.type &&     
-                            <WalletsToCustomize code={selectCodeWallet}/>
+                            <WalletsToCustomize selectCodeWallet={selectCodeWallet}/>
                         }
                     </ContainerMainPage>
                 </React.Fragment>

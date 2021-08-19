@@ -8,6 +8,11 @@ async function getDataDefaultAssets(codeWallet){
     return tableData
 }
 
+function sendChanges(codeWallet,changes){
+    return true
+}
+
 export{
-    getDataDefaultAssets
+    getDataDefaultAssets,
+    sendChanges
 }

@@ -33,7 +33,6 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
         setChanges({...changes})
     }
     const handleAlert= () =>{
-        debugger
         const alert= isDisplayAlert? false:true
         setIsDisplayAlert(alert)
     }

@@ -1,7 +1,7 @@
 import {useState} from "react"
 import PropTypes from "prop-types"
 import {CounterPercentage} from "../../Atom/CounterPercentage"
-import {MainButton} from "../../Atom/MainButton"
+import {ModalAlert} from "../../Atom/ModalAlert"
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import "./tableRowForView.scss"
@@ -42,16 +42,19 @@ const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow})
         maxLength={3}
         style={{width:"12rem"}}
         handleValuePercentage={(valuePercentage)=>handlePercentage(valuePercentage)}/>
-       <MainButton color={"delete"} size="medium"
-                  onClick={()=>handleDelete()}> 
+       <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}
+                  confirmModal={()=>handleDelete()}
+                  typeMessage="deleteRow"> 
           <DeleteIcon style={{margin:"0"}}/>    
-      </MainButton>
+      </ModalAlert>
     </div>
   )
 }
 
 TableRowForView.propTypes = {
-  tableRowData: PropTypes.object
+  tableRowData: PropTypes.object,
+  handleValuePercentage:PropTypes.func,
+  handleDeleteRow:PropTypes.func
 }
 
 export default TableRowForView

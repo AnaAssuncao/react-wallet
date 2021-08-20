@@ -1,11 +1,12 @@
 import React from "react"
 import { useState,useEffect } from "react"
 import PropTypes from "prop-types"
+import Alert from '@material-ui/lab/Alert';
 
 import { getDataDefaultAssets, sendChanges } from "./getDataAssets"
 import { TableWalletsToCustomize } from "../TableWalletsToCustomize"
 import { ContainerTitleEditable } from "../../Molecule/ContainerTitleEditable"
-import { MainButton } from "../../Atom/MainButton"
+import { ModalAlert } from "../../Atom/ModalAlert"
 import { Loading } from "../../Atom/Loading"
 
 import "./walletsToCustomize.scss"
@@ -14,6 +15,7 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
     const [defaultValuesWallet, setDefaultValuesWallet] = useState(null)
     const [changes, setChanges] = useState({totalEquity:{}, assets:{}})
     const [totalPercent, setTotalPercent]=useState(100)
+    const [isDisplayAlert, setIsDisplayAlert]=useState(false)
     const nameInput = "Nome da Carteira"
 
     const handleDefaultValue = (dataAssets)=>{
@@ -30,12 +32,23 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
         changes.assets=newChange
         setChanges({...changes})
     }
+    const handleAlert= () =>{
+        debugger
+        const alert= isDisplayAlert? false:true
+        setIsDisplayAlert(alert)
+    }
     const salveWalletsChanges = ()=>{
-        if(totalPercent===1){
+        const total = 1
+        if(totalPercent===total){
             sendChanges(selectCodeWallet,changes)
+            if(isDisplayAlert){
+                handleAlert()
+            }
         }
         else{
-            console.log("alerta")
+            if(isDisplayAlert===false){
+                handleAlert()
+            }
         }
     }
     const cancelWalletsChanges = ()=>{
@@ -63,14 +76,19 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
                                         handleHeaderChanges={handleHeaderChanges}/>
                     </header>
                     <div className="wallets-customize__buttons">
-                        <MainButton color={"save"} size="large" variant="contained" fontSize="1.1rem"
-                                onClick={()=>salveWalletsChanges()}>SALVAR MODIFICAÇÕES</MainButton>
-                        <MainButton color={"cancel"} size="large" variant="contained" fontSize="1.1rem"
-                                onClick={()=>cancelWalletsChanges()}>CANCELAR MODIFICAÇÕES</MainButton>
-                        <MainButton color={"delete"} size="large" variant="contained" fontSize="..1rem"
-                            onClick={()=>deleteWalletChanges()}>DELETAR CARTEIRA</MainButton>
-                        
+                        <ModalAlert propsButton={{color:"save", size:"large", variant:"contained", fontSize:"1.1rem"}}
+                                confirmModal={salveWalletsChanges}
+                                typeMessage="saveWallet">SALVAR MODIFICAÇÕES</ModalAlert>
+                        <ModalAlert propsButton={{color:"cancel", size:"large", variant:"contained", fontSize:"1.1rem"}}
+                            confirmModal={cancelWalletsChanges}
+                            typeMessage="cancelWallet">CANCELAR MODIFICAÇÕES</ModalAlert>
+                        <ModalAlert propsButton={{color:"delete", size:"large", variant:"contained", fontSize:"1.1rem"}}
+                                confirmModal={deleteWalletChanges}
+                                typeMessage="deleteWallet">DELETAR CARTEIRA</ModalAlert>
                     </div>
+                    {isDisplayAlert &&
+                        <Alert severity="error" onClose={handleAlert}>Não foi possível salvar a carteira, complete 100% no total geral</Alert>
+                    }
                     <TableWalletsToCustomize walletsToCustomize={defaultValuesWallet.assets} 
                                             handleAssetsChanges={handleAssetsChanges}
                                             handleTotalPercent={handleTotalPercent}/>

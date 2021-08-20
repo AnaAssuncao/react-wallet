@@ -91,8 +91,9 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
 }
 
 TableWalletsToCustomize.propTypes={
-    codeWallet:PropTypes.string,
+    walletsToCustomize:PropTypes.object,
     handleAssetsChanges:PropTypes.func,
+    handleTotalPercent:PropTypes.func,
 }
 
 export default TableWalletsToCustomize

@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { DataAssetsContext } from "../../../context/dataAssets"
 import { CounterPercentage } from "../../Atom/CounterPercentage"
 import { AutocompleteInput } from "../../Atom/AutocompleteInput"
-import { MainButton } from "../../Atom/MainButton"
+import { ModalAlert } from "../../Atom/ModalAlert"
 import { Loading } from "../../Atom/Loading"
 import DeleteIcon from '@material-ui/icons/Delete';
 import "./editableTableRow.scss"
@@ -77,10 +77,11 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
             maxLength={3}
             style={{width:"12rem"}}
             handleValuePercentage={(valuePercentage)=>handleNewValueAssets(valuePercentage)}/>
-        <MainButton color={"delete"} size="medium"
-                    onClick={handleDelete}>
-        <DeleteIcon style={{margin:"0"}}/>    
-      </MainButton>
+        <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}
+                  confirmModal={()=>handleDelete()}
+                  typeMessage="deleteRow"> 
+          <DeleteIcon style={{margin:"0"}}/>    
+      </ModalAlert>
       </div>
       :
       <Loading className="editable-table-row__loading"/>

@@ -67,7 +67,7 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
             const assets= await getDataDefaultAssets(selectCodeWallet)
             handleDefaultValue(assets)
         })()
-    },[])
+    },[selectCodeWallet])
 
     return(
         <React.Fragment>

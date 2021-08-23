@@ -8,6 +8,7 @@ import { TableWalletsToCustomize } from "../TableWalletsToCustomize"
 import { ContainerTitleEditable } from "../../Molecule/ContainerTitleEditable"
 import { ModalAlert } from "../../Atom/ModalAlert"
 import { Loading } from "../../Atom/Loading"
+import returnIcon from "../../../img/return_icon.svg"
 
 import "./walletsToCustomize.scss"
 
@@ -52,12 +53,15 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
     }
     const cancelWalletsChanges = ()=>{
         setChanges({})
+        window.location.reload();
     }
     const deleteWalletChanges= ()=>{
         changes.totalEquity.percentEquity=0
         sendChanges(selectCodeWallet,changes)
     }
-
+    const backToPreviousPage= ()=>{
+        return true
+    }
     useEffect(()=>{
         (async () =>{
             const assets= await getDataDefaultAssets(selectCodeWallet)
@@ -70,6 +74,9 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
         {defaultValuesWallet?
             <div className="wallets-customize">
                     <header className="wallets-customize__header">
+                        <img src={returnIcon} loading="lazy" alt="returno" 
+                        className="wallets-customize__icon"
+                        onClick={backToPreviousPage}/>
                        <ContainerTitleEditable nameInput={nameInput} 
                                         defaultValuesWallet={defaultValuesWallet}
                                         handleHeaderChanges={handleHeaderChanges}/>

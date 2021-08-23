@@ -29,10 +29,10 @@ const Header = () =>{
                 </ContainerMenuHeader>
             </div>
             <div>
-            <div className={"header__config"}> 
-                <img src={configIcon} loading="lazy" alt="" className="header-menu-item__icon"></img>
-                <span className="header-menu-item__text">CONFIGURAÇÕES</span>
-             </div>
+                <div className={"header__config"}> 
+                    <img src={configIcon} loading="lazy" alt="Ícone Configuração" className="header-menu-item__icon"/>
+                    <span className="header-menu-item__text">CONFIGURAÇÕES</span>
+                </div>
             </div>
 
         </header>

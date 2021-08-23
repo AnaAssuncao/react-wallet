@@ -59,13 +59,13 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
     <React.Fragment>
     {allCategories?        
         <div className="editable-table-row">
-          <AutocompleteInput style={{width:"12rem",margin: "0rem 0.5rem"}} 
+          <AutocompleteInput style={{width:"20%",margin: "0rem 0.5rem"}} 
                             dataInput={allCategories} 
                             inputValue={newAssets.category.title}
                             nameLabel={"Categoria"} 
                             handleAutocomplete={handleAutocompleteCategory}/>
           
-          <AutocompleteInput style={{width:"12rem",margin: "0rem 0.5rem"}} 
+          <AutocompleteInput style={{width:"20%",margin: "0rem 0.5rem"}} 
                             dataInput={allCodes} 
                             inputValue={newAssets.code}
                             nameLabel={"Código"} 
@@ -75,7 +75,7 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
           <CounterPercentage valuePercent={newAssets.percentCustomed}
             colorButton={"dark"}
             maxLength={3}
-            style={{width:"12rem"}}
+            style={{width:"20%"}}
             handleValuePercentage={(valuePercentage)=>handleNewValueAssets(valuePercentage)}/>
         <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}
                   confirmModal={()=>handleDelete()}

@@ -64,21 +64,24 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
                     return <span className="table-wallets-customize__cell" key={name}>{name}</span>
                 })}
             </div>
-            <DataAssetsProvider>
-                {dataEditable.map((key,indice)=>{
-                    return <EditableTableRow key={key} 
-                            handleValuePercentage={handleValuePercentage}
-                            handleDeleteEditableRow={()=>handleDeleteEditableRow(indice)}/>
-                     })
-                }
-            </DataAssetsProvider>
-            {keysDataTable.map((codeAssets)=>
-                    dataTable[codeAssets] &&
-                    <TableRowForView tableRowData={dataTable[codeAssets]}
-                                    handleValuePercentage={handleValuePercentage}
-                                    handleDeleteRow={handleDeleteRow}
-                                key={codeAssets}/>            
-            )}
+            <div className="table-wallets-customize__rows">
+                <DataAssetsProvider>
+                    {dataEditable.map((key,indice)=>{
+                        return <EditableTableRow key={key} 
+                                handleValuePercentage={handleValuePercentage}
+                                handleDeleteEditableRow={()=>handleDeleteEditableRow(indice)}/>
+                        })
+                    }
+                </DataAssetsProvider>
+                {keysDataTable.map((codeAssets)=>
+                        dataTable[codeAssets] &&
+                        <TableRowForView tableRowData={dataTable[codeAssets]}
+                                        handleValuePercentage={handleValuePercentage}
+                                        handleDeleteRow={handleDeleteRow}
+                                    key={codeAssets}/>            
+                )}
+            </div>
+
             <div className="table-wallets-customize__footer">
                 <div>
                     <span className="table-wallets-customize__total">TOTAL GERAL</span>

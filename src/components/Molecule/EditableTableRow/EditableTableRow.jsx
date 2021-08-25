@@ -13,7 +13,7 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
     getCategories,
     getCode,
     getDescription }= useContext(DataAssetsContext)
-  const [newAssets,setNewAssets] = useState({category:{title:"",value:null}, code:"", description:" - ", percentCustomed:0})
+  const [newAssets,setNewAssets] = useState({category:{title:"",value:null}, code:"", description:"", percentCustomed:0})
   const allCategories =  getCategories()
   const [allCodes, setAllCodes] = useState([{title:"",value:""}])
 
@@ -27,13 +27,10 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
   const handleAutocompleteCategory=(category)=>{
     newAssets.category = category? category:{title:"",value:null}
     newAssets.code = ""
-    newAssets.description = " - "
+    newAssets.description = ""
     setNewAssets({...newAssets})
   }
   const handleAutocompleteCode = ({title,value})=>{
-    if(newAssets.code!==""){
-        handleValuePercentage(0,newAssets.code)
-    }
     newAssets.code = value
     newAssets.description = getDescription(newAssets.category.value,value)
     newAssets.percentCustomed= 0
@@ -61,13 +58,11 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
         <div className="editable-table-row">
           <AutocompleteInput style={{width:"20%",margin: "0rem 0.5rem"}} 
                             dataInput={allCategories} 
-                            inputValue={newAssets.category.title}
                             nameLabel={"Categoria"} 
                             handleAutocomplete={handleAutocompleteCategory}/>
           
           <AutocompleteInput style={{width:"20%",margin: "0rem 0.5rem"}} 
                             dataInput={allCodes} 
-                            inputValue={newAssets.code}
                             nameLabel={"Código"} 
                             handleAutocomplete={handleAutocompleteCode}/>
           <span className="editable-table-row__text" >{newAssets.description} </span>

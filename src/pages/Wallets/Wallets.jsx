@@ -12,32 +12,42 @@ import{getAllWallets} from "./getDataWallets"
 
 const Wallets = () =>{
     const [selectCodeWallet, setSelectCodeWallet ]= useState({codeWallet:null,type:null})
+    const [previusWallet,setPreviusWallet]= useState({codeWallet:null,type:null})
     const [summaryWallet, setSummaryWallet ]= useState(false)
     const typesWallets={
         wallets:"wallets",
         customWallets:"customWallets",
         balanceWallets:"balanceWallets"
     }
- 
+
+    const handlePreviusWallet=()=>{
+        const previusCode = selectCodeWallet.codeWallet
+        const previusType= selectCodeWallet.type
+        setPreviusWallet({codeWallet:previusCode,type:previusType})
+    }
     const handleCodeWallet = (selectedCodeWallet) =>{
+        handlePreviusWallet()
         setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.wallets})
     }
-
     const handleCodeCustomWallet = (selectedCodeWallet) =>{
+        handlePreviusWallet()
         setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.customWallets})
     }
-
     const handleCodeBalanceWallet = (selectedCodeWallet) =>{
+        handlePreviusWallet()
         setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.balanceWallets})
     }
-    
+    const handlePageReturn= ()=>{
+        setSelectCodeWallet({codeWallet:previusWallet.codeWallet,type:previusWallet.type})
+    }
     const handleWalletData = (allWallets)=>{
         setSelectCodeWallet({codeWallet:allWallets.defaultWallet,type:typesWallets.wallets})
+        setPreviusWallet({codeWallet:allWallets.defaultWallet,type:typesWallets.wallets})
         setSummaryWallet(allWallets)
     }
 
     useEffect(()=>{
-        (async () =>{
+        (async () =>{   
             const allWallets= await getAllWallets()
             handleWalletData(allWallets)
         })()
@@ -62,10 +72,10 @@ const Wallets = () =>{
                             <MainWallet summaryWallet={summaryWallet} selectCodeWallet={selectCodeWallet.codeWallet}/>
                         }    
                         {typesWallets.customWallets===selectCodeWallet.type &&     
-                            <WalletsToCustomize selectCodeWallet={selectCodeWallet}/>
+                            <WalletsToCustomize selectCodeWallet={selectCodeWallet} handlePageReturn={handlePageReturn}/>
                         }
                         {typesWallets.balanceWallets===selectCodeWallet.type &&     
-                            <WalletsToCustomize selectCodeWallet={selectCodeWallet}/>
+                            <WalletsToCustomize selectCodeWallet={selectCodeWallet} handlePageReturn={handlePageReturn}/>
                         }
                     </ContainerMainPage>
                 </React.Fragment>

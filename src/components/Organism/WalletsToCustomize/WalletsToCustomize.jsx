@@ -12,7 +12,7 @@ import returnIcon from "../../../img/return_icon.svg"
 
 import "./walletsToCustomize.scss"
 
-const WalletsToCustomize = ({selectCodeWallet})=>{
+const WalletsToCustomize = ({selectCodeWallet,handlePageReturn})=>{
     const [defaultValuesWallet, setDefaultValuesWallet] = useState(null)
     const [changes, setChanges] = useState({totalEquity:{}, assets:{}})
     const [totalPercent, setTotalPercent]=useState(100)
@@ -59,9 +59,7 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
         changes.totalEquity.percentEquity=0
         sendChanges(selectCodeWallet,changes)
     }
-    const backToPreviousPage= ()=>{
-        return true
-    }
+
     useEffect(()=>{
         (async () =>{
             const assets= await getDataDefaultAssets(selectCodeWallet)
@@ -76,7 +74,7 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
                     <header className="wallets-customize__header">
                         <img src={returnIcon} loading="lazy" alt="returno" 
                         className="wallets-customize__icon"
-                        onClick={backToPreviousPage}/>
+                        onClick={handlePageReturn}/>
                        <ContainerTitleEditable nameInput={nameInput} 
                                         defaultValuesWallet={defaultValuesWallet}
                                         handleHeaderChanges={handleHeaderChanges}/>

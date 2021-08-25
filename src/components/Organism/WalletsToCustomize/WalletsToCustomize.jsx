@@ -93,7 +93,11 @@ const WalletsToCustomize = ({selectCodeWallet})=>{
                                 typeMessage="deleteWallet">DELETAR CARTEIRA</ModalAlert>
                     </div>
                     {isDisplayAlert &&
-                        <Alert severity="error" onClose={handleAlert}>Não foi possível salvar a carteira, complete 100% no total geral</Alert>
+                    <div className="wallets-customize__alert">
+                        <Alert severity="error" 
+                        style={{height:"2rem", padding:"5px", display:"flex", alignItems:"center"}} 
+                        onClose={handleAlert}>Não foi possível salvar a carteira, complete 100% no total geral</Alert>
+                    </div>
                     }
                     <TableWalletsToCustomize walletsToCustomize={defaultValuesWallet.assets} 
                                             handleAssetsChanges={handleAssetsChanges}

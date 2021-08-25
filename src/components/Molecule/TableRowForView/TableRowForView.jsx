@@ -38,15 +38,17 @@ const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow})
       <span className="table-row-for-view__text" >{tableRowData.description}</span>
       <span className="table-row-for-view__text" >{tableRowData.percentWallet*100}%</span>
       <CounterPercentage valuePercent={percentage}
-        colorButton={"dark"}
-        maxLength={3}
-        style={{width:"20%"}}
-        handleValuePercentage={(valuePercentage)=>handlePercentage(valuePercentage)}/>
-       <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}
-                  confirmModal={()=>handleDelete()}
-                  typeMessage="deleteRow"> 
-          <DeleteIcon style={{margin:"0"}}/>    
-      </ModalAlert>
+          colorButton={"dark"}
+          maxLength={3}
+          style={{width:"20%"}}
+          handleValuePercentage={(valuePercentage)=>handlePercentage(valuePercentage)}/>
+        <div className="table-row-for-view__button">
+          <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}
+                    confirmModal={()=>handleDelete()}
+                    typeMessage="deleteRow"> 
+            <DeleteIcon style={{margin:"0"}}/>    
+          </ModalAlert>
+        </div>
     </div>
   )
 }

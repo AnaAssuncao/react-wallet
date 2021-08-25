@@ -77,11 +77,13 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
             maxLength={3}
             style={{width:"20%"}}
             handleValuePercentage={(valuePercentage)=>handleNewValueAssets(valuePercentage)}/>
-        <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}
-                  confirmModal={()=>handleDelete()}
-                  typeMessage="deleteRow"> 
-          <DeleteIcon style={{margin:"0"}}/>    
-      </ModalAlert>
+          <div className="table-row-for-view__button">
+            <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}
+                      confirmModal={()=>handleDelete()}
+                      typeMessage="deleteRow"> 
+              <DeleteIcon style={{margin:"0"}}/>    
+            </ModalAlert>
+          </div>
       </div>
       :
       <Loading className="editable-table-row__loading"/>

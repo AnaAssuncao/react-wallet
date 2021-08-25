@@ -53,7 +53,11 @@ const WalletsToCustomize = ({selectCodeWallet,handlePageReturn})=>{
     }
     const cancelWalletsChanges = ()=>{
         setChanges({})
-        window.location.reload();
+        const data = {...defaultValuesWallet}
+        setDefaultValuesWallet(null)
+        setTimeout(()=>{
+            setDefaultValuesWallet(data)
+        },500)
     }
     const deleteWalletChanges= ()=>{
         changes.totalEquity.percentEquity=0

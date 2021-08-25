@@ -3124,7 +3124,7 @@
     }
 
     .ag-cell-label-container{
-      justify-content: center;
+      flex-direction: row;
     }
     .ag-header-group-cell-label, .ag-header-cell-label{
       flex: 0 auto;

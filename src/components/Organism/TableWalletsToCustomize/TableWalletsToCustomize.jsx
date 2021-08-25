@@ -6,6 +6,7 @@ import { EditableTableRow } from "../../Molecule/EditableTableRow"
 import { MainButton } from "../../Atom/MainButton"
 import AddIcon from '@material-ui/icons/Add';
 import "./tableWalletsToCustomize.scss"
+import { useEffect } from "react"
 
 const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleTotalPercent})=>{
     const namesHeader = ["CATEGORIA","CÓDIGO","DESCRIÇÃO","% DA CARTEIRA","% DESEJADA"]
@@ -16,7 +17,10 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
     const keysDataTable = Object.keys(dataTable)
     const [allPercentages, setAllPercentages] = useState(getCodeAndPercent(keysDataTable,dataTable))
     const total =  getTotalAssets(allPercentages)
-    handleTotalPercent(total)
+
+    useEffect(()=>{
+        handleTotalPercent(total)
+    },[allPercentages])
 
     const handleValuePercentage = (valuePercentage, codeWallet)=>{
         const percent = valuePercentage/100

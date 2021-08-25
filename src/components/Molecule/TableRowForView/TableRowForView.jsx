@@ -30,12 +30,12 @@ const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow})
     handleValuePercentage(percent,tableRowData.code)
     handleDeleteRow(tableRowData.code)
   }
-
+  
   return (
     <div className={"table-row-for-view"+ newClass}>
       <span className="table-row-for-view__text">{tableRowData.nameCategory}</span>
       <span className="table-row-for-view__text" >{tableRowData.code}</span>
-      <span className="table-row-for-view__text" >{tableRowData.name}</span>
+      <span className="table-row-for-view__text" >{tableRowData.description}</span>
       <span className="table-row-for-view__text" >{tableRowData.percentWallet*100}%</span>
       <CounterPercentage valuePercent={percentage}
         colorButton={"dark"}

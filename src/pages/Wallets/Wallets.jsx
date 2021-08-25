@@ -15,14 +15,19 @@ const Wallets = () =>{
     const [summaryWallet, setSummaryWallet ]= useState(false)
     const typesWallets={
         wallets:"wallets",
+        customWallets:"customWallets",
         balanceWallets:"balanceWallets"
     }
  
-    const handleSelectCodeWallet = (selectedCodeWallet) =>{
+    const handleCodeWallet = (selectedCodeWallet) =>{
         setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.wallets})
     }
 
-    const handleSelectCodeBalanceWallet = (selectedCodeWallet) =>{
+    const handleCodeCustomWallet = (selectedCodeWallet) =>{
+        setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.customWallets})
+    }
+
+    const handleCodeBalanceWallet = (selectedCodeWallet) =>{
         setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.balanceWallets})
     }
     
@@ -46,8 +51,9 @@ const Wallets = () =>{
                         <AsideMenuWallet 
                             summaryWallet={summaryWallet}
                             selectCodeWallet={selectCodeWallet.codeWallet}
-                            handleSelectCodeWallet={handleSelectCodeWallet}
-                            handleSelectCodeBalanceWallet={handleSelectCodeBalanceWallet}
+                            handleCodeWallet={handleCodeWallet}
+                            handleCodeCustomWallet = {handleCodeCustomWallet}
+                            handleCodeBalanceWallet={handleCodeBalanceWallet}
                             />
                     </ContainerAsidePanel>
 
@@ -55,6 +61,9 @@ const Wallets = () =>{
                         {typesWallets.wallets===selectCodeWallet.type &&
                             <MainWallet summaryWallet={summaryWallet} selectCodeWallet={selectCodeWallet.codeWallet}/>
                         }    
+                        {typesWallets.customWallets===selectCodeWallet.type &&     
+                            <WalletsToCustomize selectCodeWallet={selectCodeWallet}/>
+                        }
                         {typesWallets.balanceWallets===selectCodeWallet.type &&     
                             <WalletsToCustomize selectCodeWallet={selectCodeWallet}/>
                         }

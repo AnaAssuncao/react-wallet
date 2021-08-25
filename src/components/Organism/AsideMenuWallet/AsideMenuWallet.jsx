@@ -7,7 +7,7 @@ import sum from "../../../img/sum_icon.svg"
 
 import './asideMenuWallet.scss'
 
-const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet,handleSelectCodeBalanceWallet})=>{
+const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleCodeWallet,handleCodeCustomWallet,handleCodeBalanceWallet})=>{
     const arrayCategoriesSumary = Object.keys(summaryWallet.categories) 
     const arrayCodeWallets =  Object.keys(summaryWallet.wallets) 
     const getCategoryWallets= (nameCategory) =>{
@@ -16,6 +16,7 @@ const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet,
 
     const listSelectWallets = arrayCategoriesSumary.map((nameCategory)=>{
         const listWallets = getCategoryWallets(nameCategory,arrayCodeWallets)
+        const handleSelectCodeWallet = summaryWallet.categories[nameCategory].addNewWallet===true? handleCodeCustomWallet:handleCodeWallet
         return <SelectWallet 
                     key={nameCategory}
                     summaryWallet = {summaryWallet}
@@ -43,7 +44,7 @@ const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet,
                     summaryWallet = {summaryWallet}
                     listWallets={listBalanceWallets}
                     selectCode={selectCodeWallet} 
-                    handleSelectCodeWallet={handleSelectCodeBalanceWallet}/>
+                    handleSelectCodeWallet={handleCodeBalanceWallet}/>
             </div>
         </aside>
     )
@@ -52,7 +53,9 @@ const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleSelectCodeWallet,
 AsideMenuWallet.propTypes={
     summaryWallets:PropTypes.object,
     selectCodeWallet:PropTypes.string,
-    handleSelectCodeWallet:PropTypes.func
+    handleCodeWallet:PropTypes.func,
+    handleCodeCustomWallet:PropTypes.func,
+    handleCodeBalanceWallet:PropTypes.func
 }
 
 export default AsideMenuWallet

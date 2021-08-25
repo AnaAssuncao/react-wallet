@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { DataAssetsProvider } from "../../../context/dataAssets"
 import { TableRowForView } from "../../Molecule/TableRowForView"
@@ -6,7 +6,6 @@ import { EditableTableRow } from "../../Molecule/EditableTableRow"
 import { MainButton } from "../../Atom/MainButton"
 import AddIcon from '@material-ui/icons/Add';
 import "./tableWalletsToCustomize.scss"
-import { useEffect } from "react"
 
 const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleTotalPercent})=>{
     const namesHeader = ["CATEGORIA","CÓDIGO","DESCRIÇÃO","% DA CARTEIRA","% DESEJADA"]

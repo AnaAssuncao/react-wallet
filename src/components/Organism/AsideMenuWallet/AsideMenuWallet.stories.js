@@ -16,5 +16,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   summaryWallet:summaryWallet,
   selectCodeWallet:summaryWallet.defaultWallet,
-  handleSelectCodeWallet:()=>{}
+  handleCodeWallet:()=>{},
+  handleCodeCustomWallet:()=>{},
+  handleCodeBalanceWallet:()=>{}
 }

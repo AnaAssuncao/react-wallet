@@ -40,8 +40,8 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
     }
     const handleNewAssets = () =>{
         const key = "dataEditable" + dataEditable.length
-        dataEditable.push(key)
-        setDataEditable([...dataEditable])
+        const newArray = [key].concat(dataEditable)
+        setDataEditable(newArray)
     }
     const handleDeleteEditableRow = (indice) =>{
         dataEditable.splice(indice, 1)

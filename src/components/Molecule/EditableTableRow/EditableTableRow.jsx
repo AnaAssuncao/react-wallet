@@ -70,7 +70,7 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
           <CounterPercentage valuePercent={newAssets.percentCustomed}
             colorButton={"dark"}
             maxLength={3}
-            style={{width:"20%"}}
+            widthContainer={"20%"}
             handleValuePercentage={(valuePercentage)=>handleNewValueAssets(valuePercentage)}/>
           <div className="table-row-for-view__button">
             <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}

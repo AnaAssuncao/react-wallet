@@ -3,9 +3,11 @@ import PropTypes from "prop-types"
 import { getColors } from "../../../utils/colors"
 import "./counterPercentage.scss"
 
-const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,classNameInput,style}) => {
+const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,widthContainer,fontSize}) => {
   const value = Number((valuePercent*100).toFixed())
   const colors = getColors(colorButton)
+  const fontSizeInput = fontSize? fontSize:1
+  const widthInput = fontSizeInput * 2 + "rem"
 
   const handleChange = (valueChance) =>{
     if(valueChance>0 && valueChance<100){
@@ -24,14 +26,14 @@ const CounterPercentage = ({valuePercent,colorButton,handleValuePercentage,class
   }
   
   return (
-    <div className="counter-percentage" style={style}>
+    <div className="counter-percentage" style={{width:widthContainer}}>
         <button className="counter-percentage__button" 
                 style={{backgroundColor:colors.background}}
                 onClick={() => handleChanceNumber(-1)}>-</button>
-        <div className="counter-percentage__value" style={{color:colors.background}}> 
+        <div className="counter-percentage__value" style={{color:colors.background, fontSize:fontSizeInput+"rem"}}> 
             <input type="text"
-                    style={{color:colors.background}}
-                    className={"counter-percentage__input " + classNameInput}
+                    className={"counter-percentage__input"}
+                    style={{color:colors.background, width:widthInput, fontSize:fontSizeInput+"rem"}}
                     value={value}
                     onChange={(e)=>handleChange(e.target.value)} 
                     />%

@@ -13,8 +13,8 @@ export const Primary = Template.bind({})
 Primary.args = {
   valuePercent:0.50,
   colorButton:"dark",
-  classNameInput:"",
   maxLength:3,
+  width:"10rem",
   handleValuePercentage:()=>{}
 }
 

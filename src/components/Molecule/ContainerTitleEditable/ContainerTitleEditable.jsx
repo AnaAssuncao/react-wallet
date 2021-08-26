@@ -36,7 +36,7 @@ const ContainerTitleEditable = ({nameInput,defaultValuesWallet,handleHeaderChang
             <CounterPercentage valuePercent={dataHeader.percentEquity}
                 colorButton={"titleBlue"} 
                 maxLength={3} 
-                classNameInput = "container-title-editable__counter"
+                fontSize={1.5}
                 handleValuePercentage={(valuePercentage)=>handleValuePercentage(valuePercentage)}/> 
             <span className="container-title-editable__text">do Patrimônio</span>
         </div>

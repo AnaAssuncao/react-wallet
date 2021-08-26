@@ -40,7 +40,8 @@ const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow})
       <CounterPercentage valuePercent={percentage}
           colorButton={"dark"}
           maxLength={3}
-          style={{width:"20%"}}
+          widthContainer={"20%"}
+          fontSize={1}
           handleValuePercentage={(valuePercentage)=>handlePercentage(valuePercentage)}/>
         <div className="table-row-for-view__button">
           <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}

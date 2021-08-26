@@ -4,6 +4,7 @@ import { DataAssetsProvider } from "../../../context/dataAssets"
 import { TableRowForView } from "../../Molecule/TableRowForView"
 import { EditableTableRow } from "../../Molecule/EditableTableRow"
 import { MainButton } from "../../Atom/MainButton"
+import { TotalWallet } from "../../Atom/TotalWallet"
 import AddIcon from '@material-ui/icons/Add';
 import "./tableWalletsToCustomize.scss"
 
@@ -83,14 +84,7 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
             </div>
 
             <div className="table-wallets-customize__footer">
-                <div>
-                    <span className="table-wallets-customize__total">TOTAL GERAL</span>
-                    <span className="table-wallets-customize__value-total">{(total*100).toFixed()} %</span>
-                </div>
-                {total>1 &&
-                    <p className="table-wallets-customize__text-alert">Valor acima de 100%</p>}
-                {total>0 && total<1 &&
-                    <p className="table-wallets-customize__text-alert">Complete até 100%</p>}
+                <TotalWallet total={total}/>
             </div>
         </section>
     ) 

@@ -1,0 +1,27 @@
+.total-wallet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.total-wallet__container{
+    width: 18rem;
+    display: flex;
+    justify-content: space-between;
+}
+.total-wallet__text{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.total-wallet__value{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.total-wallet__text--red{
+    color:#c70e50;
+}
+.total-wallet__alert{
+    font-size: 1rem;
+    font-weight: 700;
+    color:#c70e50;
+    margin: 0.3rem 1.3rem;
+}

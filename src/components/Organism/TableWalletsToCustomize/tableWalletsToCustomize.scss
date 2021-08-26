@@ -34,7 +34,7 @@
 }
 .table-wallets-customize__rows{
     width: 100%;
-    max-height: 95%;
+    max-height: 60%;
     overflow-y: scroll;
 }
 .table-wallets-customize__rows::-webkit-scrollbar {
@@ -50,28 +50,9 @@
 }
 .table-wallets-customize__footer{
     width: 100%;
+    height:4rem;
     margin-top: 0.3rem;
     padding-right: 17%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-}
-.table-wallets-customize__total{
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-right: 5rem;
-    margin-left: 1rem;
-}
-.table-wallets-customize__value-total{
-    font-size: 1.6rem;
-    font-weight: 700;
-}
-
-.table-wallets-customize__text-alert{
-    font-size: 1rem;
-    font-size: 1rem;
-    font-weight: 700;
-    color:#c70e50;
-    margin: 0.3rem 1.3rem;
+    justify-content: flex-end;
 }

@@ -5,12 +5,11 @@ import "./totalWallet.scss"
 const TotalWallet = ({total}) => {
   if(total===1){
     return (
-    <div className="total-wallet">
+    <div className="total-wallet total-wallet--margin">
         <div className="total-wallet__container">
             <span className="total-wallet__text">TOTAL GERAL</span>
             <span className="total-wallet__value">{(total*100).toFixed()} %</span>
         </div>
-        <p className="total-wallet__alert"></p>
     </div>
     )
   }

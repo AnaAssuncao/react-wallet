@@ -8,7 +8,7 @@ import AddIcon from '@material-ui/icons/Add';
 import "./tableWalletsToCustomize.scss"
 
 const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleTotalPercent})=>{
-    const namesHeader = ["CATEGORIA","CÓDIGO","DESCRIÇÃO","% DA CARTEIRA","% DESEJADA"]
+    const namesHeader = ["CATEGORIA","CÓDIGO","DESCRIÇÃO","% DA CARTEIRA","% DESEJADO"]
     const defaultWallets = Object.assign({}, walletsToCustomize)
     const [dataTable, setDataTable]=useState(defaultWallets)  
     const [changesAssets, setChangesAssets] = useState({})

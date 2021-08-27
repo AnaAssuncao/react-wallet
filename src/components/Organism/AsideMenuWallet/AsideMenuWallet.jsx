@@ -7,7 +7,7 @@ import sum from "../../../img/sum_icon.svg"
 
 import './asideMenuWallet.scss'
 
-const AsideMenuWallet = ({summaryWallet,selectedWalletCode,handleCodeWallet,handleCodeBalanceWallet})=>{
+const AsideMenuWallet = ({summaryWallet,selectedWalletCode,handleCodeWallet,handleCodeBalanceWallet,addNewCustomWallet})=>{
     const arrayCategoriesSumary = Object.keys(summaryWallet.categories) 
     const arrayCodeWallets =  Object.keys(summaryWallet.wallets) 
     const getCategoryWallets= (nameCategory) =>{
@@ -32,7 +32,7 @@ const AsideMenuWallet = ({summaryWallet,selectedWalletCode,handleCodeWallet,hand
             <div className="aside-menu-wallet__container">
                 <div className="aside-menu-wallet__title">Minhas Carteiras</div>
                 {listSelectWallets}
-                <AsideButton>
+                <AsideButton onClick={addNewCustomWallet}>
                     <img src={sum} alt="" className="aside-button__icon"></img>
                     <span className="aside-button__text">Nova Carteira</span>
                 </AsideButton>
@@ -54,7 +54,8 @@ AsideMenuWallet.propTypes={
     selectedWalletCode:PropTypes.string,
     handleCodeWallet:PropTypes.func,
     handleCodeCustomWallet:PropTypes.func,
-    handleCodeBalanceWallet:PropTypes.func
+    handleCodeBalanceWallet:PropTypes.func,
+    addNewCustomWallet:PropTypes.func
 }
 
 export default AsideMenuWallet

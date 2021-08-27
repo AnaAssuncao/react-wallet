@@ -21,7 +21,7 @@ const TotalWallet = ({total}) => {
         </div>
         {total>1 &&
           <p className="total-wallet__alert">Valor acima de 100%</p>}
-        {total>0 && total<1 &&
+        {total>=0 && total<1 &&
           <p className="total-wallet__alert">Complete até 100%</p>}
   </div>
   )

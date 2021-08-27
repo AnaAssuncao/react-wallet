@@ -20,7 +20,7 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
 
     useEffect(()=>{
         handleTotalPercent(total)
-    },[allPercentages])
+    },[allPercentages,total])
 
     const handleValuePercentage = (valuePercentage, codeWallet)=>{
         const percent = valuePercentage/100
@@ -33,21 +33,25 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
         setAllPercentages({...allPercentages})
         handleAssetsChanges(changesAssets)
     }
-    const handleDeleteRow = (codeWallet)=>{
+    const deleteRow = (codeWallet)=>{
         delete dataTable[codeWallet]
         allPercentages.codeWallet = 0
         setDataTable({...dataTable})
         setAllPercentages({...allPercentages})
     }
-    const handleNewAssets = () =>{
+    const addNewAssets = () =>{
         const key = "dataEditable" + dataEditable.length
         const newArray = [key].concat(dataEditable)
         setDataEditable(newArray)
     }
-    const handleDeleteEditableRow = (indice) =>{
+    const deleteEditableRow = (indice) =>{
         dataEditable.splice(indice, 1)
         setDataEditable([...dataEditable])
     }   
+
+    if(keysDataTable.length===0 && dataEditable.length===0){
+        addNewAssets()
+    }
 
     return(
         <section className="table-wallets-customize">
@@ -55,7 +59,7 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
                 <span className="table-wallets-customize__title">Ativos Da Carteira</span>
                 <MainButton color={"save"} 
                             size="medium"
-                            onClick={()=>handleNewAssets()} 
+                            onClick={()=>addNewAssets()} 
                             variant="outlined"
                             fontSize="0.8rem"
                             startIcon={<AddIcon/>}>ADICIONAR NOVO ATIVO</MainButton>
@@ -69,8 +73,8 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
                 <DataAssetsProvider>
                     {dataEditable.map((key,indice)=>{
                         return <EditableTableRow key={key} 
-                                handleValuePercentage={handleValuePercentage}
-                                handleDeleteEditableRow={()=>handleDeleteEditableRow(indice)}/>
+                                    handleValuePercentage={handleValuePercentage}
+                                    deleteEditableRow={()=>deleteEditableRow(indice)}/>
                         })
                     }
                 </DataAssetsProvider>
@@ -78,7 +82,7 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
                         dataTable[codeAssets] &&
                         <TableRowForView tableRowData={dataTable[codeAssets]}
                                         handleValuePercentage={handleValuePercentage}
-                                        handleDeleteRow={handleDeleteRow}
+                                        deleteRow={deleteRow}
                                     key={codeAssets}/>            
                 )}
             </div>

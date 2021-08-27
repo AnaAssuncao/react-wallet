@@ -113,7 +113,8 @@ const WalletsToCustomize = ({selectedWalletCode,handlePageReturn})=>{
 }
 
 WalletsToCustomize.propTypes={
-    selectedWalletCode:PropTypes.object
+    selectedWalletCode:PropTypes.string,
+    handlePageReturn:PropTypes.func
 }
 
 export default WalletsToCustomize

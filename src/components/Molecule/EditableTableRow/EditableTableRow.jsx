@@ -8,7 +8,7 @@ import { Loading } from "../../Atom/Loading"
 import DeleteIcon from '@material-ui/icons/Delete';
 import "./editableTableRow.scss"
 
-const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
+const EditableTableRow = ({handleValuePercentage,deleteEditableRow}) => {
   const {
     getCategories,
     getCode,
@@ -40,7 +40,7 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
   const handleDelete = ()=>{
     const percent= 0
     handleValuePercentage(percent,newAssets.code)
-    handleDeleteEditableRow()
+    deleteEditableRow()
   }
 
   useEffect(()=>{
@@ -89,7 +89,7 @@ const EditableTableRow = ({handleValuePercentage,handleDeleteEditableRow}) => {
 
 EditableTableRow.propTypes = {
   handleValuePercentage:PropTypes.func,
-  handleDeleteEditableRow:PropTypes.func
+  deleteEditableRow:PropTypes.func
 }
 
 export default EditableTableRow

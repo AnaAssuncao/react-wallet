@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './asideButton.scss'
 
-const AsideButton = ({children}) => {
+const AsideButton = ({children,...others}) => {
   return (
-    <button type="button"  className= "aside-button" onClick={()=>{console.log("Nova Carteira")}}>
+    <button type="button"  className= "aside-button" {...others}>
       {children}
     </button>
   )

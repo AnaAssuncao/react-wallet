@@ -13,5 +13,12 @@ const Template = (args) => <WalletsToCustomize {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
+  selectedWalletCode: "allAssets",
+  handlePageReturn:()=>{}
+};
 
+export const Secundary = Template.bind({});
+Secundary.args = {
+  selectedWalletCode: null,
+  handlePageReturn:()=>{}
 };

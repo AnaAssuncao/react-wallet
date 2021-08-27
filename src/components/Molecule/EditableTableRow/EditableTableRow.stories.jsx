@@ -13,5 +13,5 @@ const Template = (args) =>     <DataAssetsProvider><EditableTableRow {...args} /
 export const Primary = Template.bind({});
 Primary.args = {
   handleValuePercentage:()=>{},
-  handleDeleteEditableRow:()=>{}
+  deleteEditableRow:()=>{}
 }

@@ -1,11 +1,23 @@
 import equity from "../../../TestData/walletsCustomize-DataTest.json"
 
 async function getDataDefaultAssets(codeWallet){
-    const tableData = {
-        totalEquity:equity.totalEquity,
-        assets:equity.assets
+    if(codeWallet){
+        const tableData = {
+            totalEquity:equity.totalEquity,
+            assets:equity.assets
+        }
+        return tableData
     }
-    return tableData
+
+    const newData = {
+            totalEquity:{
+                category:"customWallets",
+                name:"Nova Carteira",
+                percentEquity:1
+            },
+            assets:{}
+    }
+    return newData
 }
 
 function sendChanges(codeWallet,changes){

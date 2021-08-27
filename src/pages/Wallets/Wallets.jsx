@@ -45,6 +45,9 @@ const Wallets = () =>{
     const handlePageReturn = ()=> {
         changeWalletPage(walletSetup.previus.codeWallet,walletSetup.previus.type)
     }
+    const addNewCustomWallet = () =>{
+        changeWalletPage(null,typesWallets.customWallets)
+    }
     const handleWalletData = (allWallets)=>{
         walletSetup.summaryWallet=allWallets
         walletSetup.current.codeWallet = allWallets.defaultWallet
@@ -69,6 +72,7 @@ const Wallets = () =>{
                             selectedWalletCode={walletSetup.current.codeWallet}
                             handleCodeWallet={handleCodeWallet}
                             handleCodeBalanceWallet={handleCodeBalanceWallet}
+                            addNewCustomWallet={addNewCustomWallet}
                             />
                     </ContainerAsidePanel>
 
@@ -80,7 +84,7 @@ const Wallets = () =>{
                             />
                         }    
                         {typesWallets.customWallets===walletSetup.current.type &&     
-                            <WalletsToCustomize selectedWalletCode={walletSetup} handlePageReturn={handlePageReturn}/>
+                            <WalletsToCustomize selectedWalletCode={walletSetup.current.codeWallet} handlePageReturn={handlePageReturn}/>
                         }
                         {/* {typesWallets.balanceWallets===walletSetup.current.type &&     
                             <WalletsToCustomize selectedWalletCode={walletSetup} handlePageReturn={handlePageReturn}/>

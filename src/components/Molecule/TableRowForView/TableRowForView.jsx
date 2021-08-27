@@ -6,7 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 import "./tableRowForView.scss"
 
-const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow}) => {
+const TableRowForView = ({tableRowData, handleValuePercentage, deleteRow}) => {
   const [percentage, setPercentage] = useState(tableRowData.percentWallet)
   const [newClass,setNewClass] = useState("")
 
@@ -28,7 +28,7 @@ const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow})
   const handleDelete = ()=>{
     const percent= 0
     handleValuePercentage(percent,tableRowData.code)
-    handleDeleteRow(tableRowData.code)
+    deleteRow(tableRowData.code)
   }
   
   return (
@@ -57,7 +57,7 @@ const TableRowForView = ({tableRowData, handleValuePercentage, handleDeleteRow})
 TableRowForView.propTypes = {
   tableRowData: PropTypes.object,
   handleValuePercentage:PropTypes.func,
-  handleDeleteRow:PropTypes.func
+  deleteRow:PropTypes.func
 }
 
 export default TableRowForView

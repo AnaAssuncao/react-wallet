@@ -18,5 +18,5 @@ Primary.args = {
     percentWallet:0.05
   },
   handleValuePercentage:()=>{},
-  handleDeleteRow:()=>{}
+  deleteRow:()=>{}
 }

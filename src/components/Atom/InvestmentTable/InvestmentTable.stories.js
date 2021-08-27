@@ -1,7 +1,9 @@
 import React from 'react';
 import InvestmentTable from './InvestmentTable';
 import {numberToCurrenty} from "../../../utils/convertData"
-import assetsTabela from "../../../TestData/tableAssets-DataTest.json"
+import {modifyTest} from "../../../TestData/createDataAssets"
+
+const assetsTabela = modifyTest()
 
 const chancedRows =[]
 assetsTabela.assets.stocks.rows.forEach((asset,ind)=>{

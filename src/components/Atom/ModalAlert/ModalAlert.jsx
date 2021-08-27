@@ -17,15 +17,29 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     width: "20rem",
     height: "10rem",
-    backgroundColor: "#fcfcfc",
-    border: "2px solid #000",
+    backgroundColor: "rgba(255,255,255,0.9)",
+    border: "1px solid #000",
     boxShadow: theme.shadows[5],
+    fontWeight:"600!important",
     padding: "2rem",
     top: "40%",
     left: "45%",
     display:"flex", 
     flexDirection:"column",
-    justifyContent: "space-between  "
+    justifyContent: "space-between",
+    alignItems:"center"
+  },
+  buttonClose:{
+    position:"absolute", 
+    top:"0.1rem", 
+    right:"0.5rem", 
+    color:"#c0c0c0",
+    cursor:"pointer"
+  },
+  containerButtons:{
+    width:"100%", 
+    display:"flex", 
+    justifyContent:"space-around"
   }
 }))
 
@@ -46,8 +60,9 @@ const ModalAlert =({propsButton,confirmModal,typeMessage,children})=> {
 
   const body = (
     <div className={classes.paper}>
+      <div className={classes.buttonClose} onClick={handleClose}> x</div>
       <span>{messages[typeMessage]}</span>
-      <div style={{display:"flex", justifyContent: "space-around" }}>
+      <div className={classes.containerButtons}>
          <MainButton color="save" size="medium" variant="contained" fontSize="1rem" onClick={handleConfirmModal}>
             Sim
         </MainButton>
@@ -66,8 +81,6 @@ const ModalAlert =({propsButton,confirmModal,typeMessage,children})=> {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
       >
         {body}
       </Modal>

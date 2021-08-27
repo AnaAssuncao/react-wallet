@@ -12,7 +12,7 @@ import returnIcon from "../../../img/return_icon.svg"
 
 import "./walletsToCustomize.scss"
 
-const WalletsToCustomize = ({selectCodeWallet,handlePageReturn})=>{
+const WalletsToCustomize = ({selectedWalletCode,handlePageReturn})=>{
     const [defaultValuesWallet, setDefaultValuesWallet] = useState(null)
     const [changes, setChanges] = useState({totalEquity:{}, assets:{}})
     const [totalPercent, setTotalPercent]=useState(100)
@@ -40,7 +40,7 @@ const WalletsToCustomize = ({selectCodeWallet,handlePageReturn})=>{
     const salveWalletsChanges = ()=>{
         const total = 1
         if(totalPercent===total){
-            sendChanges(selectCodeWallet,changes)
+            sendChanges(selectedWalletCode,changes)
             if(isDisplayAlert){
                 handleAlert()
             }
@@ -61,15 +61,15 @@ const WalletsToCustomize = ({selectCodeWallet,handlePageReturn})=>{
     }
     const deleteWalletChanges= ()=>{
         changes.totalEquity.percentEquity=0
-        sendChanges(selectCodeWallet,changes)
+        sendChanges(selectedWalletCode,changes)
     }
 
     useEffect(()=>{
         (async () =>{
-            const assets= await getDataDefaultAssets(selectCodeWallet)
+            const assets= await getDataDefaultAssets(selectedWalletCode)
             handleDefaultValue(assets)
         })()
-    },[selectCodeWallet])
+    },[selectedWalletCode])
 
     return(
         <React.Fragment>
@@ -113,7 +113,7 @@ const WalletsToCustomize = ({selectCodeWallet,handlePageReturn})=>{
 }
 
 WalletsToCustomize.propTypes={
-    selectCodeWallet:PropTypes.object
+    selectedWalletCode:PropTypes.object
 }
 
 export default WalletsToCustomize

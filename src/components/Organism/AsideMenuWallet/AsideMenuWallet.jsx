@@ -7,7 +7,7 @@ import sum from "../../../img/sum_icon.svg"
 
 import './asideMenuWallet.scss'
 
-const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleCodeWallet,handleCodeCustomWallet,handleCodeBalanceWallet})=>{
+const AsideMenuWallet = ({summaryWallet,selectedWalletCode,handleCodeWallet,handleCodeBalanceWallet})=>{
     const arrayCategoriesSumary = Object.keys(summaryWallet.categories) 
     const arrayCodeWallets =  Object.keys(summaryWallet.wallets) 
     const getCategoryWallets= (nameCategory) =>{
@@ -16,14 +16,13 @@ const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleCodeWallet,handle
 
     const listSelectWallets = arrayCategoriesSumary.map((nameCategory)=>{
         const listWallets = getCategoryWallets(nameCategory,arrayCodeWallets)
-        const handleSelectCodeWallet = summaryWallet.categories[nameCategory].addNewWallet===true? handleCodeCustomWallet:handleCodeWallet
         return <SelectWallet 
                     key={nameCategory}
                     summaryWallet = {summaryWallet}
                     nameCategory = {nameCategory}
                     listWallets={listWallets} 
-                    selectCode={selectCodeWallet} 
-                    handleSelectCodeWallet={handleSelectCodeWallet}/>
+                    selectCode={selectedWalletCode} 
+                    handleSelectCodeWallet={handleCodeWallet}/>
     })
 
     const listBalanceWallets = Object.keys(summaryWallet.balanceWallets)
@@ -43,7 +42,7 @@ const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleCodeWallet,handle
                <SelectWalletToBalance 
                     summaryWallet = {summaryWallet}
                     listWallets={listBalanceWallets}
-                    selectCode={selectCodeWallet} 
+                    selectCode={selectedWalletCode} 
                     handleSelectCodeWallet={handleCodeBalanceWallet}/>
             </div>
         </aside>
@@ -52,7 +51,7 @@ const AsideMenuWallet = ({summaryWallet,selectCodeWallet,handleCodeWallet,handle
 
 AsideMenuWallet.propTypes={
     summaryWallets:PropTypes.object,
-    selectCodeWallet:PropTypes.string,
+    selectedWalletCode:PropTypes.string,
     handleCodeWallet:PropTypes.func,
     handleCodeCustomWallet:PropTypes.func,
     handleCodeBalanceWallet:PropTypes.func

@@ -15,7 +15,7 @@ const Template = (data) => <AsideMenuWallet {...data} />;
 export const Primary = Template.bind({});
 Primary.args = {
   summaryWallet:summaryWallet,
-  selectCodeWallet:summaryWallet.defaultWallet,
+  selectedWalletCode:summaryWallet.defaultWallet,
   handleCodeWallet:()=>{},
   handleCodeCustomWallet:()=>{},
   handleCodeBalanceWallet:()=>{}

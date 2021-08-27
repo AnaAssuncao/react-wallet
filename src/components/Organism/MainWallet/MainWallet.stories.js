@@ -15,5 +15,6 @@ const Template = (args) => <MainWallet {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   summaryWallet: summaryWallet,
-  selectCodeWallet:summaryWallet.defaultWallet
+  selectedWalletCode:summaryWallet.defaultWallet,
+  handleEditableTable:()=>{}
 };

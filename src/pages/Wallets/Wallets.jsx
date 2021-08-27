@@ -1,49 +1,55 @@
-import React, {  useState, useEffect } from 'react'
-
+import { Fragment, useState, useEffect } from 'react'
 import { ContainerMainPage } from "../../components/Atom/ContainerMainPage"
 import { ContainerAsidePanel } from "../../components/Atom/ContainerAsidePanel"
 import {AsideMenuWallet} from "../../components/Organism/AsideMenuWallet"
 import { MainWallet } from "../../components/Organism/MainWallet"
 import { WalletsToCustomize } from "../../components/Organism/WalletsToCustomize"
 import { Loading } from'../../components/Atom/Loading'
-
-import "./wallets.scss"
 import{getAllWallets} from "./getDataWallets"
+import "./wallets.scss"
 
 const Wallets = () =>{
-    const [selectCodeWallet, setSelectCodeWallet ]= useState({codeWallet:null,type:null})
-    const [previusWallet,setPreviusWallet]= useState({codeWallet:null,type:null})
-    const [summaryWallet, setSummaryWallet ]= useState(false)
+    const dataSetup = {
+        summaryWallet:false,
+        current:{
+            codeWallet:null,
+            type:null
+        },
+        previus:{
+            codeWallet:null,
+            type:null 
+        }
+    }
+    const [walletSetup, setWalletSetup ]= useState(dataSetup)
     const typesWallets={
         wallets:"wallets",
         customWallets:"customWallets",
         balanceWallets:"balanceWallets"
-    }
-
-    const handlePreviusWallet=()=>{
-        const previusCode = selectCodeWallet.codeWallet
-        const previusType= selectCodeWallet.type
-        setPreviusWallet({codeWallet:previusCode,type:previusType})
+    }     
+    const changeWalletPage = (selectedCodeWallet,typeMessage)=>{
+        walletSetup.previus.codeWallet = walletSetup.current.codeWallet 
+        walletSetup.previus.type= walletSetup.current.type
+        walletSetup.current.codeWallet = selectedCodeWallet
+        walletSetup.current.type = typeMessage
+        setWalletSetup({...walletSetup})
     }
     const handleCodeWallet = (selectedCodeWallet) =>{
-        handlePreviusWallet()
-        setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.wallets})
-    }
-    const handleCodeCustomWallet = (selectedCodeWallet) =>{
-        handlePreviusWallet()
-        setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.customWallets})
+        changeWalletPage(selectedCodeWallet,typesWallets.wallets)
     }
     const handleCodeBalanceWallet = (selectedCodeWallet) =>{
-        handlePreviusWallet()
-        setSelectCodeWallet({codeWallet:selectedCodeWallet,type:typesWallets.balanceWallets})
+        changeWalletPage(selectedCodeWallet,typesWallets.balanceWallets)
     }
-    const handlePageReturn= ()=>{
-        setSelectCodeWallet({codeWallet:previusWallet.codeWallet,type:previusWallet.type})
+    const handleEditableTable = ()=>{
+        changeWalletPage(walletSetup.current.codeWallet,typesWallets.customWallets)
+    }
+    const handlePageReturn = ()=> {
+        changeWalletPage(walletSetup.previus.codeWallet,walletSetup.previus.type)
     }
     const handleWalletData = (allWallets)=>{
-        setSelectCodeWallet({codeWallet:allWallets.defaultWallet,type:typesWallets.wallets})
-        setPreviusWallet({codeWallet:allWallets.defaultWallet,type:typesWallets.wallets})
-        setSummaryWallet(allWallets)
+        walletSetup.summaryWallet=allWallets
+        walletSetup.current.codeWallet = allWallets.defaultWallet
+        walletSetup.current.type = typesWallets.wallets
+        setWalletSetup({...walletSetup})
     }
 
     useEffect(()=>{
@@ -55,30 +61,32 @@ const Wallets = () =>{
 
     return (
         <div className="page-wallets">
-            { summaryWallet? 
-                <React.Fragment>
+            { walletSetup.summaryWallet? 
+                <Fragment>
                     <ContainerAsidePanel>
                         <AsideMenuWallet 
-                            summaryWallet={summaryWallet}
-                            selectCodeWallet={selectCodeWallet.codeWallet}
+                            summaryWallet={walletSetup.summaryWallet}
+                            selectedWalletCode={walletSetup.current.codeWallet}
                             handleCodeWallet={handleCodeWallet}
-                            handleCodeCustomWallet = {handleCodeCustomWallet}
                             handleCodeBalanceWallet={handleCodeBalanceWallet}
                             />
                     </ContainerAsidePanel>
 
                     <ContainerMainPage>
-                        {typesWallets.wallets===selectCodeWallet.type &&
-                            <MainWallet summaryWallet={summaryWallet} selectCodeWallet={selectCodeWallet.codeWallet}/>
+                        {typesWallets.wallets===walletSetup.current.type &&
+                            <MainWallet summaryWallet={walletSetup.summaryWallet} 
+                            selectedWalletCode={walletSetup.current.codeWallet} 
+                            handleEditableTable={handleEditableTable}
+                            />
                         }    
-                        {typesWallets.customWallets===selectCodeWallet.type &&     
-                            <WalletsToCustomize selectCodeWallet={selectCodeWallet} handlePageReturn={handlePageReturn}/>
+                        {typesWallets.customWallets===walletSetup.current.type &&     
+                            <WalletsToCustomize selectedWalletCode={walletSetup} handlePageReturn={handlePageReturn}/>
                         }
-                        {typesWallets.balanceWallets===selectCodeWallet.type &&     
-                            <WalletsToCustomize selectCodeWallet={selectCodeWallet} handlePageReturn={handlePageReturn}/>
-                        }
+                        {/* {typesWallets.balanceWallets===walletSetup.current.type &&     
+                            <WalletsToCustomize selectedWalletCode={walletSetup} handlePageReturn={handlePageReturn}/>
+                        } */}
                     </ContainerMainPage>
-                </React.Fragment>
+                </Fragment>
                     :
                 <Loading className="page-wallets__loading"/>
             }

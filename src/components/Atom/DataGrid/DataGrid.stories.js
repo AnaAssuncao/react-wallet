@@ -1,5 +1,5 @@
 import React from 'react';
-import InvestmentTable from './InvestmentTable';
+import DataGrid from './DataGrid';
 import {numberToCurrenty} from "../../../utils/convertData"
 import {modifyTest} from "../../../TestData/createDataAssets"
 
@@ -16,16 +16,15 @@ assetsTabela.assets.stocks.rows.forEach((asset,ind)=>{
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  title: 'ATOM/InvestmentTable',
-  component: InvestmentTable,
+  title: 'ATOM/DataGrid',
+  component: DataGrid,
 };
 
 //👇 We create a “template” of how args map to rendering
-const Template = (args) => <InvestmentTable {...args} />;
+const Template = (args) => <DataGrid {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
   columns:assetsTabela.assets.stocks.columns,
-  
   rows:chancedRows
 }

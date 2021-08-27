@@ -1,4 +1,4 @@
-import React,{Suspense} from 'react'
+import {Suspense} from 'react'
 import {AgGridReact} from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import './themeTable.css'
@@ -6,9 +6,9 @@ import './themeTable.css'
 import PropTypes from 'prop-types'
 
 import {Loading} from '../Loading'
-import './investmentTable.scss'
+import './dataGrid.scss'
 
-const InvestmentTable = ({columns,rows}) =>{
+const DataGrid = ({columns,rows}) =>{
   const heigthTable ={
     row:35,
     header:35,
@@ -18,7 +18,7 @@ const InvestmentTable = ({columns,rows}) =>{
   const heightSize = totalRows<heigthTable.max?totalRows:heigthTable.max
 
     return (   
-        <div className="investment-table" >
+        <div className="data-grid" >
             <Suspense fallback={<Loading/>}>
             <div className="ag-theme-material" style={{height:heightSize, width: "100%"}}>
               <AgGridReact
@@ -46,9 +46,9 @@ const InvestmentTable = ({columns,rows}) =>{
     )
 }
 
-InvestmentTable.propTypes={
+DataGrid.propTypes={
     columns:PropTypes.array,
     rows:PropTypes.array
 }
 
-export default InvestmentTable
+export default DataGrid

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import './investmentCard.scss'
 import {HeaderInvestmentCard} from '../HeaderInvestmentCard'
-import {InvestmentTable} from "../../Atom/InvestmentTable"
+import {DataGrid} from "../../Atom/DataGrid"
 import {numberToCurrenty} from "../../../utils/convertData"
 
 const InvestmentCard = ({investment, nameAsset, getDataTable}) => {
@@ -48,7 +48,7 @@ const formatAssets = (dataAsset) =>{
       <HeaderInvestmentCard investment={investment} handleDisplayTable={handleDisplayTable} isDisplayTable={isDisplayTable}></HeaderInvestmentCard>
       {infoAsset &&
         isDisplayTable?
-          <InvestmentTable columns={infoAsset.columns} rows={infoAsset.rows} >{isDisplayTable}</InvestmentTable>
+          <DataGrid columns={infoAsset.columns} rows={infoAsset.rows} >{isDisplayTable}</DataGrid>
           :null
         
       } 

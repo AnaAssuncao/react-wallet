@@ -7,7 +7,7 @@
             "percentEquity":1,
             "editable":false
         },
-        "allAssets":{
+        "allAssetsCustom":{
             "category":"customWallets",
             "name":"Todos ativos",
             "percentEquity":1,

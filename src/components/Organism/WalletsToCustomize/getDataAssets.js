@@ -3,8 +3,8 @@ import equity from "../../../TestData/walletsCustomize-DataTest.json"
 async function getDataDefaultAssets(codeWallet){
     if(codeWallet){
         const tableData = {
-            totalEquity:equity.totalEquity,
-            assets:equity.assets
+            totalEquity:equity[codeWallet].totalEquity,
+            assets:equity[codeWallet].assets
         }
         return tableData
     }

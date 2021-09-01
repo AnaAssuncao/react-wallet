@@ -1,12 +1,10 @@
-import React from "react"
-import { useState,useEffect } from "react"
+import {Fragment, useState,useEffect } from "react"
 import PropTypes from "prop-types"
-import Alert from '@material-ui/lab/Alert';
-
 import { getDataDefaultAssets, sendChanges } from "./getDataAssets"
 import { TableWalletsToCustomize } from "../TableWalletsToCustomize"
 import { ContainerTitleEditable } from "../../Molecule/ContainerTitleEditable"
 import { ModalAlert } from "../../Atom/ModalAlert"
+import { AlertToConfirm } from "../../Atom/AlertToConfirm"
 import { Loading } from "../../Atom/Loading"
 import returnIcon from "../../../img/return_icon.svg"
 
@@ -72,7 +70,10 @@ const WalletsToCustomize = ({selectedWalletCode,handlePageReturn})=>{
     },[selectedWalletCode])
 
     return(
-        <React.Fragment>
+        <Fragment>
+        {isDisplayAlert &&
+            <AlertToConfirm handleAlert={handleAlert} typeMessage="noSaveWallet" severity="error"/>
+        }
         {defaultValuesWallet?
             <div className="wallets-customize">
                     <header className="wallets-customize__header">
@@ -94,13 +95,6 @@ const WalletsToCustomize = ({selectedWalletCode,handlePageReturn})=>{
                                 confirmModal={deleteWalletChanges}
                                 typeMessage="deleteWallet">DELETAR CARTEIRA</ModalAlert>
                     </div>
-                    {isDisplayAlert &&
-                    <div className="wallets-customize__alert">
-                        <Alert severity="error" 
-                        style={{height:"2rem", padding:"5px", display:"flex", alignItems:"center"}} 
-                        onClose={handleAlert}>Não foi possível salvar a carteira, complete 100% no total geral</Alert>
-                    </div>
-                    }
                     <TableWalletsToCustomize walletsToCustomize={defaultValuesWallet.assets} 
                                             handleAssetsChanges={handleAssetsChanges}
                                             handleTotalPercent={handleTotalPercent}/>
@@ -108,7 +102,7 @@ const WalletsToCustomize = ({selectedWalletCode,handlePageReturn})=>{
             :
             <Loading className="page-wallets__loading"/>
         }
-        </React.Fragment>
+        </Fragment>
     )
 }
 

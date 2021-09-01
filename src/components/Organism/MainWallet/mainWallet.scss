@@ -9,6 +9,7 @@
 }
 
 .main-wallet__title{
+    position:relative;
     display: flex;
     height: 3rem;
     justify-content: center;
@@ -37,7 +38,7 @@
 
 .main-wallet__button-edit{
     position: absolute;
-    top:3rem;
-    right: 5%;
+    top:0.5rem;
+    right: 0;
 }
 

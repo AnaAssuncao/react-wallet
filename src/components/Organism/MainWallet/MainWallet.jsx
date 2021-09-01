@@ -46,17 +46,18 @@ const MainWallet = ({summaryWallet,selectedWalletCode,handleEditableTable})=>{
             <div className="main-wallet__title">
                 <span className="main-wallet__name">{nameWallet}</span>
                 <span className="main-wallet__percentage">({percentageWallet} % do Patrimônio)</span>
-            </div>
-            {summaryWallet.wallets[selectedWalletCode].editable===true &&
-            <div className="main-wallet__button-edit">
-                <MainButton color={"save"} 
-                    size="medium"
-                    onClick={()=>handleEditableTable()} 
-                    variant="outlined"
-                    fontSize="0.8rem"
-                    startIcon={<EditIcon/>}>Editar Carteira</MainButton>
-            </div>
+                {summaryWallet.wallets[selectedWalletCode].editable===true &&
+                    <div className="main-wallet__button-edit">
+                        <MainButton color={"titleBlue"} 
+                            size="medium"
+                            onClick={()=>handleEditableTable()} 
+                            variant="outlined"
+                            fontSize="0.9rem"
+                            startIcon={<EditIcon/>}>Editar</MainButton>
+                    </div>
             }
+            </div>
+
             <ContainerNavBar arrayNavigations={arrayNavigations}
                 selectNavigation={selectNavigation}
                 handleSelectNavigations={handleSelectNavigations}/>

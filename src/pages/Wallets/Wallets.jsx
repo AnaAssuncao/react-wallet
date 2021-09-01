@@ -81,13 +81,17 @@ const Wallets = () =>{
                             <MainWallet summaryWallet={walletSetup.summaryWallet} 
                             selectedWalletCode={walletSetup.current.codeWallet} 
                             handleEditableTable={handleEditableTable}
+                            key={walletSetup.current.codeWallet}
                             />
                         }    
                         {typesWallets.customWallets===walletSetup.current.type &&     
-                            <WalletsToCustomize selectedWalletCode={walletSetup.current.codeWallet} handlePageReturn={handlePageReturn}/>
+                            <WalletsToCustomize key={walletSetup.current.codeWallet}
+                                selectedWalletCode={walletSetup.current.codeWallet} 
+                                handlePageReturn={handlePageReturn}/>
                         }
                         {/* {typesWallets.balanceWallets===walletSetup.current.type &&     
-                            <WalletsToCustomize selectedWalletCode={walletSetup} handlePageReturn={handlePageReturn}/>
+                            <WalletsToCustomize key={walletSetup.current.codeWallet}
+                                selectedWalletCode={walletSetup} handlePageReturn={handlePageReturn}/>
                         } */}
                     </ContainerMainPage>
                 </Fragment>

@@ -1,4 +1,4 @@
-import React, {useState,useEffect,useContext} from "react"
+import {Fragment, useState,useEffect,useContext} from "react"
 import PropTypes from "prop-types"
 import { DataAssetsContext } from "../../../context/dataAssets"
 import { CounterPercentage } from "../../Atom/CounterPercentage"
@@ -9,61 +9,65 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import "./editableTableRow.scss"
 
 const EditableTableRow = ({handleValuePercentage,deleteEditableRow}) => {
+  const setup= {category:null, code:null, description:"", percentCustomed:0}
   const {
     getCategories,
     getCode,
     getDescription }= useContext(DataAssetsContext)
-  const [newAssets,setNewAssets] = useState({category:{title:"",value:null}, code:"", description:"", percentCustomed:0})
+  const [newAssets,setNewAssets] = useState(setup)
   const allCategories =  getCategories()
-  const [allCodes, setAllCodes] = useState([{title:"",value:""}])
+  const [allCodes, setAllCodes] = useState([{ title: null, value: null }])
 
   const handleNewValueAssets=(valuePercentage)=>{
     if(newAssets.code){
       newAssets.percentCustomed= valuePercentage/100
       setNewAssets({...newAssets})
-      handleValuePercentage(valuePercentage,newAssets.code)
+      handleValuePercentage(valuePercentage,newAssets.code.value)
     }
   }
-  const handleAutocompleteCategory=(category)=>{
-    newAssets.category = category? category:{title:"",value:null}
-    newAssets.code = ""
+  const handleAutocompleteCategory=(newValueCategory)=>{
+    newAssets.category = newValueCategory
+    newAssets.code = null
     newAssets.description = ""
     setNewAssets({...newAssets})
+    // get all codes in useEffect
   }
-  const handleAutocompleteCode = ({title,value})=>{
-    newAssets.code = value
-    newAssets.description = getDescription(newAssets.category.value,value)
+  const handleAutocompleteCode = (newValueCode)=>{
+    newAssets.code = newValueCode
+    newAssets.description = getDescription(newAssets.category.value,newValueCode.value)
     newAssets.percentCustomed= 0
     setNewAssets({...newAssets})
   }
   const handleAllCodes= (dataCodes) => setAllCodes(dataCodes)
   const handleDelete = ()=>{
     const percent= 0
-    handleValuePercentage(percent,newAssets.code)
+    handleValuePercentage(percent,newAssets.code.value)
     deleteEditableRow()
   }
 
   useEffect(()=>{
     ( () =>{
-      if(newAssets.category.value){
+      if(newAssets.category){
         const dataCodes= getCode(newAssets.category.value)
         handleAllCodes(dataCodes)
       }
     })()
-  },[newAssets.category.value])
+  },[newAssets.category])
 
   return (
-    <React.Fragment>
+    <Fragment>
     {allCategories?        
         <div className="editable-table-row">
           <AutocompleteInput style={{width:"20%",margin: "0rem 0.5rem"}} 
                             dataInput={allCategories} 
                             nameLabel={"Categoria"} 
+                            value={newAssets.category}
                             handleAutocomplete={handleAutocompleteCategory}/>
           
           <AutocompleteInput style={{width:"20%",margin: "0rem 0.5rem"}} 
                             dataInput={allCodes} 
                             nameLabel={"Código"} 
+                            value={newAssets.code}
                             handleAutocomplete={handleAutocompleteCode}/>
           <span className="editable-table-row__text" >{newAssets.description} </span>
           <span className="editable-table-row__text">0%</span>
@@ -83,7 +87,7 @@ const EditableTableRow = ({handleValuePercentage,deleteEditableRow}) => {
       :
       <Loading className="editable-table-row__loading"/>
     }
-    </React.Fragment>
+    </Fragment>
   )
 }
 

@@ -40,7 +40,8 @@ const TableWalletsToCustomize = ({walletsToCustomize,handleAssetsChanges,handleT
         setAllPercentages({...allPercentages})
     }
     const addNewAssets = () =>{
-        const key = "dataEditable" + dataEditable.length
+        const number = (Math.random()*100).toFixed()
+        const key = "dataEditable" + dataEditable.length + number
         const newArray = [key].concat(dataEditable)
         setDataEditable(newArray)
     }

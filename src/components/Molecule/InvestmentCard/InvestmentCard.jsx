@@ -15,18 +15,11 @@ const InvestmentCard = ({investment, nameAsset, getDataTable}) => {
     setDisplayTable(isDisplay)
   }
 
-  const handleInfoAsset = (dataChart)=>{
-    setInfoAsset(dataChart)
+  const handleInfoAsset = (data)=>{
+    const copyAsset = Object.assign({}, data)
+    const assetDataFormatted=formatAssets(copyAsset)
+    setInfoAsset(assetDataFormatted)
 }
-
-  useEffect(()=>{
-      (async () =>{
-          const data= await getDataTable(nameAsset)
-          const copyAsset = Object.assign({}, data)
-          const assetDataFormatted=formatAssets(copyAsset)
-          handleInfoAsset(assetDataFormatted)
-      })()  
-  },[])
 
 const formatAssets = (dataAsset) =>{
   const chancedRows =[]
@@ -43,14 +36,19 @@ const formatAssets = (dataAsset) =>{
     }
   }
 
+  useEffect(()=>{
+    (async () =>{
+        const data= await getDataTable(nameAsset)
+        handleInfoAsset(data)
+    })()  
+},[])
+
   return (
     <div className="investment-card">
       <HeaderInvestmentCard investment={investment} handleDisplayTable={handleDisplayTable} isDisplayTable={isDisplayTable}></HeaderInvestmentCard>
       {infoAsset &&
-        isDisplayTable?
-          <DataGrid columns={infoAsset.columns} rows={infoAsset.rows} >{isDisplayTable}</DataGrid>
-          :null
-        
+        isDisplayTable &&
+          <DataGrid columns={infoAsset.columns} rows={infoAsset.rows} >{isDisplayTable}</DataGrid>   
       } 
     </div>
   )

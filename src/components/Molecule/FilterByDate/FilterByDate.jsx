@@ -1,144 +1,164 @@
-import { useState, useEffect, Fragment} from "react"
+import { useState, Fragment} from "react"
 import PropTypes from "prop-types"
 import { Loading } from'../../Atom/Loading'
 import { DatePickers } from "../../Atom/DatePickers"
 import { RangeSlider } from "../../Atom/RangeSlider"
-import { getDate } from "./getDate"
+import { AlertToConfirm } from "../../Atom/AlertToConfirm"
 import "./filterByDate.scss"
 
-// const dateReceive = {
-//     maxDate: "new Date()",
-//     minDate: "new Date()",
-//     defaultRange: {
-//         start: "new Date()",
-//         end:"new Date()"
-//     }
-// }
-
-const getYear = (date) => {
-    const regex = /\d{4}/g
-    const years = date.match(regex);
-    return  Number(years[0])
-}
-
-const dateReference = new Date()
-const formatDate = () =>{
+const formatDateString = (dateReference) =>{
     const year = dateReference.getUTCFullYear()
     let month = dateReference.getUTCMonth() 
-    month=month===0?1:month
+    month=month===0?1:month+1
     month=month<10?"0"+month:month
     let day = dateReference.getUTCDate()
     day=day<10?"0"+day:day
     return year + "-" + month + "-" + day
 }
-const getDatePickers = (startingYear,newValue) =>{
-    dateReference.setUTCDate(1)
-    dateReference.setUTCMonth(0)
-    dateReference.setUTCFullYear(startingYear)
-    dateReference.setUTCMonth(dateReference.getUTCMonth() + (newValue))
-    const date = formatDate()
-    return date
-}
-
-const getMonthSlider = (startingYear, newDate) =>{
-    dateReference.setUTCDate(1)
-    dateReference.setUTCMonth(0)
-    dateReference.setUTCFullYear(startingYear) // Data inicial
-    const past = new Date(newDate); // Nova Data
-    const diff = Math.abs(dateReference.getTime() - past.getTime()); // Subtrai uma data pela outra
+const getMonthSlider = (date,previousDate)=>{
+    const diff = date.getTime() - previousDate.getTime() // Subtrai uma data pela outra
     const month = Math.ceil(diff / (1000 * 60 * 60 * 24 * 30));
     return month
 }
 
-const FilterByDate = () =>{
-    const [defaultDate,setDefaultDate]=useState(null)
-    const [newDateValues, setNewDateValues] = useState(null)
-    // const [dataInicial, setDataInicial] = useState({dataInicial}) (variavel é Date)
-    // const [dataFinal, setDataFinal] = useState({dataFinal})
-    // const [rangeMeses, setRangeMeses]= useState([1,32])
-// [1,32] => [3,32] => [2,0]
+const FilterByDate = ({startDate, endDate}) =>{
+    const [defaultDate,setDefaultDate]= useState({startDateObject:new Date(startDate), endDateObject:new Date(endDate)}) 
+    const [minDate, setMinDate] = useState({dateObject: new Date(startDate), dateString: startDate})
+    const [maxDate, setMaxDate] = useState({dateObject: new Date(endDate), dateString: endDate})
+    const [rangeMonth, setRangeMonth]= useState(null)
+    const [alert,setAlert]=useState(false)
 
+    const startingYear = defaultDate.startDateObject.getUTCFullYear()
+    const endYear = defaultDate.endDateObject.getUTCFullYear()
+    const numberMounth = ((endYear - startingYear) + 1 )*12
+    const startRangeMonth = [1,(numberMounth +1)]
+    const startRange = defaultDate.startDateObject.getUTCMonth() + 1
+    const endMonth = defaultDate.endDateObject.getUTCMonth() 
+    const endRange = numberMounth - endMonth +3 
 
+    if(rangeMonth===null){
+        setRangeMonth([startRange,endRange])
+    }
 
-
+    const handleAlertClosure = () =>{
+        setAlert(false)
+    }
+    const displayAlert = () =>{
+        setAlert(true)
+        setTimeout(()=>{
+            handleAlertClosure()
+        },10000)
+    }
+    const changeDate = (newValue,pastValue,dateRelatedObject)=>{
+        const differenceBetweenNumbers= newValue-pastValue
+        dateRelatedObject.dateObject.setUTCDate(1)
+        dateRelatedObject.dateObject.setUTCMonth(dateRelatedObject.dateObject.getUTCMonth() + (differenceBetweenNumbers))
+        const dateString = formatDateString(dateRelatedObject.dateObject)
+        return dateString
+    }
+    const handleInferiorLimit =(dateString)=>{
+        const newDate = new Date(dateString)
+        setMinDate({dateObject: newDate, dateString: dateString})
+    }
+    const handleUpperLimit =(dateString)=>{
+        const newDate = new Date(dateString)
+        setMaxDate({dateObject: newDate, dateString: dateString})
+    }
     const handleValuesSlider = (newValue)=>{
-        if(newValue[0]!==newDateValues.valuesSlider[0]){
-            newDateValues.initial=getDatePickers(defaultDate.startingYear,newValue[0])
+        const marks = rangeMonth
+        if(newValue[0]!==rangeMonth[0]){
+            if(newValue[0]>=startRange){
+                const dateString = changeDate(newValue[0],rangeMonth[0],minDate)
+                handleInferiorLimit(dateString)
+                marks[0]=newValue[0]
+            }
+            else{
+                displayAlert()
+                handleInferiorLimit(startDate)
+                marks[0]= startRange
+            }
         }
-        if(newValue[1]!==newDateValues.valuesSlider[1]){
-            newDateValues.final=getDatePickers(defaultDate.startingYear,newValue[1])
+        if(newValue[1]!==rangeMonth[1]){
+            if(newValue[1]<=endRange){
+                const dateString = changeDate(newValue[1],rangeMonth[1],maxDate)
+                handleUpperLimit(dateString)
+                marks[1]=newValue[1]
+            }
+            else{
+                displayAlert()
+                handleUpperLimit(endDate)
+                marks[1]= endRange
+            }
         }
-        newDateValues.valuesSlider=newValue
-        setNewDateValues({...newDateValues})
+        setRangeMonth(marks)
     }
-    const handleDateValueInitial = (date) =>{
-        newDateValues.valuesSlider[0]= getMonthSlider(defaultDate.startingYear,date)
-        newDateValues.initial=date
-        setNewDateValues({...newDateValues})
-    }
-    const handleDateValueEnd = (date) =>{
-        newDateValues.valuesSlider[1]= getMonthSlider(defaultDate.startingYear,date)
-        newDateValues.final=date
-        console.log(date)
-        setNewDateValues({...newDateValues})
-    }
-
-    const handleDefaultValue = ({initialDate, finalDate}) =>{
-        const setupDefault = {
-            initial:initialDate,
-            final:finalDate,
-            startingYear:getYear(initialDate),
-            finalYear:getYear(finalDate),
-            initialSlider:[]
+    const handleDateValueStart = (newValueDate)=>{
+        let newDate = new Date(newValueDate)
+        const timeData = newDate.getTime()
+        const timeUpperLimit = maxDate.dateObject.getTime()
+        if(timeData<timeUpperLimit){
+            const timeStartDate = defaultDate.startDateObject.getTime()
+            if(timeStartDate<timeData){
+                handleInferiorLimit(newValueDate)
+                const valueInferiorRange = getMonthSlider(newDate,minDate.dateObject)
+                setRangeMonth([rangeMonth[0]+valueInferiorRange,rangeMonth[1]])
+            }
+            else{
+                displayAlert()
+                handleInferiorLimit(startDate)
+                setRangeMonth([startRange,rangeMonth[1]])
+            }
         }
-        const numberMounth = ((setupDefault.finalYear - setupDefault.startingYear) + 1 )*12 +1
-        setupDefault.initialSlider = [1,numberMounth]
-        setDefaultDate(setupDefault)
-        handleFistValues(setupDefault)
+    }   
+    const handleDateValueEnd = (newValueDate)=>{
+        let newDate = new Date(newValueDate)
+        const timeData = newDate.getTime()
+        const timeInferiorLimit = maxDate.dateObject.getTime()
+        if(timeData>timeInferiorLimit){
+            const timeEndDate = defaultDate.startDateObject.getTime()
+            if(timeEndDate>timeData){
+                handleUpperLimit(newValueDate)
+                const valueUpperRange = getMonthSlider(newDate,maxDate.dateObject)
+                setRangeMonth([rangeMonth[0],rangeMonth[1]+valueUpperRange])
+            }
+            else{
+                displayAlert()
+                handleUpperLimit(endDate)
+                setRangeMonth([rangeMonth[0],endRange])
+            }
+        }
     }
-
-    const handleFistValues = (setupDefault) =>{
-        setNewDateValues({
-            valuesSlider:[setupDefault.initialSlider[0],setupDefault.initialSlider[1]],
-            initial:setupDefault.initial, 
-            final:setupDefault.final
-        })
-    }
-
-    useEffect(()=>{
-        (async () =>{
-            const dates= await getDate()
-            handleDefaultValue(dates)
-        })()
-    },[])
 
     return (
         <div className="filter-by-date">
-            {defaultDate && newDateValues?
-            <Fragment>
-                <div className="filter-by-date__date-pickers">
-                    <DatePickers labelName="Data Inicial" 
-                        dateValue={newDateValues.initial} 
-                        handleDateValue={handleDateValueInitial}/>
-                    <DatePickers labelName="Data Final"
-                        dateValue={newDateValues.final} 
-                        handleDateValue={handleDateValueEnd}/>
-                </div>
-                <RangeSlider startingYear={defaultDate.startingYear} 
-                            finalYear = {defaultDate.finalYear}
-                            initialValues ={ defaultDate.initialSlider}
-                            valueMarks = {newDateValues.valuesSlider}
-                            handleValuesSlider = {handleValuesSlider} />
-            </Fragment>
+            { minDate && maxDate && rangeMonth?
+                <Fragment>
+                    { alert === true &&  
+                        <AlertToConfirm handleAlert={handleAlertClosure} typeMessage="dateLimit" severity="error"/>
+                    }     
+                    <div className="filter-by-date__date-pickers">
+                        <DatePickers labelName="Data Inicial" 
+                            dateValue={minDate.dateString} 
+                            handleDateValue={handleDateValueStart}/>
+                        <DatePickers labelName="Data Final"
+                            dateValue={maxDate.dateString} 
+                            handleDateValue={handleDateValueEnd}/>
+                    </div>
+                    <RangeSlider startingYear={startingYear} 
+                                initialValues ={startRangeMonth}
+                                valueMarks = {rangeMonth}
+                                handleValuesSlider = {handleValuesSlider} />
+                </Fragment>
             :
-            <Loading className="filter-by-date__loading"></Loading>
+                <Loading className="filter-by-date__loading"></Loading>
             }
         </div>
     )
 }
 
 FilterByDate.propTypes={
-    code: PropTypes.string
+    startDate: PropTypes.string,
+    endDate: PropTypes.string
 }
 
 export default FilterByDate

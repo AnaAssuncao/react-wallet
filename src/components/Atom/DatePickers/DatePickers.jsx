@@ -23,7 +23,7 @@ const DatePickers = ({labelName, dateValue, handleDateValue}) => {
       id="date"
       label={labelName}
       type="date"
-      defaultValue={dateValue}
+      value={dateValue}
       className={classes.textField}
       InputLabelProps={{
         shrink: true,

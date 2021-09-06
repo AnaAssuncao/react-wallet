@@ -2,14 +2,14 @@ import Slider from "@material-ui/core/Slider"
 import PropTypes from "prop-types"
 import "./rangeSlider.scss"
 
-const RangeSlider = ({startingYear, arrayValues, initialValues, handleValuesSlider}) => {
+const RangeSlider = ({startingYear, valueMarks,initialValues, handleValuesSlider}) => {
   const getMarks=(startingYear)=>{
     const marks =[]
     let addYears = 0
     for(let valueMark = initialValues[0]; valueMark<=initialValues[1];valueMark=valueMark+12){
       const newMark = {
         value:valueMark,
-        label:Number(startingYear) + addYears
+        label:startingYear + addYears
       }
       marks.push(newMark)
       addYears++
@@ -25,7 +25,7 @@ const RangeSlider = ({startingYear, arrayValues, initialValues, handleValuesSlid
   return (
     <div className= "range-slider">
       <Slider
-        value={arrayValues}
+        value={valueMarks}
         onChange={handleChangeValue}
         aria-labelledby="range-slider"
         step={1}
@@ -38,9 +38,9 @@ const RangeSlider = ({startingYear, arrayValues, initialValues, handleValuesSlid
 }
 
 RangeSlider.propTypes = {
-  startingYear:PropTypes.string,
+  startingYear:PropTypes.number,
   arrayValues:PropTypes.array,
-  initialValues:PropTypes.array, 
+  finalYear:PropTypes.number, 
   handleValuesSlider:PropTypes.func
 }
 

@@ -8,18 +8,15 @@ export default {
 }
 
 const ComponentFather = ({...args})=>{
-  const startingYear="2018"
-  const initialValues=[1,49]
   const [arrayValues, setArrayValues] = useState([1,22])
   const handletArrayValues=(newValue)=>{
     setArrayValues(newValue)
   }
   return(
-    <RangeSlider startingYear={startingYear} initialValues={initialValues}
-    handleValuesSlider={handletArrayValues} arrayValues={arrayValues} {...args} />
+    <RangeSlider startingYear={2018} initialValues= {[1,32]}
+          handleValuesSlider={handletArrayValues} arrayValues={arrayValues} {...args} />
   )
 }
-
 
 const Template = (args) => <ComponentFather {...args}/>
 

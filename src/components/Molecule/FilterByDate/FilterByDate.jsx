@@ -14,6 +14,7 @@ const formatDateString = (dateReference) =>{
     let day = dateReference.getUTCDate()
     day=day<10?"0"+day:day
     return year + "-" + month + "-" + day
+    // toISOString().slice(0,10)
 }
 const getMonthSlider = (date,previousDate)=>{
     const diff = date.getTime() - previousDate.getTime() // Subtrai uma data pela outra
@@ -25,20 +26,17 @@ const FilterByDate = ({startDate, endDate}) =>{
     const [defaultDate,setDefaultDate]= useState({startDateObject:new Date(startDate), endDateObject:new Date(endDate)}) 
     const [minDate, setMinDate] = useState({dateObject: new Date(startDate), dateString: startDate})
     const [maxDate, setMaxDate] = useState({dateObject: new Date(endDate), dateString: endDate})
-    const [rangeMonth, setRangeMonth]= useState(null)
     const [alert,setAlert]=useState(false)
 
     const startingYear = defaultDate.startDateObject.getUTCFullYear()
     const endYear = defaultDate.endDateObject.getUTCFullYear()
-    const numberMounth = ((endYear - startingYear) + 1 )*12
-    const startRangeMonth = [1,(numberMounth +1)]
-    const startRange = defaultDate.startDateObject.getUTCMonth() + 1
+    const numberAllMonth = ((endYear - startingYear) + 1 )*12
+    const startRangeMonth = [1,(numberAllMonth +1)]
+    const startRange = defaultDate.startDateObject.getUTCMonth() + 1 //marcadores
     const endMonth = defaultDate.endDateObject.getUTCMonth() 
-    const endRange = numberMounth - endMonth +3 
+    const endRange = numberAllMonth - (12-endMonth) +1
 
-    if(rangeMonth===null){
-        setRangeMonth([startRange,endRange])
-    }
+    const [rangeMonth, setRangeMonth]= useState([startRange,endRange])
 
     const handleAlertClosure = () =>{
         setAlert(false)
@@ -94,39 +92,29 @@ const FilterByDate = ({startDate, endDate}) =>{
     }
     const handleDateValueStart = (newValueDate)=>{
         let newDate = new Date(newValueDate)
-        const timeData = newDate.getTime()
-        const timeUpperLimit = maxDate.dateObject.getTime()
-        if(timeData<timeUpperLimit){
-            const timeStartDate = defaultDate.startDateObject.getTime()
-            if(timeStartDate<timeData){
-                handleInferiorLimit(newValueDate)
-                const valueInferiorRange = getMonthSlider(newDate,minDate.dateObject)
-                setRangeMonth([rangeMonth[0]+valueInferiorRange,rangeMonth[1]])
-            }
-            else{
-                displayAlert()
-                handleInferiorLimit(startDate)
-                setRangeMonth([startRange,rangeMonth[1]])
-            }
+        if(defaultDate.startDateObject<newDate){
+            handleInferiorLimit(newValueDate)
+            const valueInferiorRange = getMonthSlider(newDate,minDate.dateObject)
+            setRangeMonth([rangeMonth[0]+valueInferiorRange,rangeMonth[1]])
+        }
+        else{
+            displayAlert()
+            handleInferiorLimit(startDate)
+            setRangeMonth([startRange,rangeMonth[1]])
         }
     }   
     const handleDateValueEnd = (newValueDate)=>{
         let newDate = new Date(newValueDate)
-        const timeData = newDate.getTime()
-        const timeInferiorLimit = maxDate.dateObject.getTime()
-        if(timeData>timeInferiorLimit){
-            const timeEndDate = defaultDate.startDateObject.getTime()
-            if(timeEndDate>timeData){
-                handleUpperLimit(newValueDate)
-                const valueUpperRange = getMonthSlider(newDate,maxDate.dateObject)
-                setRangeMonth([rangeMonth[0],rangeMonth[1]+valueUpperRange])
-            }
-            else{
-                displayAlert()
-                handleUpperLimit(endDate)
-                setRangeMonth([rangeMonth[0],endRange])
-            }
+        if(defaultDate.startDateObject>newDate){
+            handleUpperLimit(newValueDate)
+            const valueUpperRange = getMonthSlider(newDate,maxDate.dateObject)
+            setRangeMonth([rangeMonth[0],rangeMonth[1]+valueUpperRange])
         }
+        else{
+            displayAlert()
+            handleUpperLimit(endDate)
+            setRangeMonth([rangeMonth[0],endRange])
+        }   
     }
 
     return (

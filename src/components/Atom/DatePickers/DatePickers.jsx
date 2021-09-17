@@ -1,6 +1,8 @@
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
+import { useState } from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import TextField from "@material-ui/core/TextField"
 import PropTypes from "prop-types"
+import { useEffect } from "react"
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -12,18 +14,27 @@ const useStyles = makeStyles((theme) => ({
 
 const DatePickers = ({labelName, dateValue, handleDateValue}) => {
   const classes = useStyles()
+  const[date,setDate] = useState(dateValue)
 
-  const handleChangeValue = (event) => {
-    handleDateValue(event.target.value)
+  const handleBlurValue = (event)=>{
+      handleDateValue(event.target.value)
   }
+  const handleChangeDate = (event)=>{
+    setDate(event.target.value)
+  }
+
+  useEffect(()=>{
+    setDate(dateValue)
+  },[dateValue])
 
   return (
     <TextField
-      onChange={handleChangeValue}
-      id="date"
+      onChange={handleChangeDate}
+      onBlur={handleBlurValue}
+      id= {"date" + labelName}
       label={labelName}
       type="date"
-      value={dateValue}
+      value={date}
       className={classes.textField}
       InputLabelProps={{
         shrink: true,

@@ -1,7 +1,7 @@
 import './autocompleteInput.scss'
 import {useState} from "react"
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField'
+import Autocomplete from '@material-ui/lab/Autocomplete'
 
 const AutocompleteInput = ({style,dataInput, nameLabel,value, handleAutocomplete}) => {
   const [inputValue, setInputValue] = useState("")
@@ -21,7 +21,7 @@ const AutocompleteInput = ({style,dataInput, nameLabel,value, handleAutocomplete
         renderInput={(params) => <TextField {...params} placeholder={nameLabel}/>}
         inputValue={inputValue}
         onInputChange={(event, newInputValue) => {
-          setInputValue(newInputValue);
+          setInputValue(newInputValue)
         }}
       />
   )

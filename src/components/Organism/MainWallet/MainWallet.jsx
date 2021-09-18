@@ -11,34 +11,42 @@ import chart from "../../../img/chart2_icon.svg"
 import EditIcon from '@material-ui/icons/Edit';
 
 import './mainWallet.scss'
+import WalletEarnings from '../WalletEarnings/WalletEarnings'
+
+const arrayNavigations =[
+    {
+        description:"Patrimônio",
+        value:"equity",
+        extraclass:"containerNavBarItem__fist",
+        srcImg:gold
+    },
+    {
+        description:"Proventos",
+        value:"earnings",
+        extraclass:"",
+        srcImg:pig
+    },
+    {
+        description:"Rentabilidade",
+        value:"",
+        extraclass:"",
+        srcImg:chart
+    }
+]
+
+const componentsWallets ={
+    equity:(<WalletEquity/>),
+    earnings:(<WalletEarnings/>),
+    profitability:null
+}
 
 const MainWallet = ({summaryWallet,selectedWalletCode,handleEditableTable})=>{
-    const arrayNavigations =[
-        {
-            description:"Patrimônio",
-            value:"equity",
-            extraclass:"containerNavBarItem__fist",
-            srcImg:gold
-        },
-        {
-            description:"Proventos",
-            value:"earnings",
-            extraclass:"",
-            srcImg:pig
-        },
-        {
-            description:"Rentabilidade",
-            value:"profitability",
-            extraclass:"",
-            srcImg:chart
-        }
-    ]
-
     const [selectNavigation, setSelectNavigation ]= useState(arrayNavigations[0].value)
     const nameWallet = summaryWallet.wallets[selectedWalletCode].name
     const percentageWallet = summaryWallet.wallets[selectedWalletCode].percentEquity * 100
 
     const handleSelectNavigations = (selectedNavigations) =>{
+        console.log(selectedNavigations.value)
         setSelectNavigation(selectedNavigations.value)
     }
     return (
@@ -62,7 +70,9 @@ const MainWallet = ({summaryWallet,selectedWalletCode,handleEditableTable})=>{
                 selectNavigation={selectNavigation}
                 handleSelectNavigations={handleSelectNavigations}/>
             <div className="main-wallet__container">
-                <WalletEquity></WalletEquity>
+                {
+                    componentsWallets[selectNavigation]
+                }
             </div>  
         </div>
     )

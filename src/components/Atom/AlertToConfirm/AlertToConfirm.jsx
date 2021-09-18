@@ -5,7 +5,8 @@ import PropTypes from "prop-types"
 import "./alertToConfirm.scss"
 
 const messages={
-  noSaveWallet: "Não foi possível salvar a carteira, complete 100% no total geral"
+  noSaveWallet: "Não foi possível salvar a carteira, complete 100% no total geral.",
+  dateLimit:"Data fora do limite das operações."
 }
 
 const useStyles = makeStyles((theme) => ({

@@ -14,7 +14,7 @@ const ComponentFather = ({...args})=>{
   }
   return(
     <RangeSlider startingYear={2018} initialValues= {[1,32]}
-          handleValuesSlider={handletArrayValues} arrayValues={arrayValues} {...args} />
+          handleValuesSlider={handletArrayValues} valueMarks={arrayValues} {...args} />
   )
 }
 

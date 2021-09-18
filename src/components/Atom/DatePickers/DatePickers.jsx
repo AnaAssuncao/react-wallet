@@ -6,8 +6,8 @@ import { useEffect } from "react"
 
 const useStyles = makeStyles((theme) => ({
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    marginLeft: "2rem",
+    marginRight: "1rem",
     width: 200,
   },
 }))

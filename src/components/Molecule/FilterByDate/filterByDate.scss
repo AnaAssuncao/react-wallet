@@ -1,4 +1,11 @@
+.filter-by-date{
+    width: 100%;
+}
+
 .filter-by-date__date-pickers{
     display:flex;
-    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }

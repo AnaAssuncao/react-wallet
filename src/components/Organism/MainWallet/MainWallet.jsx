@@ -1,10 +1,9 @@
-import React from 'react'
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
-
-import {WalletEquity} from "../WalletEquity"
-import {ContainerNavBar} from "../../Molecule/ContainerNavBar"
-import {MainButton} from "../../Atom/MainButton"
+import { AlertToConfirm } from "../../Atom/AlertToConfirm"
+import { WalletEquity } from "../WalletEquity"
+import { ContainerNavBar } from "../../Molecule/ContainerNavBar"
+import { MainButton } from "../../Atom/MainButton"
 import gold from "../../../img/gold_icon.svg"
 import pig from "../../../img/pig_icon.svg"
 import chart from "../../../img/chart2_icon.svg"
@@ -34,13 +33,8 @@ const arrayNavigations =[
     }
 ]
 
-const componentsWallets ={
-    equity:(<WalletEquity/>),
-    earnings:(<WalletEarnings/>),
-    profitability:null
-}
-
 const MainWallet = ({summaryWallet,selectedWalletCode,handleEditableTable})=>{
+    const [alert,setAlert]=useState({isAlert:false,message:null,severity:null})
     const [selectNavigation, setSelectNavigation ]= useState(arrayNavigations[0].value)
     const nameWallet = summaryWallet.wallets[selectedWalletCode].name
     const percentageWallet = summaryWallet.wallets[selectedWalletCode].percentEquity * 100
@@ -48,8 +42,27 @@ const MainWallet = ({summaryWallet,selectedWalletCode,handleEditableTable})=>{
     const handleSelectNavigations = (selectedNavigations) =>{
         setSelectNavigation(selectedNavigations.value)
     }
+    const handleAlertClosure = () =>{
+        setAlert({isAlert:false,message:null,severity:null})
+    }
+    const handleMsgAlert = (message,severity) =>{
+        setAlert({isAlert:true,message:message,severity:severity})
+        setTimeout(()=>{
+            handleAlertClosure()
+        },50000)
+    }
+    const componentsWallets ={
+        equity:(<WalletEquity/>),
+        earnings:(<WalletEarnings handleMsgAlert={handleMsgAlert}/>),
+        profitability:null
+    }
+    
     return (
-        <div className="main-wallet">
+        <Fragment>
+        { alert.isAlert === true &&  
+            <AlertToConfirm handleAlert={handleAlertClosure} typeMessage={alert.message} severity={alert.severity}/>
+        } 
+        <div className="main-wallet"> 
             <div className="main-wallet__title">
                 <span className="main-wallet__name">{nameWallet}</span>
                 <span className="main-wallet__percentage">({percentageWallet} % do Patrimônio)</span>
@@ -74,6 +87,7 @@ const MainWallet = ({summaryWallet,selectedWalletCode,handleEditableTable})=>{
                 }
             </div>  
         </div>
+        </Fragment>
     )
 }
 

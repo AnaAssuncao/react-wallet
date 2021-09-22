@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import { Loading } from'../../Atom/Loading'
 import { DatePickers } from "../../Atom/DatePickers"
 import { RangeSlider } from "../../Atom/RangeSlider"
-import { AlertToConfirm } from "../../Atom/AlertToConfirm"
 import "./filterByDate.scss"
 
 const getMonthSlider = (date,previousDate)=>{
@@ -14,11 +13,10 @@ const getQtMonths = (startingYear,endYear)=>{
     return ((endYear - startingYear) + 1 )*12
 }
 
-const FilterByDate = ({startDate, endDate}) =>{
+const FilterByDate = ({startDate, endDate,handleMsgAlert}) =>{  
     const [defaultDate,setDefaultDate]= useState({startDate:moment(startDate), endDate:moment(endDate)}) 
     const [minDate, setMinDate] = useState({date: moment(startDate), dateString: startDate})
     const [maxDate, setMaxDate] = useState({date: moment(endDate), dateString: endDate})
-    const [alert,setAlert]=useState(false)
 
     const startDateObject= defaultDate.startDate.toObject()
     const endDateObject = defaultDate.endDate.toObject()
@@ -28,15 +26,6 @@ const FilterByDate = ({startDate, endDate}) =>{
     const endMarkSlider = qtMonths - (12-endDateObject.months) +1
     const [rangeMonth, setRangeMonth]= useState([startMarkSlider,endMarkSlider])
 
-    const handleAlertClosure = () =>{
-        setAlert(false)
-    }
-    const displayAlert = () =>{
-        setAlert(true)
-        setTimeout(()=>{
-            handleAlertClosure()
-        },10000)
-    }
     const changeDate = (newValue,pastValue,date, fistDay=true)=>{
         const differenceValues= newValue-pastValue
         date.add(differenceValues, 'months')
@@ -60,7 +49,7 @@ const FilterByDate = ({startDate, endDate}) =>{
                 marks[0]=newValue[0]
             }
             else{
-                displayAlert()
+                handleMsgAlert("dateLimit","error")
                 handleInferiorLimit(startDate)
                 marks[0]= startMarkSlider
             }
@@ -72,7 +61,7 @@ const FilterByDate = ({startDate, endDate}) =>{
                 marks[1]=newValue[1]
             }
             else{
-                displayAlert()
+                handleMsgAlert("dateLimit","error")
                 handleUpperLimit(endDate)
                 marks[1]= endMarkSlider
             }
@@ -93,7 +82,7 @@ const FilterByDate = ({startDate, endDate}) =>{
             }
         }
         else{
-            displayAlert()
+            handleMsgAlert("dateLimit","error")
             handleInferiorLimit(startDate)
             setRangeMonth([startMarkSlider,rangeMonth[1]])
         }
@@ -112,7 +101,7 @@ const FilterByDate = ({startDate, endDate}) =>{
             }
         }
         else{
-            displayAlert()
+            handleMsgAlert("dateLimit","error")
             handleUpperLimit(endDate)
             setRangeMonth([rangeMonth[0],endMarkSlider])
         }   
@@ -122,9 +111,6 @@ const FilterByDate = ({startDate, endDate}) =>{
         <div className="filter-by-date">
             { minDate && maxDate && rangeMonth?
                 <Fragment>
-                    { alert === true &&  
-                        <AlertToConfirm handleAlert={handleAlertClosure} typeMessage="dateLimit" severity="error"/>
-                    }     
                     <div className="filter-by-date__date-pickers">
                         <DatePickers labelName="Data Inicial" 
                             dateValue={minDate.dateString} 
@@ -147,7 +133,8 @@ const FilterByDate = ({startDate, endDate}) =>{
 
 FilterByDate.propTypes={
     startDate: PropTypes.string,
-    endDate: PropTypes.string
+    endDate: PropTypes.string,
+    handleMsgAlert: PropTypes.func
 }
 
 export default FilterByDate

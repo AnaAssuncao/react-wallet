@@ -46,7 +46,6 @@ const MainWallet = ({summaryWallet,selectedWalletCode,handleEditableTable})=>{
     const percentageWallet = summaryWallet.wallets[selectedWalletCode].percentEquity * 100
 
     const handleSelectNavigations = (selectedNavigations) =>{
-        console.log(selectedNavigations.value)
         setSelectNavigation(selectedNavigations.value)
     }
     return (

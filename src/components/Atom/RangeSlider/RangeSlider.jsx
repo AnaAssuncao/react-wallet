@@ -1,9 +1,10 @@
+import { useMemo} from "react"
 import Slider from "@material-ui/core/Slider"
 import PropTypes from "prop-types"
 import "./rangeSlider.scss"
 
 const RangeSlider = ({startingYear, valueMarks,initialValues, handleValuesSlider}) => {
-  const getMarks=(startingYear)=>{
+  const marksSlider= useMemo(()=>{
     const marks =[]
     let addYears = 0
     for(let valueMark = initialValues[0]; valueMark<=initialValues[1];valueMark=valueMark+12){
@@ -15,9 +16,7 @@ const RangeSlider = ({startingYear, valueMarks,initialValues, handleValuesSlider
       addYears++
     }
     return marks
-  }
-
-  const marks = getMarks(startingYear)
+  },[startingYear])
 
   const handleChangeValue = (event, newValue) => {
     handleValuesSlider(newValue)
@@ -29,7 +28,7 @@ const RangeSlider = ({startingYear, valueMarks,initialValues, handleValuesSlider
         onChange={handleChangeValue}
         aria-labelledby="range-slider"
         step={1}
-        marks={marks}
+        marks={marksSlider}
         min={initialValues[0]}
         max={initialValues[1]}
       />

@@ -16,7 +16,7 @@ const EditableTableRow = ({handleValuePercentage,deleteEditableRow}) => {
     getDescription }= useContext(DataAssetsContext)
   const [newAssets,setNewAssets] = useState(setup)
   const allCategories =  getCategories()
-  const [allCodes, setAllCodes] = useState([{ title: null, value: null }])
+  const [allCodes, setAllCodes] = useState([])
 
   const handleNewValueAssets=(valuePercentage)=>{
     if(newAssets.code){

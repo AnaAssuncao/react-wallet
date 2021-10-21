@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/react-wallet/static/css/main.b47d782a.chunk.css",
+    "main.js": "/react-wallet/static/js/main.fb87fe45.chunk.js",
+    "main.js.map": "/react-wallet/static/js/main.fb87fe45.chunk.js.map",
+    "runtime-main.js": "/react-wallet/static/js/runtime-main.f8f687ce.js",
+    "runtime-main.js.map": "/react-wallet/static/js/runtime-main.f8f687ce.js.map",
+    "static/css/2.7b82410d.chunk.css": "/react-wallet/static/css/2.7b82410d.chunk.css",
+    "static/js/2.c41da530.chunk.js": "/react-wallet/static/js/2.c41da530.chunk.js",
+    "static/js/2.c41da530.chunk.js.map": "/react-wallet/static/js/2.c41da530.chunk.js.map",
+    "index.html": "/react-wallet/index.html",
+    "static/css/2.7b82410d.chunk.css.map": "/react-wallet/static/css/2.7b82410d.chunk.css.map",
+    "static/css/main.b47d782a.chunk.css.map": "/react-wallet/static/css/main.b47d782a.chunk.css.map",
+    "static/js/2.c41da530.chunk.js.LICENSE.txt": "/react-wallet/static/js/2.c41da530.chunk.js.LICENSE.txt",
+    "static/media/4u.b1aeb6ef.svg": "/react-wallet/static/media/4u.b1aeb6ef.svg",
+    "static/media/arrow.5a12e1ea.svg": "/react-wallet/static/media/arrow.5a12e1ea.svg",
+    "static/media/calc_icon.16f085d0.svg": "/react-wallet/static/media/calc_icon.16f085d0.svg",
+    "static/media/chart2_icon.03851ca4.svg": "/react-wallet/static/media/chart2_icon.03851ca4.svg",
+    "static/media/chart_icon.60833fdf.svg": "/react-wallet/static/media/chart_icon.60833fdf.svg",
+    "static/media/closed_icon.5568e0ff.svg": "/react-wallet/static/media/closed_icon.5568e0ff.svg",
+    "static/media/config_icon.0ebc36dd.svg": "/react-wallet/static/media/config_icon.0ebc36dd.svg",
+    "static/media/gold_icon.331eefad.svg": "/react-wallet/static/media/gold_icon.331eefad.svg",
+    "static/media/loading.149a7823.gif": "/react-wallet/static/media/loading.149a7823.gif",
+    "static/media/news_icon.34c315ec.svg": "/react-wallet/static/media/news_icon.34c315ec.svg",
+    "static/media/open_icon.3b15e455.svg": "/react-wallet/static/media/open_icon.3b15e455.svg",
+    "static/media/pig_icon.745b2013.svg": "/react-wallet/static/media/pig_icon.745b2013.svg",
+    "static/media/return_icon.fabe77dd.svg": "/react-wallet/static/media/return_icon.fabe77dd.svg",
+    "static/media/sum_icon.4a78657f.svg": "/react-wallet/static/media/sum_icon.4a78657f.svg",
+    "static/media/text_logo.0f9b0cd4.svg": "/react-wallet/static/media/text_logo.0f9b0cd4.svg",
+    "static/media/transactions_icon.55d7ebce.svg": "/react-wallet/static/media/transactions_icon.55d7ebce.svg",
+    "static/media/wallet_icon.1bc2857a.svg": "/react-wallet/static/media/wallet_icon.1bc2857a.svg",
+    "static/media/wallet_logo.a95a840d.svg": "/react-wallet/static/media/wallet_logo.a95a840d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f8f687ce.js",
+    "static/css/2.7b82410d.chunk.css",
+    "static/js/2.c41da530.chunk.js",
+    "static/css/main.b47d782a.chunk.css",
+    "static/js/main.fb87fe45.chunk.js"
+  ]
+}

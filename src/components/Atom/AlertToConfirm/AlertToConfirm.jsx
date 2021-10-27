@@ -1,13 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles"
 import Alert from "@material-ui/lab/Alert"
 import Button from "@material-ui/core/Button"
+import { getMessages } from "./../../../utils/messages"
 import PropTypes from "prop-types"
 import "./alertToConfirm.scss"
 
-const messages={
-  noSaveWallet: "Não foi possível salvar a carteira, complete 100% no total geral.",
-  dateLimit:"Data fora do limite das operações."
-}
+// Severity=error(red),warning(yellow),info(blue),success(green)
 
 const useStyles = makeStyles((theme) => ({
   container:{
@@ -21,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 const AlertToConfirm =({typeMessage,severity,handleAlert})=> {
   const classes = useStyles()
+  const message = getMessages(typeMessage)
   const handleCloseAlert=()=>{
     handleAlert()
   }
@@ -34,7 +33,7 @@ const AlertToConfirm =({typeMessage,severity,handleAlert})=> {
             <Button color="inherit" size="small" variant="outlined" onClick={handleCloseAlert}>
               Ok
             </Button>
-          }>{messages[typeMessage]}</Alert>
+          }>{message}</Alert>
     </div>
   )
 }

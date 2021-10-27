@@ -11,7 +11,7 @@ const SelectWallet = ({summaryWallet,nameCategory, listWallets,selectCode,handle
     const [isDisplayWallets,SetIsDisplayWallets] =useState(true)
     const listWallet = listWallets.map(
         (codeWallet) =>{
-            const classSelect = selectCode===codeWallet?"aside-menu-item__select":""
+            const selectedItemClass = selectCode===codeWallet?"aside-menu-item__selected":""
             const keyList = codeWallet
             const nameWallet = summaryWallet.wallets[codeWallet].name
             const percentageWallet = summaryWallet.wallets[codeWallet].percentEquity*100
@@ -19,7 +19,7 @@ const SelectWallet = ({summaryWallet,nameCategory, listWallets,selectCode,handle
             return (   
             <AsideMenuItem
                 key={keyList}
-                classSelect={classSelect} 
+                selectedItemClass={selectedItemClass} 
                 handleSelectCodeWallet={handleSelectCodeWallet}
                 codeWallet={codeWallet}>
                 <span className="aside-menu-item__name">{nameWallet}</span>

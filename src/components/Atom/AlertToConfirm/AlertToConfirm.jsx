@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize:"0.9rem"}
 }))
 
-const AlertToConfirm =({typeMessage,severity,handleAlert})=> {
+const AlertToConfirm =({typeMessage,severity="error",handleAlert})=> {
   const classes = useStyles()
   const message = getMessages(typeMessage)
   const handleCloseAlert=()=>{

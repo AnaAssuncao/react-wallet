@@ -11,7 +11,6 @@ const AsideButton = ({children,...others}) => {
 }
 
 AsideButton.propTypes = {
-  children: PropTypes.array.isRequired,
   onClick: PropTypes.func,
 }
 

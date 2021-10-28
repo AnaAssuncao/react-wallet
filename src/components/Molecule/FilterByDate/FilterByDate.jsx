@@ -34,7 +34,6 @@ const FilterByDate = ({startDate, endDate,handleMsgAlert}) =>{
         return date.format('YYYY-MM-DD')
     }
     const handleInferiorLimit =(dateString)=>{
-
         setMinDate({date: moment(dateString), dateString: dateString})
     }
     const handleUpperLimit =(dateString)=>{

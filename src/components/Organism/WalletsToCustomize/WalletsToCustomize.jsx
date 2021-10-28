@@ -72,7 +72,7 @@ const WalletsToCustomize = ({selectedWalletCode,handlePageReturn})=>{
     return(
         <Fragment>
         {isDisplayAlert &&
-            <AlertToConfirm handleAlert={handleAlert} typeMessage="noSaveWallet" severity="error"/>
+            <AlertToConfirm handleAlert={handleAlert} messageCode="noSaveWallet" severity="error"/>
         }
         {defaultValuesWallet?
             <div className="wallets-customize">
@@ -87,13 +87,13 @@ const WalletsToCustomize = ({selectedWalletCode,handlePageReturn})=>{
                     <div className="wallets-customize__buttons">
                         <ModalAlert propsButton={{color:"save", size:"large", variant:"contained", fontSize:"1.1rem"}}
                                 confirmModal={salveWalletsChanges}
-                                typeMessage="saveWallet">SALVAR MODIFICAÇÕES</ModalAlert>
+                                messageCode="saveWallet">SALVAR MODIFICAÇÕES</ModalAlert>
                         <ModalAlert propsButton={{color:"cancel", size:"large", variant:"contained", fontSize:"1.1rem"}}
                             confirmModal={cancelWalletsChanges}
-                            typeMessage="cancelWallet">CANCELAR MODIFICAÇÕES</ModalAlert>
+                            messageCode="cancelWallet">CANCELAR MODIFICAÇÕES</ModalAlert>
                         <ModalAlert propsButton={{color:"delete", size:"large", variant:"contained", fontSize:"1.1rem"}}
                                 confirmModal={deleteWalletChanges}
-                                typeMessage="deleteWallet">DELETAR CARTEIRA</ModalAlert>
+                                messageCode="deleteWallet">DELETAR CARTEIRA</ModalAlert>
                     </div>
                     <TableWalletsToCustomize walletsToCustomize={defaultValuesWallet.assets} 
                                             handleAssetsChanges={handleAssetsChanges}

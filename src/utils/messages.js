@@ -3,8 +3,8 @@ const messages={
     dateLimit:"Data fora do limite das operações."
 }
 
-  function getMessages(typeMessages){
-    return messages[typeMessages]
+  function getMessages(messageCodes){
+    return messages[messageCodes]
 } 
 
 export {getMessages}

@@ -12,7 +12,7 @@ const Template = (args) => <ModalAlert {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  typeMessage:"saveWallet",
+  messageCode:"saveWallet",
   children:<p>Salvar</p>,
   propsButton:{color:"save", size:"large", variant:"contained", fontSize:"1.1rem"},
   confirmModal:()=>{}

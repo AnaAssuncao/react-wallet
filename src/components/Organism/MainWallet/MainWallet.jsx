@@ -60,7 +60,7 @@ const MainWallet = ({summaryWallet,selectedWalletCode,handleEditableTable})=>{
     return (
         <Fragment>
         { alert.isAlert === true &&  
-            <AlertToConfirm handleAlert={handleAlertClosure} typeMessage={alert.message} severity={alert.severity}/>
+            <AlertToConfirm handleAlert={handleAlertClosure} messageCode={alert.message} severity={alert.severity}/>
         } 
         <div className="main-wallet"> 
             <div className="main-wallet__title">

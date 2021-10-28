@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize:"0.9rem"}
 }))
 
-const AlertToConfirm =({typeMessage,severity="error",handleAlert})=> {
+const AlertToConfirm =({messageCode,severity="error",handleAlert})=> {
   const classes = useStyles()
-  const message = getMessages(typeMessage)
+  const message = getMessages(messageCode)
   const handleCloseAlert=()=>{
     handleAlert()
   }
@@ -41,7 +41,7 @@ const AlertToConfirm =({typeMessage,severity="error",handleAlert})=> {
 AlertToConfirm.propTypes={
   severity:PropTypes.string, 
   handleAlert:PropTypes.func,
-  typeMessage:PropTypes.string
+  messageCode:PropTypes.string
 }
 
 export default AlertToConfirm

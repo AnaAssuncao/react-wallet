@@ -79,7 +79,7 @@ const EditableTableRow = ({handleValuePercentage,deleteEditableRow}) => {
           <div className="table-row-for-view__button">
             <ModalAlert propsButton={{color:"delete", size:"medium", variant:"contained"}}
                       confirmModal={()=>handleDelete()}
-                      typeMessage="deleteRow"> 
+                      messageCode="deleteRow"> 
               <DeleteIcon style={{margin:"0"}}/>    
             </ModalAlert>
           </div>

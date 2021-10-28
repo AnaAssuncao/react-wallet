@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const ModalAlert =({propsButton,confirmModal,typeMessage,children})=> {
+const ModalAlert =({propsButton,confirmModal,messageCode,children})=> {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -61,7 +61,7 @@ const ModalAlert =({propsButton,confirmModal,typeMessage,children})=> {
   const body = (
     <div className={classes.paper}>
       <div className={classes.buttonClose} onClick={handleClose}> x</div>
-      <span>{messages[typeMessage]}</span>
+      <span>{messages[messageCode]}</span>
       <div className={classes.containerButtons}>
          <MainButton color="save" size="medium" variant="contained" fontSize="1rem" onClick={handleConfirmModal}>
             Sim
@@ -91,7 +91,7 @@ const ModalAlert =({propsButton,confirmModal,typeMessage,children})=> {
 ModalAlert.propTypes={
   propsButton:PropTypes.object, 
   confirmModal:PropTypes.func,
-  typeMessage:PropTypes.string
+  messageCode:PropTypes.string
 }
 
 export default ModalAlert

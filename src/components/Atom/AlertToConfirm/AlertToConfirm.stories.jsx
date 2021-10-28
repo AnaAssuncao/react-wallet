@@ -12,6 +12,6 @@ const Template = (args) => <AlertToConfirm {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  typeMessage:"noSaveWallet",
+  messageCode:"noSaveWallet",
   handleAlert:()=>{}
 }
